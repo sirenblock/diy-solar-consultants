@@ -5,6 +5,7 @@ export const caseStudies = [
     category: 'Residential Grid-Tied',
     featured: true,
     headerImage: '/images/portfolio/austin-suburban-main.jpg',
+    headerImageAlt: 'Completed 8.5kW residential solar panel installation on two-plane roof in Austin, Texas suburban home',
 
     // Quick stats
     stats: {
@@ -91,11 +92,31 @@ export const caseStudies = [
 
     // Photos
     photos: [
-      { url: '/images/portfolio/austin-before.jpg', caption: 'House before solar installation' },
-      { url: '/images/portfolio/austin-mounting.jpg', caption: 'Mounting installation progress' },
-      { url: '/images/portfolio/austin-panels.jpg', caption: 'Panel installation' },
-      { url: '/images/portfolio/austin-complete.jpg', caption: 'Completed system' },
-      { url: '/images/portfolio/austin-monitoring.jpg', caption: 'Production monitoring dashboard' }
+      {
+        src: '/images/portfolio/austin-before.jpg',
+        alt: 'Austin suburban house with two-plane roof before solar panel installation showing clear south and west-facing sections',
+        caption: 'House before solar installation'
+      },
+      {
+        src: '/images/portfolio/austin-mounting.jpg',
+        alt: 'IronRidge XR100 mounting rails being installed on composition shingle roof during DIY solar installation',
+        caption: 'Mounting installation progress'
+      },
+      {
+        src: '/images/portfolio/austin-panels.jpg',
+        alt: 'Canadian Solar HiKu7 390W panels being installed with SolarEdge optimizers on residential roof',
+        caption: 'Panel installation'
+      },
+      {
+        src: '/images/portfolio/austin-complete.jpg',
+        alt: 'Completed 8.5kW solar system with 22 panels split across south and west-facing roof planes in Austin',
+        caption: 'Completed system'
+      },
+      {
+        src: '/images/portfolio/austin-monitoring.jpg',
+        alt: 'SolarEdge monitoring dashboard showing real-time solar production and energy consumption data',
+        caption: 'Production monitoring dashboard'
+      }
     ],
 
     // Metadata
@@ -111,6 +132,7 @@ export const caseStudies = [
     category: 'Residential with Battery',
     featured: true,
     headerImage: '/images/portfolio/denver-powerwall-main.jpg',
+    headerImageAlt: '12kW solar system with Tesla Powerwall 3 battery backup on steep-pitch Colorado roof with snow load mounting',
 
     stats: {
       systemSize: 12,
@@ -190,11 +212,31 @@ export const caseStudies = [
     lessonsLearned: "Hiring a professional roofer for steep pitches is worth it. Battery integration requires careful planning - follow the design specs exactly.",
 
     photos: [
-      { url: '/images/portfolio/denver-before.jpg', caption: 'Steep roof before installation' },
-      { url: '/images/portfolio/denver-mounting.jpg', caption: 'Roofer installing mounting system' },
-      { url: '/images/portfolio/denver-microinverter.jpg', caption: 'Microinverter installation detail' },
-      { url: '/images/portfolio/denver-powerwall.jpg', caption: 'Tesla Powerwall 3 installation' },
-      { url: '/images/portfolio/denver-monitoring.jpg', caption: 'Monitoring dashboard in backup mode' }
+      {
+        src: '/images/portfolio/denver-before.jpg',
+        alt: 'Denver home with 9:12 pitch steep roof before solar installation showing challenging installation conditions',
+        caption: 'Steep roof before installation'
+      },
+      {
+        src: '/images/portfolio/denver-mounting.jpg',
+        alt: 'Professional roofer installing IronRidge XR100 mounting system with enhanced snow brackets on steep Colorado roof',
+        caption: 'Roofer installing mounting system'
+      },
+      {
+        src: '/images/portfolio/denver-microinverter.jpg',
+        alt: 'Close-up of Enphase IQ8+ microinverter being wired and connected to REC Alpha Pure-R solar panel',
+        caption: 'Microinverter installation detail'
+      },
+      {
+        src: '/images/portfolio/denver-powerwall.jpg',
+        alt: 'Tesla Powerwall 3 battery system installed on interior wall providing 13.5 kWh whole-home backup power',
+        caption: 'Tesla Powerwall 3 installation'
+      },
+      {
+        src: '/images/portfolio/denver-monitoring.jpg',
+        alt: 'Tesla app monitoring dashboard displaying solar production, battery charge level, and home power consumption in backup mode',
+        caption: 'Monitoring dashboard in backup mode'
+      }
     ],
 
     propertyType: 'Residential',
@@ -209,6 +251,7 @@ export const caseStudies = [
     category: 'Small Residential',
     featured: false,
     headerImage: '/images/portfolio/tampa-budget-main.jpg',
+    headerImageAlt: 'Budget-friendly 6kW DIY solar installation with hurricane-rated mounting on Tampa Florida home',
 
     stats: {
       systemSize: 6,
@@ -284,11 +327,31 @@ export const caseStudies = [
     lessonsLearned: "You don't need to be an expert - just follow the design carefully. Microinverters are very DIY-friendly. Budget systems can deliver great results.",
 
     photos: [
-      { url: '/images/portfolio/tampa-progress1.jpg', caption: 'Installation progress - Day 1' },
-      { url: '/images/portfolio/tampa-progress2.jpg', caption: 'DIY installation process' },
-      { url: '/images/portfolio/tampa-wiring.jpg', caption: 'Microinverter wiring detail' },
-      { url: '/images/portfolio/tampa-complete.jpg', caption: 'Completed 6kW system' },
-      { url: '/images/portfolio/tampa-bills.jpg', caption: 'Electric bill comparison' }
+      {
+        src: '/images/portfolio/tampa-progress1.jpg',
+        alt: 'First day of DIY solar installation showing Jinko Tiger Neo panels and APsystems microinverters laid out on Tampa roof',
+        caption: 'Installation progress - Day 1'
+      },
+      {
+        src: '/images/portfolio/tampa-progress2.jpg',
+        alt: 'Homeowner installing solar panels on hurricane-rated IronRidge mounting system during weekend DIY installation',
+        caption: 'DIY installation process'
+      },
+      {
+        src: '/images/portfolio/tampa-wiring.jpg',
+        alt: 'APsystems DS3-H dual microinverter wiring connection detail showing plug-and-play AC connections',
+        caption: 'Microinverter wiring detail'
+      },
+      {
+        src: '/images/portfolio/tampa-complete.jpg',
+        alt: 'Completed 6kW solar system with 15 Jinko panels arranged on single-plane roof in Tampa',
+        caption: 'Completed 6kW system'
+      },
+      {
+        src: '/images/portfolio/tampa-bills.jpg',
+        alt: 'Before and after electric bill comparison showing reduction from $165 to $52 per month after solar installation',
+        caption: 'Electric bill comparison'
+      }
     ],
 
     propertyType: 'Residential',
@@ -303,6 +366,7 @@ export const caseStudies = [
     category: 'Large Residential Premium',
     featured: true,
     headerImage: '/images/portfolio/phoenix-luxury-main.jpg',
+    headerImageAlt: 'Premium 15kW all-black solar installation with dual Tesla Powerwall batteries on luxury Arizona home with tile roof',
 
     stats: {
       systemSize: 15,
@@ -382,11 +446,31 @@ export const caseStudies = [
     lessonsLearned: "Premium systems require more coordination but deliver exceptional results. Professional help for specialized tasks is a smart investment.",
 
     photos: [
-      { url: '/images/portfolio/phoenix-aerial.jpg', caption: 'Aerial view of three-plane installation' },
-      { url: '/images/portfolio/phoenix-tile-work.jpg', caption: 'Professional tile work' },
-      { url: '/images/portfolio/phoenix-panels.jpg', caption: 'All-black REC Alpha panels' },
-      { url: '/images/portfolio/phoenix-powerwalls.jpg', caption: 'Dual Powerwall 3 installation' },
-      { url: '/images/portfolio/phoenix-monitoring.jpg', caption: 'Production monitoring system' }
+      {
+        src: '/images/portfolio/phoenix-aerial.jpg',
+        alt: 'Aerial drone view of 15kW solar system with 32 REC Alpha panels distributed across three roof planes on Phoenix luxury home',
+        caption: 'Aerial view of three-plane installation'
+      },
+      {
+        src: '/images/portfolio/phoenix-tile-work.jpg',
+        alt: 'Professional tile roof work showing Quick Mount PV flashing installation on Spanish tile maintaining waterproof seal',
+        caption: 'Professional tile work'
+      },
+      {
+        src: '/images/portfolio/phoenix-panels.jpg',
+        alt: 'Premium all-black REC Alpha Pure-R 470W solar panels with black frame and backsheet for aesthetic appeal',
+        caption: 'All-black REC Alpha panels'
+      },
+      {
+        src: '/images/portfolio/phoenix-powerwalls.jpg',
+        alt: 'Two Tesla Powerwall 3 units wall-mounted providing 27 kWh total battery storage for whole-home backup including AC',
+        caption: 'Dual Powerwall 3 installation'
+      },
+      {
+        src: '/images/portfolio/phoenix-monitoring.jpg',
+        alt: 'SolarEdge monitoring system dashboard displaying real-time production from 15kW system and Powerwall battery status',
+        caption: 'Production monitoring system'
+      }
     ],
 
     propertyType: 'Residential',
@@ -401,6 +485,7 @@ export const caseStudies = [
     category: 'Small Commercial',
     featured: true,
     headerImage: '/images/portfolio/portland-commercial-main.jpg',
+    headerImageAlt: '35kW commercial ground-mount solar array with three-phase integration for Portland retail business',
 
     stats: {
       systemSize: 35,
@@ -477,11 +562,31 @@ export const caseStudies = [
     lessonsLearned: "Commercial projects require more documentation but the savings are substantial. Ground mount makes maintenance easy.",
 
     photos: [
-      { url: '/images/portfolio/portland-site.jpg', caption: 'Ground mount site preparation' },
-      { url: '/images/portfolio/portland-racking.jpg', caption: 'Commercial racking installation' },
-      { url: '/images/portfolio/portland-panels.jpg', caption: '78-panel ground array' },
-      { url: '/images/portfolio/portland-inverter.jpg', caption: 'Three-phase commercial inverter' },
-      { url: '/images/portfolio/portland-complete.jpg', caption: 'Completed commercial installation' }
+      {
+        src: '/images/portfolio/portland-site.jpg',
+        alt: 'Commercial solar ground mount site preparation showing concrete footings and leveled ground for 35kW system in Portland',
+        caption: 'Ground mount site preparation'
+      },
+      {
+        src: '/images/portfolio/portland-racking.jpg',
+        alt: 'Commercial-grade ground mount racking system being assembled with engineered support structure for 78 solar panels',
+        caption: 'Commercial racking installation'
+      },
+      {
+        src: '/images/portfolio/portland-panels.jpg',
+        alt: 'Completed 78-panel ground array with Longi Hi-MO 6 450W panels arranged in rows for 35kW commercial system',
+        caption: '78-panel ground array'
+      },
+      {
+        src: '/images/portfolio/portland-inverter.jpg',
+        alt: 'SMA Sunny Tripower 25kW three-phase commercial inverter with DC disconnect and monitoring equipment',
+        caption: 'Three-phase commercial inverter'
+      },
+      {
+        src: '/images/portfolio/portland-complete.jpg',
+        alt: 'Finished 35kW commercial ground-mount solar installation visible from retail store parking lot in Portland Oregon',
+        caption: 'Completed commercial installation'
+      }
     ],
 
     propertyType: 'Commercial',
@@ -496,6 +601,7 @@ export const caseStudies = [
     category: 'Off-Grid Cabin',
     featured: false,
     headerImage: '/images/portfolio/montana-offgrid-main.jpg',
+    headerImageAlt: 'Off-grid 4.5kW solar system with 30kWh battery bank and 60-degree ground mount for Montana winter conditions',
 
     stats: {
       systemSize: 4.5,
@@ -576,11 +682,31 @@ export const caseStudies = [
     lessonsLearned: "Off-grid systems need significant oversizing for winter. Battery capacity is critical. Backup generator is essential for extended cloudy periods.",
 
     photos: [
-      { url: '/images/portfolio/montana-site.jpg', caption: 'Remote Montana location' },
-      { url: '/images/portfolio/montana-mount.jpg', caption: '60° ground mount for snow' },
-      { url: '/images/portfolio/montana-batteries.jpg', caption: '30 kWh battery bank' },
-      { url: '/images/portfolio/montana-inverter.jpg', caption: 'Hybrid inverter system' },
-      { url: '/images/portfolio/montana-winter.jpg', caption: 'System in winter operation' }
+      {
+        src: '/images/portfolio/montana-site.jpg',
+        alt: 'Remote off-grid cabin location in rural Montana surrounded by forest with no utility grid access',
+        caption: 'Remote Montana location'
+      },
+      {
+        src: '/images/portfolio/montana-mount.jpg',
+        alt: 'Ground-mounted solar array at steep 60-degree tilt angle optimized for snow shedding and winter sun angle in Montana',
+        caption: '60° ground mount for snow'
+      },
+      {
+        src: '/images/portfolio/montana-batteries.jpg',
+        alt: 'SimpliPhi PHI lithium battery bank providing 30 kWh storage capacity for multi-day autonomy in off-grid system',
+        caption: '30 kWh battery bank'
+      },
+      {
+        src: '/images/portfolio/montana-inverter.jpg',
+        alt: 'Outback Radian hybrid inverter-charger system with propane generator integration for off-grid power management',
+        caption: 'Hybrid inverter system'
+      },
+      {
+        src: '/images/portfolio/montana-winter.jpg',
+        alt: 'Off-grid solar system operating in Montana winter with snow on ground and steep-angle panels clear of snow accumulation',
+        caption: 'System in winter operation'
+      }
     ],
 
     propertyType: 'Residential',

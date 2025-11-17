@@ -2,8 +2,11 @@ import Head from 'next/head';
 import SolarCalculator from '../components/SolarCalculator/SolarCalculator';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import useScrollTracking from '@/hooks/useScrollTracking';
 
 export default function CalculatorPage() {
+  // Track scroll depth on calculator page
+  useScrollTracking();
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',

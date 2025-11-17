@@ -1,0 +1,26 @@
+
+> diy-solar-consultants@1.0.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+ ⚠ Port 3002 is in use, trying 3003 instead.
+ ⚠ Port 3003 is in use, trying 3004 instead.
+ ⚠ Port 3004 is in use, trying 3005 instead.
+ ⚠ Port 3005 is in use, trying 3006 instead.
+  ▲ Next.js 14.2.33
+  - Local:        http://localhost:3006
+
+ ✓ Starting...
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ✓ Ready in 972ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1348ms (361 modules)
+GA4 Measurement ID not found. Set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local
+GTM ID not found. Set NEXT_PUBLIC_GTM_ID in .env.local if using Google Tag Manager
+Clarity ID not found. Set NEXT_PUBLIC_CLARITY_ID in .env.local if using Microsoft Clarity
+Warning: viewport meta tags should not be used in _document.js's <Head>. https://nextjs.org/docs/messages/no-document-viewport-meta
+ GET /solar-design-california 404 in 1426ms
+ ✓ Compiled in 173ms (231 modules)
+[?25h

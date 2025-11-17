@@ -1,0 +1,126 @@
+
+> diy-solar-consultants@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.33
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ✓ Ready in 1040ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1229ms (361 modules)
+GA4 Measurement ID not found. Set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local
+GTM ID not found. Set NEXT_PUBLIC_GTM_ID in .env.local if using Google Tag Manager
+Clarity ID not found. Set NEXT_PUBLIC_CLARITY_ID in .env.local if using Microsoft Clarity
+Warning: viewport meta tags should not be used in _document.js's <Head>. https://nextjs.org/docs/messages/no-document-viewport-meta
+ GET /solar-design-california 404 in 1304ms
+ ✓ Compiled in 134ms (231 modules)
+ ✓ Compiled in 140ms (231 modules)
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ✓ Compiled in 126ms (231 modules)
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ⨯ ./src/pages/solar-design/[state].jsx
+Error: Failed to read source code from /Users/lsd/msclaude/projects/1-1/diy-solar-consultants/src/pages/solar-design/[state].jsx
+
+Caused by:
+    stream did not contain valid UTF-8
+ GET /solar-design/california 500 in 552ms
+ ○ Compiling /solar-design/[state] ...
+ GET /solar-design/california 500 in 9ms
+ ✓ Compiled /solar-design/[state] in 179ms (365 modules)
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ✓ Compiled in 139ms (359 modules)
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ⨯ ./src/pages/solar-design/[state].jsx
+Error: Failed to read source code from /Users/lsd/msclaude/projects/1-1/diy-solar-consultants/src/pages/solar-design/[state].jsx
+
+Caused by:
+    stream did not contain valid UTF-8
+ ⨯ ./src/pages/solar-design/[state].jsx
+Error: Failed to read source code from /Users/lsd/msclaude/projects/1-1/diy-solar-consultants/src/pages/solar-design/[state].jsx
+
+Caused by:
+    stream did not contain valid UTF-8
+ GET /solar-design/california 500 in 113ms
+ ○ Compiling /_error ...
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ⨯ ./src/components/StateTestimonialCard.jsx
+Error: Failed to read source code from /Users/lsd/msclaude/projects/1-1/diy-solar-consultants/src/components/StateTestimonialCard.jsx
+
+Caused by:
+    stream did not contain valid UTF-8
+
+Import trace for requested module:
+./src/components/StateTestimonialCard.jsx
+ ⨯ ./src/components/StateTestimonialCard.jsx
+Error: Failed to read source code from /Users/lsd/msclaude/projects/1-1/diy-solar-consultants/src/components/StateTestimonialCard.jsx
+
+Caused by:
+    stream did not contain valid UTF-8
+
+Import trace for requested module:
+./src/components/StateTestimonialCard.jsx
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ ⨯ ./src/components/StateTestimonialCard.jsx
+Error: Failed to read source code from /Users/lsd/msclaude/projects/1-1/diy-solar-consultants/src/components/StateTestimonialCard.jsx
+
+Caused by:
+    stream did not contain valid UTF-8
+
+Import trace for requested module:
+./src/components/StateTestimonialCard.jsx
+ ⚠ Duplicate page detected. src/pages/sitemap.xml.js and src/pages/sitemap.xml.jsx resolve to /sitemap.xml
+ GET /solar-design/california 500 in 13ms
+ ✓ Compiled /_error in 202ms (380 modules)
+ ✓ Compiled in 154ms (380 modules)
+GA4 Measurement ID not found. Set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local
+GTM ID not found. Set NEXT_PUBLIC_GTM_ID in .env.local if using Google Tag Manager
+Clarity ID not found. Set NEXT_PUBLIC_CLARITY_ID in .env.local if using Microsoft Clarity
+Warning: viewport meta tags should not be used in _document.js's <Head>. https://nextjs.org/docs/messages/no-document-viewport-meta
+Warning: A title element received an array with more than 1 element as children. In browsers title Elements can only have Text Nodes as children. If the children being rendered output more than a single text node in aggregate the browser will display markup and comments as text in the title and hydration will likely fail and fall back to client rendering
+    at title
+    at head
+    at Head (webpack-internal:///./node_modules/next/dist/pages/_document.js:308:1)
+    at html
+    at Html (webpack-internal:///./node_modules/next/dist/pages/_document.js:782:132)
+    at Document
+ GET /solar-design/california 200 in 243ms
+GA4 Measurement ID not found. Set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local
+GTM ID not found. Set NEXT_PUBLIC_GTM_ID in .env.local if using Google Tag Manager
+Clarity ID not found. Set NEXT_PUBLIC_CLARITY_ID in .env.local if using Microsoft Clarity
+Warning: viewport meta tags should not be used in _document.js's <Head>. https://nextjs.org/docs/messages/no-document-viewport-meta
+Warning: A title element received an array with more than 1 element as children. In browsers title Elements can only have Text Nodes as children. If the children being rendered output more than a single text node in aggregate the browser will display markup and comments as text in the title and hydration will likely fail and fall back to client rendering
+    at title
+    at head
+    at Head (webpack-internal:///./node_modules/next/dist/pages/_document.js:308:1)
+    at html
+    at Html (webpack-internal:///./node_modules/next/dist/pages/_document.js:782:132)
+    at Document
+ GET /solar-design/california 200 in 27ms
+GA4 Measurement ID not found. Set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local
+GTM ID not found. Set NEXT_PUBLIC_GTM_ID in .env.local if using Google Tag Manager
+Clarity ID not found. Set NEXT_PUBLIC_CLARITY_ID in .env.local if using Microsoft Clarity
+Warning: viewport meta tags should not be used in _document.js's <Head>. https://nextjs.org/docs/messages/no-document-viewport-meta
+Warning: A title element received an array with more than 1 element as children. In browsers title Elements can only have Text Nodes as children. If the children being rendered output more than a single text node in aggregate the browser will display markup and comments as text in the title and hydration will likely fail and fall back to client rendering
+    at title
+    at head
+    at Head (webpack-internal:///./node_modules/next/dist/pages/_document.js:308:1)
+    at html
+    at Html (webpack-internal:///./node_modules/next/dist/pages/_document.js:782:132)
+    at Document
+ GET /solar-design/california 200 in 30ms
+GA4 Measurement ID not found. Set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local
+GTM ID not found. Set NEXT_PUBLIC_GTM_ID in .env.local if using Google Tag Manager
+Clarity ID not found. Set NEXT_PUBLIC_CLARITY_ID in .env.local if using Microsoft Clarity
+Warning: viewport meta tags should not be used in _document.js's <Head>. https://nextjs.org/docs/messages/no-document-viewport-meta
+Warning: A title element received an array with more than 1 element as children. In browsers title Elements can only have Text Nodes as children. If the children being rendered output more than a single text node in aggregate the browser will display markup and comments as text in the title and hydration will likely fail and fall back to client rendering
+    at title
+    at head
+    at Head (webpack-internal:///./node_modules/next/dist/pages/_document.js:308:1)
+    at html
+    at Html (webpack-internal:///./node_modules/next/dist/pages/_document.js:782:132)
+    at Document
+ GET /solar-design/texas 200 in 24ms
+ ✓ Compiled in 192ms (378 modules)

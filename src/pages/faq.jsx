@@ -5,6 +5,7 @@ import Accordion from '../components/Accordion';
 import { faqData, faqCategories } from '../data/faqData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import InlineCTA from '@/components/InlineCTA';
 
 export default function FAQPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -106,16 +107,38 @@ export default function FAQPage() {
   return (
     <>
       <Head>
-        <title>FAQ - DIY Solar Questions Answered | DIY Solar Consultants</title>
+        <title>Solar Design FAQs - Common Questions | DIY Solar</title>
         <meta
           name="description"
-          content="Get answers to common questions about DIY solar installation, design services, costs, permitting, equipment, and our process. Expert guidance from licensed PE engineers."
+          content="Answers to common DIY solar questions: costs, permitting, installation, equipment & more. Expert advice from licensed PE engineers. Get started with confidence!"
         />
         <meta
           name="keywords"
           content="DIY solar FAQ, solar design questions, DIY solar installation questions, solar permit questions, solar equipment questions, solar cost questions"
         />
         <link rel="canonical" href="https://diysolar.com/faq" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolar.com/faq" />
+        <meta property="og:title" content="DIY Solar FAQs - Expert Answers to Your Questions" />
+        <meta property="og:description" content="Common questions about DIY solar answered: costs, permitting, design, equipment & installation. Professional guidance from licensed engineers." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-faq.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="DIY Solar FAQs" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="DIY Solar FAQs - Expert Answers to Your Questions" />
+        <meta name="twitter:description" content="Common DIY solar questions answered: costs, permitting, design, equipment. Professional guidance from licensed PE engineers." />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-faq.jpg" />
+        <meta name="twitter:image:alt" content="DIY Solar FAQs" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }}
@@ -335,6 +358,19 @@ export default function FAQPage() {
               )}
             </div>
           </div>
+        </div>
+
+        {/* Inline CTA after FAQs */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+          <InlineCTA
+            variant="highlighted"
+            title="Ready to Start Your Solar Project?"
+            description="Get expert design and engineering support from our licensed professionals. We'll handle the complex parts so you can focus on saving money."
+            primaryButtonText="Get Free Quote"
+            primaryButtonLink="/design-request"
+            secondaryButtonText="Schedule Consultation"
+            secondaryButtonLink="/contact"
+          />
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import FormProgress from './FormProgress';
 import FormStep1 from './FormStep1';
 import FormStep2 from './FormStep2';
 import FormStep3 from './FormStep3';
+import { trackFormStart, trackEvent, trackFormSubmission, trackConversion } from '@/utils/analytics';
 
 const DesignRequestForm = () => {
   const router = useRouter();
@@ -11,6 +12,7 @@ const DesignRequestForm = () => {
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStartTime, setFormStartTime] = useState(null);
 
   // Load form data from localStorage on mount
   useEffect(() => {
@@ -23,6 +25,10 @@ const DesignRequestForm = () => {
         console.error('Error loading saved form data:', e);
       }
     }
+
+    // Track form start
+    trackFormStart('design_request');
+    setFormStartTime(Date.now());
   }, []);
 
   // Save form data to localStorage whenever it changes
@@ -168,7 +174,16 @@ const DesignRequestForm = () => {
     }
 
     if (isValid) {
-      setCurrentStep((prev) => Math.min(prev + 1, 3));
+      const nextStep = Math.min(currentStep + 1, 3);
+
+      // Track step progression
+      trackEvent('form_step_completed', {
+        form_name: 'design_request',
+        step: currentStep,
+        next_step: nextStep
+      });
+
+      setCurrentStep(nextStep);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -191,6 +206,9 @@ const DesignRequestForm = () => {
       // Generate a unique request ID
       const requestId = `REQ-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
 
+      // Calculate form completion time
+      const completionTime = formStartTime ? Math.round((Date.now() - formStartTime) / 1000) : 0;
+
       // Prepare form data for submission
       const submissionData = {
         ...formData,
@@ -211,6 +229,22 @@ const DesignRequestForm = () => {
         throw new Error('Submission failed');
       }
 
+      // Track form submission
+      trackFormSubmission('design_request', {
+        service_package: formData.servicePackage,
+        system_size: formData.systemSize,
+        has_battery: formData.batteryStorage !== 'none',
+        completion_time_seconds: completionTime,
+        request_id: requestId
+      });
+
+      // Track conversion (high value)
+      trackConversion('design_request_submitted', 500, {
+        service_package: formData.servicePackage,
+        system_size: formData.systemSize,
+        request_id: requestId
+      });
+
       // Clear localStorage
       localStorage.removeItem('solarDesignFormData');
 
@@ -218,6 +252,13 @@ const DesignRequestForm = () => {
       router.push(`/design-request-thank-you?id=${requestId}`);
     } catch (error) {
       console.error('Error submitting form:', error);
+
+      // Track form error
+      trackEvent('form_error', {
+        form_name: 'design_request',
+        error_type: 'submission_failed'
+      });
+
       setErrors({
         submit: 'There was an error submitting your request. Please try again.',
       });

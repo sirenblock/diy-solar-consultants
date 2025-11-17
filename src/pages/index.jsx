@@ -2,8 +2,23 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import TrustBadges from '@/components/TrustBadges'
+import CustomerCounter from '@/components/CustomerCounter'
+import TestimonialCarousel from '@/components/TestimonialCarousel'
+import FAQSection from '@/components/FAQSection'
+import QuickCalculator from '@/components/QuickCalculator'
+import useScrollTracking from '@/hooks/useScrollTracking'
+import {
+  generateLocalBusinessSchema,
+  generateOrganizationSchema,
+  generateBreadcrumbSchema,
+  generateSchemaGraph
+} from '@/utils/schema'
+import { homepageFAQs } from '@/data/serviceFAQs'
 
 export default function Home() {
+  // Track scroll depth on home page
+  useScrollTracking();
   const valueProps = [
     {
       icon: (
@@ -317,29 +332,13 @@ export default function Home() {
     },
   ]
 
-  const faqs = [
-    {
-      question: 'How much can I really save going DIY?',
-      answer:
-        '40-60% on average, $12,000-$18,000 for typical residential systems',
-    },
-    {
-      question: 'Do you provide engineering stamps?',
-      answer: 'Yes, licensed PEs in all 50 states',
-    },
-    {
-      question: 'What if my permit gets rejected?',
-      answer: '98% approval rate, free revisions if needed',
-    },
-  ]
-
   return (
     <>
       <Head>
-        <title>DIY Solar Design & Permitting Services | DIY Solar Consultants</title>
+        <title>Professional Solar System Design for DIY | DIY Solar</title>
         <meta
           name="description"
-          content="Professional solar system design, permitting, and equipment sourcing for DIY homeowners. Save 40-60% with expert guidance. Licensed PE | NABCEP Certified | 98% approval rate."
+          content="Expert solar design & permitting for DIY installers. Save 40-60% on installation. Licensed PE engineers, 98% permit approval rate. Get started today!"
         />
         <meta
           name="keywords"
@@ -347,42 +346,53 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://diysolar.com" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolar.com" />
         <meta
           property="og:title"
-          content="DIY Solar Design & Permitting Services | DIY Solar Consultants"
+          content="Save 40-60% on Solar with Professional Design"
         />
         <meta
           property="og:description"
-          content="Professional solar system design, permitting, and equipment sourcing for DIY homeowners. Save 40-60% with expert guidance."
+          content="Professional solar system design & permitting for DIY homeowners. Licensed PE engineers. 98% approval rate. 5,000+ systems designed."
         />
         <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-home.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="DIY Solar Consultants - Professional Solar Design Services" />
+        <meta property="og:locale" content="en_US" />
 
-        {/* Schema.org markup for LocalBusiness */}
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Save 40-60% on Solar with Professional Design" />
+        <meta
+          name="twitter:description"
+          content="Professional solar system design & permitting for DIY homeowners. Licensed PE engineers. 98% approval rate."
+        />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-home.jpg" />
+        <meta name="twitter:image:alt" content="DIY Solar Consultants - Professional Solar Design Services" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+
+        {/* Enhanced Schema.org markup */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'LocalBusiness',
-              name: 'DIY Solar Consultants',
-              description:
-                'Professional solar design, permitting, and equipment sourcing services for DIY homeowners',
-              telephone: '+1-888-555-1234',
-              email: 'info@diysolarcosnultants.com',
-              address: {
-                '@type': 'PostalAddress',
-                addressCountry: 'US',
-              },
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.9',
-                reviewCount: '5000',
-              },
-              priceRange: '$$',
-            }),
+            __html: JSON.stringify(
+              generateSchemaGraph([
+                generateLocalBusinessSchema(),
+                generateOrganizationSchema(),
+                generateBreadcrumbSchema([
+                  { name: 'Home', url: '/' }
+                ])
+              ])
+            )
           }}
         />
       </Head>
@@ -483,12 +493,29 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 -mb-40 -ml-40 w-80 h-80 bg-energy-200 rounded-full opacity-20 blur-3xl"></div>
         </section>
 
-        {/* Value Propositions Section */}
+        {/* Trust Badges Section */}
         <section className="section-container bg-white">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+              Trusted & Certified Professionals
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Industry-leading credentials and proven track record
+            </p>
+          </div>
+          <TrustBadges variant="horizontal" />
+        </section>
+
+        {/* Value Propositions Section */}
+        <section className="section-container bg-gray-50">
           <div className="text-center mb-16">
             <h2 className="heading-lg mb-4">Why DIY Solar Consultants?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Professional expertise without the installation markup
+              Professional expertise without the installation markup. When you choose to{' '}
+              <Link href="/process" className="text-solar-600 hover:text-solar-700 underline font-semibold">
+                work with our team
+              </Link>
+              , you get licensed engineers without paying installer prices.
             </p>
           </div>
 
@@ -496,7 +523,7 @@ export default function Home() {
             {valueProps.map((prop, index) => (
               <div
                 key={index}
-                className="text-center p-8 rounded-xl hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                className="text-center p-8 rounded-xl hover:shadow-xl transition-shadow duration-300 border border-gray-100 bg-white"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-solar-100 text-solar-600">
                   {prop.icon}
@@ -510,27 +537,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Key Statistics Section */}
-        <section className="section-container bg-gradient-to-br from-solar-600 to-solar-700 text-white">
-          <div className="text-center mb-16">
-            <h2 className="heading-lg mb-4">By the Numbers</h2>
-            <p className="text-xl text-solar-100">
-              Proven track record of excellence
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold mb-2 text-white">
-                  {stat.number}
-                </div>
-                <div className="text-sm lg:text-base text-solar-100">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Customer Counter Section */}
+        <section className="section-container bg-gray-50">
+          <CustomerCounter />
         </section>
 
         {/* Services Overview Grid */}
@@ -538,7 +547,19 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="heading-lg mb-4">Our Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Everything you need for your DIY solar project
+              Everything you need for your DIY solar project. From{' '}
+              <Link href="/services#design" className="text-solar-600 hover:text-solar-700 underline">
+                professional system design
+              </Link>
+              {' '}to{' '}
+              <Link href="/services#permitting" className="text-solar-600 hover:text-solar-700 underline">
+                permit-ready plansets
+              </Link>
+              {' '}and{' '}
+              <Link href="/equipment" className="text-solar-600 hover:text-solar-700 underline">
+                equipment sourcing
+              </Link>
+              .
             </p>
           </div>
 
@@ -586,7 +607,15 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="heading-lg mb-4">How It Works</h2>
             <p className="text-xl text-gray-600">
-              Professional solar design made simple
+              Professional solar design made simple. Learn more about{' '}
+              <Link href="/process" className="text-solar-600 hover:text-solar-700 underline font-semibold">
+                our proven process
+              </Link>
+              {' '}and{' '}
+              <Link href="/pricing" className="text-solar-600 hover:text-solar-700 underline font-semibold">
+                transparent pricing
+              </Link>
+              .
             </p>
           </div>
 
@@ -622,46 +651,22 @@ export default function Home() {
 
         {/* Social Proof Section */}
         <section className="section-container bg-gradient-to-br from-gray-50 to-gray-100">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">
               Trusted by DIY Homeowners Nationwide
             </h2>
             <p className="text-xl text-gray-600">
-              Real results from real customers
+              Real results from verified customers
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow"
-              >
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-5 h-5 text-yellow-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-700 italic mb-6 leading-relaxed">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <div className="border-t border-gray-200 pt-4">
-                  <p className="font-semibold text-gray-900">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    {testimonial.location} • {testimonial.system}
-                  </p>
-                </div>
-              </div>
-            ))}
+          <TestimonialCarousel />
+        </section>
+
+        {/* Quick Calculator Lead Magnet */}
+        <section className="section-container bg-white">
+          <div className="max-w-4xl mx-auto">
+            <QuickCalculator />
           </div>
         </section>
 
@@ -738,31 +743,28 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FAQ Snippet Section */}
-        <section className="section-container bg-white">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="heading-lg mb-4">Common Questions</h2>
-              <p className="text-xl text-gray-600">
-                Quick answers to help you get started
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-solar-300 transition-colors"
-                >
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {faq.question}
-                  </h3>
-                  <p className="text-gray-700">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
+        {/* Quick Answers Section with Schema Markup */}
+        <section className="section-container bg-gray-50">
+          <div className="max-w-4xl mx-auto">
+            <FAQSection
+              questions={homepageFAQs}
+              generateSchema={true}
+              title="Quick Answers"
+              description="Get answers to the most common questions about DIY solar design, installation, and our services."
+            />
 
             <div className="text-center mt-8">
+              <p className="text-gray-600 mb-4">
+                Have more questions?{' '}
+                <Link href="/faq" className="text-solar-600 hover:text-solar-700 underline font-semibold">
+                  Visit our FAQ page
+                </Link>
+                {' '}or{' '}
+                <Link href="/contact" className="text-solar-600 hover:text-solar-700 underline font-semibold">
+                  contact our team
+                </Link>
+                .
+              </p>
               <Link
                 href="/faq"
                 className="inline-flex items-center text-solar-600 hover:text-solar-700 font-semibold text-lg transition-colors"

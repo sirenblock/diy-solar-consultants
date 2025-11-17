@@ -14,101 +14,182 @@ import {
   SparklesIcon,
   ShieldCheckIcon
 } from '@heroicons/react/24/outline';
+import {
+  generateHowToSchema,
+  generateBreadcrumbSchema,
+  generateSchemaGraph
+} from '@/utils/schema';
 
 export default function Process() {
   return (
     <>
       <Head>
-        <title>How It Works - DIY Solar Process Explained | DIY Solar Consultants</title>
+        <title>How Our Solar Design Process Works | DIY Solar</title>
         <meta
           name="description"
-          content="Step-by-step guide to going solar with professional design support. From consultation to activation in 6-12 weeks. 98% permit approval rate. Licensed PE engineers."
+          content="Simple 4-step process: consultation, design, permitting & support. 5-7 day turnaround, 98% approval rate. Licensed PE engineers guide you from start to finish."
         />
         <meta name="keywords" content="DIY solar process, how to go solar DIY, solar installation process, solar design process, DIY solar timeline, solar permit process" />
+        <link rel="canonical" href="https://diysolar.com/process" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="How It Works - DIY Solar Process | DIY Solar Consultants" />
-        <meta property="og:description" content="Learn the complete DIY solar process from consultation to system activation. Professional engineering support at every stage." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolar.com/process" />
+        <meta property="og:title" content="How the DIY Solar Design Process Works" />
+        <meta property="og:description" content="Step-by-step guide to professional solar design. Consultation → Design → Permitting → Support. 98% approval rate. 5-7 day turnaround." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-process.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="DIY Solar Design Process" />
+        <meta property="og:locale" content="en_US" />
 
-        {/* HowTo Schema Markup */}
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="How the DIY Solar Design Process Works" />
+        <meta name="twitter:description" content="4-step process: consultation, design, permitting & support. 98% approval rate. Licensed PE engineers guide you." />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-process.jpg" />
+        <meta name="twitter:image:alt" content="DIY Solar Design Process" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* Enhanced HowTo Schema Markup */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "HowTo",
-              "name": "DIY Solar Installation Process",
-              "description": "Complete guide to installing solar with professional design and permitting support",
-              "totalTime": "P12W",
-              "estimatedCost": {
-                "@type": "MonetaryAmount",
-                "currency": "USD",
-                "value": "10000-25000"
-              },
-              "step": [
-                {
-                  "@type": "HowToStep",
-                  "name": "Consultation & Assessment",
-                  "text": "Free consultation to assess your energy needs and site conditions",
-                  "itemListElement": [
+            __html: JSON.stringify(
+              generateSchemaGraph([
+                generateHowToSchema({
+                  name: "DIY Solar Installation Process",
+                  description: "Complete guide to installing solar with professional design and permitting support. Save 40-60% with expert guidance.",
+                  totalTime: "P12W",
+                  cost: "10000-25000",
+                  tools: [
+                    "Drill with appropriate bits",
+                    "Wire strippers and crimpers",
+                    "Multimeter",
+                    "Ladder or scaffolding",
+                    "Conduit bender (if needed)",
+                    "Socket set",
+                    "Torque wrench"
+                  ],
+                  supplies: [
+                    "Solar panels",
+                    "Inverter(s)",
+                    "Mounting rails and hardware",
+                    "Flashings and sealant",
+                    "Electrical wire and conduit",
+                    "Junction boxes",
+                    "AC/DC disconnects",
+                    "Grounding equipment",
+                    "Labels and placards"
+                  ],
+                  steps: [
                     {
-                      "@type": "HowToDirection",
-                      "text": "Provide recent electric bills and property information"
+                      name: "Consultation & Assessment",
+                      text: "Free consultation to assess your energy needs, site conditions, and goals. We analyze your property and provide cost estimates.",
+                      directions: [
+                        "Provide recent electric bills (12 months ideal)",
+                        "Submit property photos and roof information",
+                        "Discuss energy goals and budget",
+                        "Receive solar feasibility assessment",
+                        "Review service options and pricing"
+                      ]
                     },
                     {
-                      "@type": "HowToDirection",
-                      "text": "Receive solar feasibility assessment and cost estimates"
-                    }
-                  ]
-                },
-                {
-                  "@type": "HowToStep",
-                  "name": "Professional Design",
-                  "text": "Licensed PE engineers create custom solar system design",
-                  "itemListElement": [
-                    {
-                      "@type": "HowToDirection",
-                      "text": "Engineers design optimal panel layout and system configuration"
+                      name: "Professional Design",
+                      text: "Licensed PE engineers create custom solar system design tailored to your property. Includes production estimates, ROI analysis, and permit-ready drawings.",
+                      directions: [
+                        "Engineers analyze energy usage and site conditions",
+                        "Design optimal panel layout for maximum production",
+                        "Select appropriate equipment (panels, inverters, mounting)",
+                        "Calculate string sizing and electrical loads",
+                        "Create detailed electrical diagrams",
+                        "Prepare PE-stamped engineering drawings",
+                        "Receive complete design package (5-7 business days)"
+                      ]
                     },
                     {
-                      "@type": "HowToDirection",
-                      "text": "Receive complete design package with PE stamp"
-                    }
-                  ]
-                },
-                {
-                  "@type": "HowToStep",
-                  "name": "Permitting & Approval",
-                  "text": "Submit permit-ready documentation to building department",
-                  "itemListElement": [
-                    {
-                      "@type": "HowToDirection",
-                      "text": "Submit permit package to local building department"
+                      name: "Permitting & Approval",
+                      text: "Submit permit-ready documentation to building department. 98% first-time approval rate with free revisions if needed.",
+                      directions: [
+                        "Download permit package",
+                        "Complete jurisdiction's permit application",
+                        "Pay permit fees (typically $50-$500)",
+                        "Submit to building department",
+                        "Wait for plan review (2-6 weeks)",
+                        "Address any corrections (rare, handled at no charge)"
+                      ]
                     },
                     {
-                      "@type": "HowToDirection",
-                      "text": "Receive permit approval (98% first-time approval rate)"
-                    }
-                  ]
-                },
-                {
-                  "@type": "HowToStep",
-                  "name": "Installation & Activation",
-                  "text": "Install system with our guidance and pass final inspection",
-                  "itemListElement": [
-                    {
-                      "@type": "HowToDirection",
-                      "text": "Install solar panels and electrical components"
+                      name: "Equipment Procurement",
+                      text: "Order solar equipment from trusted distributors. We can source at competitive prices or verify your self-sourced equipment.",
+                      directions: [
+                        "Review equipment options and pricing",
+                        "Place order with distributor",
+                        "Confirm delivery timeline",
+                        "Verify equipment upon delivery",
+                        "Store equipment safely until installation"
+                      ]
                     },
                     {
-                      "@type": "HowToDirection",
-                      "text": "Pass building inspection and receive utility permission to operate"
+                      name: "Installation",
+                      text: "Install solar system following design specifications. Typically takes 1-5 days of work, can be spread over weekends.",
+                      directions: [
+                        "Install roof mounting system with proper flashing",
+                        "Attach solar panels to rails",
+                        "Wire panels in strings according to design",
+                        "Run conduit from roof to inverter location",
+                        "Mount and wire inverter",
+                        "Install AC/DC disconnects",
+                        "Connect to electrical panel",
+                        "Install rapid shutdown system",
+                        "Apply all required labels and placards"
+                      ]
+                    },
+                    {
+                      name: "Inspection",
+                      text: "Schedule and pass building department inspection. Inspector verifies code compliance and proper installation.",
+                      directions: [
+                        "Schedule building inspection",
+                        "Ensure system is ready for inspection",
+                        "Meet inspector at property",
+                        "Address any corrections if needed",
+                        "Receive inspection approval"
+                      ]
+                    },
+                    {
+                      name: "Utility Interconnection",
+                      text: "Submit interconnection application to utility and receive Permission to Operate (PTO).",
+                      directions: [
+                        "Submit interconnection application to utility",
+                        "Provide inspection approval documentation",
+                        "Wait for utility review (2-4 weeks)",
+                        "Utility may install bi-directional meter",
+                        "Receive Permission to Operate (PTO)"
+                      ]
+                    },
+                    {
+                      name: "System Activation",
+                      text: "Turn on your solar system and start generating clean energy. Monitor performance and enjoy long-term savings.",
+                      directions: [
+                        "Turn system on per manufacturer instructions",
+                        "Verify production using inverter monitoring",
+                        "Set up online monitoring platform",
+                        "Document baseline performance",
+                        "Register equipment warranties",
+                        "Start saving on energy bills!"
+                      ]
                     }
                   ]
-                }
-              ]
-            })
+                }),
+                generateBreadcrumbSchema([
+                  { name: 'Home', url: '/' },
+                  { name: 'Process', url: '/process' }
+                ])
+              ])
+            )
           }}
         />
       </Head>

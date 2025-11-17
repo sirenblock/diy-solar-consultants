@@ -1,5 +1,7 @@
+import Image from 'next/image';
+
 export default function CaseStudyCard({ caseStudy, onClick }) {
-  const { name, category, stats, headerImage, costs, testimonial, featured } = caseStudy;
+  const { name, category, stats, headerImage, headerImageAlt, costs, testimonial, featured } = caseStudy;
 
   // Format currency
   const formatCurrency = (amount) => {
@@ -14,21 +16,34 @@ export default function CaseStudyCard({ caseStudy, onClick }) {
     >
       {/* Header Image */}
       <div className="relative h-48 bg-gray-200 overflow-hidden">
-        {/* Placeholder gradient since we don't have actual images */}
-        <div className="absolute inset-0 bg-gradient-to-br from-solar-400 to-energy-500 opacity-80" />
+        {/* Optimized header image with Next.js Image */}
+        {headerImage ? (
+          <Image
+            src={headerImage}
+            alt={headerImageAlt || `${name} solar installation project in ${stats.location}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAB//2Q=="
+          />
+        ) : (
+          // Fallback gradient if no image provided
+          <div className="absolute inset-0 bg-gradient-to-br from-solar-400 to-energy-500 opacity-80" />
+        )}
 
         {/* Featured Badge */}
         {featured && (
-          <div className="absolute top-3 right-3 bg-energy-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+          <div className="absolute top-3 right-3 bg-energy-500 text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
             Featured
           </div>
         )}
 
         {/* Overlay on hover */}
-        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300 z-0" />
 
         {/* System Size Badge */}
-        <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur px-3 py-1 rounded-md">
+        <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur px-3 py-1 rounded-md z-10">
           <span className="text-lg font-bold text-solar-600">{stats.systemSize}kW</span>
         </div>
       </div>

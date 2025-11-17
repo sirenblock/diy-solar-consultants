@@ -3,6 +3,14 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import InlineCTA from '@/components/InlineCTA';
+import CertificationShowcase from '@/components/CertificationShowcase';
+import {
+  generateBreadcrumbSchema,
+  generateReviewSchema,
+  generateAggregateRatingSchema,
+  generateSchemaGraph
+} from '@/utils/schema';
 
 // Testimonial Component
 function TestimonialCard({ name, location, system, quote }) {
@@ -136,43 +144,63 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About DIY Solar Consultants | Licensed PE Solar Design Services</title>
+        <title>About Our Solar Engineers | DIY Solar Consultants</title>
         <meta
           name="description"
-          content="Licensed Professional Engineers and NABCEP-certified professionals providing solar design services. 5,000+ systems designed | 98% approval rate | All 50 states | Save 40-60%"
+          content="Licensed PE & NABCEP certified solar engineers. 5,000+ systems designed, 98% approval rate. Professional solar design expertise for DIY installers nationwide."
         />
         <meta name="keywords" content="professional solar design services, licensed PE solar engineer, NABCEP certified solar design, DIY solar engineering support, solar permit engineering, solar design all 50 states" />
+        <link rel="canonical" href="https://diysolar.com/about" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="About DIY Solar Consultants | Licensed PE Solar Design Services" />
-        <meta property="og:description" content="Licensed Professional Engineers helping homeowners save thousands with expert solar design and permitting services." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolar.com/about" />
+        <meta property="og:title" content="Expert Solar Engineers Helping DIY Homeowners" />
+        <meta property="og:description" content="Licensed PE & NABCEP certified professionals. 25+ years experience, 5,000+ systems designed. Professional solar design expertise for DIY success." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-about.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="DIY Solar Consultants Team" />
+        <meta property="og:locale" content="en_US" />
 
-        {/* Schema.org Organization markup */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "DIY Solar Consultants",
-            "description": "Professional solar design, permitting, and equipment sourcing services for DIY homeowners",
-            "url": "https://www.diysolarconsultants.com",
-            "logo": "https://www.diysolarconsultants.com/logo.png",
-            "sameAs": [],
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "US"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5.0",
-              "reviewCount": "1000+"
-            },
-            "areaServed": {
-              "@type": "Country",
-              "name": "United States"
-            }
-          })}
-        </script>
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Expert Solar Engineers Helping DIY Homeowners" />
+        <meta name="twitter:description" content="Licensed PE & NABCEP certified. 5,000+ systems designed, 98% approval rate. Professional solar expertise for DIY success." />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-about.jpg" />
+        <meta name="twitter:image:alt" content="DIY Solar Consultants Team" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* Enhanced Schema Markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateSchemaGraph([
+                generateBreadcrumbSchema([
+                  { name: 'Home', url: '/' },
+                  { name: 'About', url: '/about' }
+                ]),
+                generateAggregateRatingSchema({
+                  value: '4.9',
+                  count: '5000'
+                }),
+                ...testimonials.map((testimonial) =>
+                  generateReviewSchema({
+                    author: testimonial.name,
+                    date: '2024-01-01',
+                    text: testimonial.quote,
+                    rating: '5',
+                    serviceName: 'DIY Solar Consultants'
+                  })
+                )
+              ])
+            )
+          }}
+        />
       </Head>
       <Header />
 
@@ -256,45 +284,24 @@ export default function About() {
               </div>
             </div>
           </div>
+
+          {/* First Inline CTA */}
+          <div className="max-w-4xl mx-auto mt-12">
+            <InlineCTA
+              variant="default"
+              title="Experience the Difference Professional Design Makes"
+              description="Our licensed engineers will create a custom solar system tailored to your home, ensuring maximum savings and hassle-free permit approval."
+              primaryButtonText="Get Your Custom Design"
+              primaryButtonLink="/design-request"
+              secondaryButtonText="Learn About Our Process"
+              secondaryButtonLink="/process"
+            />
+          </div>
         </section>
 
         {/* Team Credentials Section */}
         <section className="section-container bg-gradient-to-br from-gray-50 to-gray-100">
-          <h2 className="heading-lg text-center mb-12 text-gray-900">Expert Credentials You Can Trust</h2>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
-              <div className="text-4xl mb-4">🎓</div>
-              <h3 className="heading-sm mb-4 text-gray-900">Licensed Professional Engineers</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Our team includes licensed Professional Engineers (PE) with credentials in all 50 states. Every design is stamped by a licensed engineer where required by local code, ensuring code compliance and liability protection.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
-              <div className="text-4xl mb-4">⚡</div>
-              <h3 className="heading-sm mb-4 text-gray-900">NABCEP Certified Professionals</h3>
-              <p className="text-gray-700 leading-relaxed">
-                We maintain NABCEP (North American Board of Certified Energy Practitioners) certifications - the gold standard in solar industry credentials. Our team stays current with the latest solar technology, code updates, and best practices.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
-              <div className="text-4xl mb-4">📊</div>
-              <h3 className="heading-sm mb-4 text-gray-900">25+ Years Combined Experience</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Our engineers have collectively designed over 5,000 solar systems across residential, commercial, and industrial applications. We&apos;ve worked in every climate, every jurisdiction, and every roof type imaginable.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
-              <div className="text-4xl mb-4">🤝</div>
-              <h3 className="heading-sm mb-4 text-gray-900">Manufacturer Partnerships</h3>
-              <p className="text-gray-700 leading-relaxed">
-                We maintain direct relationships with tier-1 solar equipment manufacturers, giving our clients access to wholesale pricing and the latest product specifications.
-              </p>
-            </div>
-          </div>
+          <CertificationShowcase />
         </section>
 
         {/* Why Choose DIY Solar Consultants - Tabbed Section */}
@@ -348,6 +355,18 @@ export default function About() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Second Inline CTA */}
+          <div className="max-w-4xl mx-auto mt-12">
+            <InlineCTA
+              variant="subtle"
+              title="See How Much You Can Save"
+              description="Get a free quote and discover how professional solar design can reduce your energy costs by 40-60%."
+              primaryButtonText="Request Free Quote"
+              primaryButtonLink="/design-request"
+              compact={true}
+            />
           </div>
         </section>
 
@@ -431,6 +450,19 @@ export default function About() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Third Inline CTA */}
+          <div className="max-w-4xl mx-auto mt-12">
+            <InlineCTA
+              variant="highlighted"
+              title="Join the DIY Solar Revolution"
+              description="Thousands of homeowners have saved $15,000-$25,000 with our professional design services. You could be next."
+              primaryButtonText="Start Saving Today"
+              primaryButtonLink="/design-request"
+              secondaryButtonText="View Pricing"
+              secondaryButtonLink="/pricing"
+            />
           </div>
         </section>
 

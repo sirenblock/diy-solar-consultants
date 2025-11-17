@@ -35,5 +35,24 @@ module.exports = {
       },
     },
   },
+  // Safelist classes that are generated dynamically or conditionally
+  // This prevents them from being purged in production builds
+  safelist: [
+    // Solar color variants that might be used dynamically
+    'bg-solar-600',
+    'bg-solar-700',
+    'text-solar-600',
+    'text-solar-700',
+    'text-energy-600',
+    'text-energy-700',
+    'border-solar-600',
+    'border-energy-600',
+    // Animation classes
+    'animate-slide-up',
+    'animate-fade-in',
+    'animate-scale-in',
+    'animate-shimmer',
+    'animate-pulse-slow',
+  ],
   plugins: [],
 }

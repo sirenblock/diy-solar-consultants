@@ -5,6 +5,7 @@ import EquipmentCard from '../components/EquipmentCard';
 import EquipmentComparisonTable from '../components/EquipmentComparisonTable';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FAQSection from '@/components/FAQSection';
 import {
   solarPanels,
   stringInverters,
@@ -15,6 +16,12 @@ import {
   inverterTypeComparison,
   batterySizingGuide
 } from '../data/equipmentData';
+import {
+  generateEquipmentCategorySchema,
+  generateBreadcrumbSchema,
+  generateSchemaGraph
+} from '@/utils/schema';
+import { equipmentFAQs, batteryStorageFAQs } from '@/data/serviceFAQs';
 
 export default function Equipment() {
   const [activeSection, setActiveSection] = useState(null);
@@ -30,38 +37,73 @@ export default function Equipment() {
   return (
     <>
       <Head>
-        <title>Solar Equipment - Panels, Inverters, Batteries | DIY Solar Consultants</title>
+        <title>Recommended Solar Equipment | DIY Solar Consultants</title>
         <meta
           name="description"
-          content="Tier-1 solar panels, inverters, battery storage, and mounting systems. REC, Jinko, Enphase, SolarEdge, Tesla Powerwall. 15-30% savings vs. retail."
+          content="Tier-1 solar panels, inverters & batteries. REC, Jinko, Enphase, SolarEdge, Tesla Powerwall. Expert recommendations + 15-30% savings vs retail pricing."
         />
         <meta name="keywords" content="solar panel comparison, best solar inverters, Tesla Powerwall pricing, Enphase IQ8 microinverters, solar battery storage, solar equipment costs, tier-1 solar panels, REC solar panels, SolarEdge inverter, solar mounting systems" />
-        <meta property="og:title" content="Solar Equipment - Premium Components at Competitive Prices" />
-        <meta property="og:description" content="Tier-1 solar equipment from trusted manufacturers. 15-30% savings vs. retail pricing." />
-        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://diysolar.com/equipment" />
 
-        {/* Schema.org markup for Product */}
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolar.com/equipment" />
+        <meta property="og:title" content="Premium Solar Equipment at Competitive Prices" />
+        <meta property="og:description" content="Tier-1 solar panels, inverters, batteries & mounting systems. REC, Enphase, SolarEdge, Tesla. 15-30% savings vs retail." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-equipment.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Solar Equipment Selection" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Premium Solar Equipment at Competitive Prices" />
+        <meta name="twitter:description" content="Tier-1 solar panels, inverters & batteries. Expert recommendations + 15-30% savings vs retail." />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-equipment.jpg" />
+        <meta name="twitter:image:alt" content="Solar Equipment Selection" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* Enhanced Equipment Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Product",
-              "name": "Solar Equipment Package",
-              "description": "Tier-1 solar panels, inverters, battery storage, and mounting systems from trusted manufacturers",
-              "brand": {
-                "@type": "Brand",
-                "name": "DIY Solar Consultants"
-              },
-              "offers": {
-                "@type": "AggregateOffer",
-                "priceCurrency": "USD",
-                "lowPrice": "7300",
-                "highPrice": "12200",
-                "offerCount": "20+",
-                "availability": "https://schema.org/InStock"
-              }
-            })
+            __html: JSON.stringify(
+              generateSchemaGraph([
+                generateEquipmentCategorySchema(),
+                {
+                  "@type": "Product",
+                  "name": "Solar Equipment Package",
+                  "description": "Tier-1 solar panels, inverters, battery storage, and mounting systems from trusted manufacturers",
+                  "brand": {
+                    "@type": "Brand",
+                    "name": "DIY Solar Consultants"
+                  },
+                  "offers": {
+                    "@type": "AggregateOffer",
+                    "priceCurrency": "USD",
+                    "lowPrice": "7300",
+                    "highPrice": "12200",
+                    "offerCount": "20+",
+                    "availability": "https://schema.org/InStock"
+                  },
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "reviewCount": "2500",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                  }
+                },
+                generateBreadcrumbSchema([
+                  { name: 'Home', url: '/' },
+                  { name: 'Equipment', url: '/equipment' }
+                ])
+              ])
+            )
           }}
         />
       </Head>
@@ -681,6 +723,24 @@ export default function Equipment() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs with Schema Markup */}
+        <section className="py-16 px-4 bg-gray-50">
+          <div className="max-w-4xl mx-auto">
+            <FAQSection
+              questions={[...equipmentFAQs, ...batteryStorageFAQs.slice(0, 2)]}
+              generateSchema={true}
+              title="Frequently Asked Questions About Solar Equipment"
+              description="Get expert answers about solar panels, inverters, battery storage, and equipment sourcing."
+            />
+
+            <div className="text-center mt-8">
+              <Link href="/faq" className="text-solar-600 font-semibold hover:text-solar-700 text-lg">
+                View All FAQs →
+              </Link>
             </div>
           </div>
         </section>

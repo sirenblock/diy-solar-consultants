@@ -302,6 +302,7 @@ export default function ContactForm() {
             onChange={handleChange}
             onBlur={handleBlur}
             placeholder="John Smith"
+            autoComplete="name"
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors ${
               touched.name && errors.name ? 'border-red-300 bg-red-50' : 'border-gray-300'
             }`}
@@ -332,6 +333,7 @@ export default function ContactForm() {
             onChange={handleChange}
             onBlur={handleBlur}
             placeholder="john@example.com"
+            autoComplete="email"
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors ${
               touched.email && errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'
             }`}
@@ -362,6 +364,7 @@ export default function ContactForm() {
             onChange={handleChange}
             onBlur={handleBlur}
             placeholder="(555) 123-4567"
+            autoComplete="tel"
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors ${
               touched.phone && errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-300'
             }`}

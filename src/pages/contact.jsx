@@ -2,22 +2,41 @@ import Head from 'next/head'
 import ContactForm from '@/components/ContactForm'
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import GuaranteeBadge from '@/components/GuaranteeBadge';
 
 export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact Us - DIY Solar Design & Permitting | DIY Solar Consultants</title>
+        <title>Contact Our Solar Engineers | DIY Solar Consultants</title>
         <meta
           name="description"
-          content="Get in touch with our licensed PE solar engineers. Ask questions about solar design, permitting, equipment, or DIY installation. We respond within 24 hours."
+          content="Questions about DIY solar? Contact our licensed PE engineers. We answer design, permitting & equipment questions. 24-hour response time guaranteed."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://diysolar.com/contact" />
 
-        {/* Open Graph / Social Media */}
-        <meta property="og:title" content="Contact Us - DIY Solar Consultants" />
-        <meta property="og:description" content="Get in touch with our licensed PE solar engineers. We respond within 24 hours." />
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolar.com/contact" />
+        <meta property="og:title" content="Contact Our Solar Engineering Team" />
+        <meta property="og:description" content="Get expert answers to your DIY solar questions. Licensed PE engineers available. 24-hour response time." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-contact.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Contact DIY Solar Consultants" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Our Solar Engineering Team" />
+        <meta name="twitter:description" content="Get expert answers to your DIY solar questions. Licensed PE engineers. 24-hour response time." />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-contact.jpg" />
+        <meta name="twitter:image:alt" content="Contact DIY Solar Consultants" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         {/* Schema.org markup for ContactPage */}
         <script
@@ -307,6 +326,13 @@ export default function Contact() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Guarantee Badge Section */}
+      <section className="py-16 bg-white">
+        <div className="section-container">
+          <GuaranteeBadge variant="compact" className="max-w-4xl mx-auto" />
         </div>
       </section>
 

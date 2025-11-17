@@ -35,6 +35,7 @@ const FormStep3 = ({ formData, updateFormData, errors }) => {
           placeholder="John Smith"
           value={formData.name || ''}
           onChange={(e) => handleChange('name', e.target.value)}
+          autoComplete="name"
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
         />
         {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
@@ -50,6 +51,7 @@ const FormStep3 = ({ formData, updateFormData, errors }) => {
           placeholder="john@example.com"
           value={formData.email || ''}
           onChange={(e) => handleChange('email', e.target.value)}
+          autoComplete="email"
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
         />
         <p className="text-sm text-gray-500">
@@ -68,6 +70,7 @@ const FormStep3 = ({ formData, updateFormData, errors }) => {
           placeholder="(555) 123-4567"
           value={formData.phone || ''}
           onChange={(e) => handleChange('phone', e.target.value)}
+          autoComplete="tel"
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
         />
         <p className="text-sm text-gray-500">For follow-up questions about your design</p>

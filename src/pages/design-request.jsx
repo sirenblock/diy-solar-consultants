@@ -3,34 +3,47 @@ import Head from 'next/head';
 import DesignRequestForm from '../components/DesignRequestForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import useScrollTracking from '@/hooks/useScrollTracking';
 
 export default function DesignRequest() {
+  // Track scroll depth on design request page
+  useScrollTracking();
+
   return (
     <>
       <Head>
-        <title>Request Solar Design Quote | DIY Solar Consultants</title>
+        <title>Request Free Solar Design Quote | DIY Solar</title>
         <meta
           name="description"
-          content="Get a custom solar system design from licensed PE engineers. Complete design, permitting, and equipment sourcing. 5-7 day turnaround. Start your quote now."
+          content="Get your custom solar design from licensed PE engineers. Free consultation, 5-7 day turnaround, 98% approval rate. Start saving today - request your quote!"
         />
         <meta
           name="keywords"
           content="solar design request, solar quote, solar system design, DIY solar design, solar permit package, solar engineering"
         />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Request Solar Design Quote | DIY Solar Consultants" />
-        <meta
-          property="og:description"
-          content="Get a custom solar system design from licensed PE engineers. 5-7 day turnaround."
-        />
+        <link rel="canonical" href="https://diysolar.com/design-request" />
+
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://diysolar.com/design-request" />
+        <meta property="og:title" content="Get Your Custom Solar Design - Free Quote" />
+        <meta property="og:description" content="Licensed PE engineers. Custom solar design. 5-7 day turnaround. 98% approval rate. Start saving 40-60% today." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-quote.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Request Solar Design Quote" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Request Solar Design Quote | DIY Solar Consultants" />
-        <meta
-          name="twitter:description"
-          content="Get a custom solar system design from licensed PE engineers."
-        />
+        <meta name="twitter:title" content="Get Your Custom Solar Design - Free Quote" />
+        <meta name="twitter:description" content="Licensed PE engineers. 5-7 day turnaround. 98% approval rate. Start saving 40-60% on solar today." />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-quote.jpg" />
+        <meta name="twitter:image:alt" content="Request Solar Design Quote" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         {/* Schema.org markup for Google */}
         <script

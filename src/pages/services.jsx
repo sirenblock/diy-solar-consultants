@@ -3,31 +3,70 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FAQSection from '@/components/FAQSection';
+import TrustBadges from '@/components/TrustBadges';
+import {
+  generateServicesPageSchema,
+  generateBreadcrumbSchema,
+  generateSchemaGraph
+} from '@/utils/schema';
+import { designFAQs, permittingFAQs } from '@/data/serviceFAQs';
 
 export default function Services() {
   const [activeService, setActiveService] = useState(null);
-  const [activeFAQ, setActiveFAQ] = useState(null);
 
   const toggleService = (index) => {
     setActiveService(activeService === index ? null : index);
   };
 
-  const toggleFAQ = (index) => {
-    setActiveFAQ(activeFAQ === index ? null : index);
-  };
-
   return (
     <>
       <Head>
-        <title>Solar Design & Permitting Services | DIY Solar Consultants</title>
+        <title>Solar Design Services - PE Stamped Plans | DIY Solar</title>
         <meta
           name="description"
-          content="Professional solar system design, permitting, equipment sourcing, and consulting services for DIY homeowners. Licensed PE | 98% approval rate | 5-7 day turnaround."
+          content="Expert solar design, permitting & equipment sourcing for DIY installers. Licensed PE stamps in all 50 states. 98% approval rate. 5-7 day turnaround guaranteed."
         />
         <meta name="keywords" content="solar system design services, solar permit package, solar engineering services, DIY solar design, solar permitting help, solar equipment sourcing, solar technical consulting" />
-        <meta property="og:title" content="Solar Design & Permitting Services | DIY Solar Consultants" />
-        <meta property="og:description" content="Professional solar services for DIY homeowners. From design to installation support." />
+        <link rel="canonical" href="https://diysolar.com/services" />
+
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolar.com/services" />
+        <meta property="og:title" content="Professional Solar Services for DIY Success" />
+        <meta property="og:description" content="Complete solar design & permitting services. Licensed PE engineers. Equipment sourcing. Technical consulting. Everything you need to go solar DIY." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-services.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="DIY Solar Consultants Services" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Professional Solar Services for DIY Success" />
+        <meta name="twitter:description" content="Complete solar design & permitting services. Licensed PE engineers. 98% approval rate. 5-7 day turnaround." />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-services.jpg" />
+        <meta name="twitter:image:alt" content="DIY Solar Consultants Services" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* Enhanced Service Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateSchemaGraph([
+                ...generateServicesPageSchema()['@graph'],
+                generateBreadcrumbSchema([
+                  { name: 'Home', url: '/' },
+                  { name: 'Services', url: '/services' }
+                ])
+              ])
+            )
+          }}
+        />
       </Head>
       <Header />
 
@@ -49,6 +88,13 @@ export default function Services() {
                 Get Started
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Trust Badges */}
+        <section className="py-12 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <TrustBadges variant="horizontal" />
           </div>
         </section>
 
@@ -756,65 +802,20 @@ export default function Services() {
           </div>
         </section>
 
-        {/* FAQs */}
+        {/* FAQs with Schema Markup */}
         <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-              Frequently Asked Questions
-            </h2>
+            <FAQSection
+              questions={[...designFAQs.slice(0, 5), ...permittingFAQs.slice(0, 5)]}
+              generateSchema={true}
+              title="Frequently Asked Questions About Our Services"
+              description="Get answers to common questions about solar design, permitting, equipment sourcing, and installation support."
+            />
 
-            <div className="space-y-4">
-              {[
-                {
-                  question: 'Do I need all these services?',
-                  answer: 'No. Choose what you need. Many clients start with design-only and add permitting later. Others want the complete package. We offer flexible options to match your specific needs and budget.'
-                },
-                {
-                  question: 'What if I already have a design?',
-                  answer: 'We can review existing designs, prepare permits for them, or provide consulting on improvements. Our stand-alone permitting service is perfect if you already have a design you&apos;re happy with.'
-                },
-                {
-                  question: 'Can you help with just equipment selection?',
-                  answer: 'Yes. We offer standalone equipment consulting and sourcing. This is ideal if you have your design finalized and just need help finding the best equipment at competitive prices.'
-                },
-                {
-                  question: 'How long until I receive my design?',
-                  answer: 'Standard turnaround is 5-7 business days for most residential projects. Complex projects may take 7-10 days. Expedited service (2-3 days) is available for an additional fee.'
-                },
-                {
-                  question: 'What information do you need to start?',
-                  answer: 'We need your recent energy bills, property address, roof photos, and your project goals. We provide a detailed questionnaire that walks you through all the information we need to create an accurate design.'
-                },
-                {
-                  question: 'Do you design battery systems?',
-                  answer: 'Yes. We design all types of battery storage integration including Tesla Powerwall, Enphase, LG, Generac, and other major battery systems. Battery integration is included in our standard design service.'
-                },
-                {
-                  question: 'What if my permit gets rejected?',
-                  answer: 'We offer free revisions for any AHJ-requested changes. Our 98% first-time approval rate means this rarely happens, but if it does, we work with you until your permit is approved at no additional cost.'
-                },
-                {
-                  question: 'Can you work with my local building department?',
-                  answer: 'Yes. We have experience with building departments across all 50 states. We prepare AHJ-specific documentation and are familiar with local requirements and code variations.'
-                }
-              ].map((faq, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                  >
-                    <span className="font-semibold text-gray-900 pr-8">{faq.question}</span>
-                    <span className="text-solar-600 text-2xl flex-shrink-0">
-                      {activeFAQ === index ? '−' : '+'}
-                    </span>
-                  </button>
-                  {activeFAQ === index && (
-                    <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-                      <p className="text-gray-700">{faq.answer}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
+            <div className="text-center mt-8">
+              <Link href="/faq" className="text-solar-600 font-semibold hover:text-solar-700 text-lg">
+                View All FAQs →
+              </Link>
             </div>
           </div>
         </section>

@@ -601,6 +601,7 @@ export const resources = [
     lastUpdated: '2024-11-01',
     videoUrl: '#placeholder',
     thumbnail: '/images/video-thumbnails/intro-diy-solar.jpg',
+    thumbnailAlt: 'Video thumbnail showing homeowner reviewing solar panel installation plans and timeline for DIY solar project',
     relatedResources: ['complete-diy-solar-guide', 'diy-vs-professional']
   },
   {
@@ -620,6 +621,7 @@ export const resources = [
     lastUpdated: '2024-10-25',
     videoUrl: '#placeholder',
     thumbnail: '/images/video-thumbnails/roof-mounting.jpg',
+    thumbnailAlt: 'Professional installer demonstrating proper flashing installation and waterproofing techniques on composition shingle roof',
     relatedResources: ['roof-mounting-guide', 'installation-checklist']
   },
   {
@@ -638,6 +640,7 @@ export const resources = [
     lastUpdated: '2024-10-20',
     videoUrl: '#placeholder',
     thumbnail: '/images/video-thumbnails/electrical-connection.jpg',
+    thumbnailAlt: 'Licensed electrician installing AC disconnect and making electrical connections at main panel for solar system',
     relatedResources: ['electrical-wiring-guide', 'wire-size-calculator']
   },
 ];

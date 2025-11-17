@@ -47,6 +47,7 @@ const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
             placeholder="Street Address"
             value={formData.street || ''}
             onChange={(e) => handleChange('street', e.target.value)}
+            autoComplete="street-address"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
           />
           {errors.street && <p className="text-sm text-red-600">{errors.street}</p>}
@@ -58,6 +59,7 @@ const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
                 placeholder="City"
                 value={formData.city || ''}
                 onChange={(e) => handleChange('city', e.target.value)}
+                autoComplete="address-level2"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
               />
               {errors.city && <p className="text-sm text-red-600 mt-1">{errors.city}</p>}
@@ -66,6 +68,7 @@ const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
               <select
                 value={formData.state || ''}
                 onChange={(e) => handleChange('state', e.target.value)}
+                autoComplete="address-level1"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
               >
                 <option value="">State</option>
@@ -128,6 +131,8 @@ const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
                 placeholder="ZIP Code"
                 value={formData.zip || ''}
                 onChange={(e) => handleChange('zip', e.target.value)}
+                autoComplete="postal-code"
+                inputMode="numeric"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
               />
               {errors.zip && <p className="text-sm text-red-600 mt-1">{errors.zip}</p>}

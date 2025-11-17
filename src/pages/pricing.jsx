@@ -9,6 +9,9 @@ import PricingFAQ from '../components/PricingFAQ';
 import PaymentInfo from '../components/PaymentInfo';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import UrgencyBanner from '@/components/UrgencyBanner';
+import InlineCTA from '@/components/InlineCTA';
+import GuaranteeBadge from '@/components/GuaranteeBadge';
 import {
   packages,
   addons,
@@ -17,6 +20,10 @@ import {
   paymentInfo,
   guarantee
 } from '../data/pricingData';
+import {
+  generateBreadcrumbSchema,
+  generateSchemaGraph
+} from '@/utils/schema';
 
 export default function Pricing() {
   const handlePackageSelect = (pkg) => {
@@ -50,22 +57,71 @@ export default function Pricing() {
   return (
     <>
       <Head>
-        <title>Pricing - Professional Solar Design Services | DIY Solar Consultants</title>
+        <title>Solar Design Pricing - Save 40-60% | DIY Solar</title>
         <meta
           name="description"
-          content="Transparent pricing for professional solar design and permitting. Design only: $595 | Design + Permit: $995 | Full package: $1,495. Licensed PE engineers. 98% approval rate."
+          content="Professional solar design from $297. Licensed PE stamps, permit-ready plans delivered in 3-5 days. 98% approval rate guaranteed. Get your quote today!"
         />
-        <meta name="keywords" content="solar design pricing, solar permit cost, DIY solar design cost, solar engineering services cost" />
-        <meta property="og:title" content="Solar Design Pricing - DIY Solar Consultants" />
-        <meta property="og:description" content="Professional solar design services with transparent pricing. Save 40-60% on solar installation." />
+        <meta name="keywords" content="solar design pricing, solar permit cost, DIY solar design cost, solar engineering services cost, solar plan pricing, PE stamp cost" />
+        <link rel="canonical" href="https://diysolar.com/pricing" />
+
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolar.com/pricing" />
+        <meta property="og:title" content="Save Thousands with Professional Solar Design" />
+        <meta property="og:description" content="Expert solar system design from $297. Licensed PE stamps, permit-ready plans. 98% approval rate. Transparent pricing, no hidden fees." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolar.com/images/og-pricing.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="DIY Solar Consultants Pricing Plans" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Solar Design Pricing - Save 40-60% on Installation" />
+        <meta name="twitter:description" content="Professional solar system design from $297. Licensed PE stamps, permit-ready plans. 98% approval rate guaranteed." />
+        <meta name="twitter:image" content="https://diysolar.com/images/og-pricing.jpg" />
+        <meta name="twitter:image:alt" content="DIY Solar Consultants Pricing Plans" />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* Breadcrumb Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Home',
+                  item: 'https://diysolar.com'
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: 'Pricing',
+                  item: 'https://diysolar.com/pricing'
+                }
+              ]
+            })
+          }}
+        />
+
+        {/* Product Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
         />
       </Head>
       <Header />
+
+      {/* Urgency Banner - Top of Page */}
+      <UrgencyBanner type="limited-spots" />
 
       <div className="pt-20 min-h-screen bg-gray-50">
         {/* Hero Section */}
@@ -119,6 +175,11 @@ export default function Pricing() {
           </div>
         </section>
 
+        {/* Social Proof Urgency Banner */}
+        <div className="bg-gray-50">
+          <UrgencyBanner type="social-proof" />
+        </div>
+
         {/* Pricing Cards */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 max-w-7xl">
@@ -129,6 +190,11 @@ export default function Pricing() {
               {packages.map((pkg) => (
                 <PricingCard key={pkg.id} pkg={pkg} onSelect={handlePackageSelect} />
               ))}
+            </div>
+
+            {/* Guarantee Badge */}
+            <div className="mt-16">
+              <GuaranteeBadge variant="full" />
             </div>
           </div>
         </section>
@@ -143,8 +209,24 @@ export default function Pricing() {
               See exactly what's included in each package to make an informed decision
             </p>
             <ComparisonTable packages={packages} />
+
+            {/* Inline CTA after comparison */}
+            <InlineCTA
+              variant="highlighted"
+              title="Ready to Secure Your Spot?"
+              description="Only a limited number of design slots available each month. Lock in your quote today."
+              primaryButtonText="Get My Custom Design"
+              primaryButtonLink="/design-request"
+              secondaryButtonText="Schedule Consultation"
+              secondaryButtonLink="/contact"
+            />
           </div>
         </section>
+
+        {/* Countdown Urgency Banner */}
+        <div className="bg-gray-50">
+          <UrgencyBanner type="countdown" />
+        </div>
 
         {/* Savings Calculator */}
         <section className="py-16 bg-gray-50">
@@ -196,6 +278,16 @@ export default function Pricing() {
               Common questions about our pricing and services
             </p>
             <PricingFAQ faqs={faqs} />
+
+            {/* Inline CTA in FAQ section */}
+            <InlineCTA
+              variant="urgent"
+              title="Don't Miss Out on This Month's Availability"
+              description="We're already booking into next month. Secure your design slot before they're gone."
+              primaryButtonText="Reserve My Spot Now"
+              primaryButtonLink="/design-request"
+              compact={true}
+            />
           </div>
         </section>
 

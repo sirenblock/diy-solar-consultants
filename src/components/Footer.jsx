@@ -13,23 +13,41 @@ export default function Footer() {
     setTimeout(() => setIsSubscribed(false), 3000)
   }
 
-  const quickLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/services', label: 'Services' },
-    { href: '/equipment', label: 'Equipment' },
-    { href: '/calculator', label: 'Solar Calculator' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/resources', label: 'Resources' },
-    { href: '/pricing', label: 'Pricing' },
+  const services = [
+    { href: '/services', label: 'All Services' },
+    { href: '/services#design', label: 'Solar System Design' },
+    { href: '/services#permitting', label: 'PE Stamping' },
+    { href: '/services#equipment', label: 'Permit Assistance' },
+    { href: '/services#consulting', label: 'Equipment Selection' },
   ]
 
-  const services = [
-    { href: '/services#design', label: 'Solar System Design' },
-    { href: '/services#permitting', label: 'Permitting Plansets' },
-    { href: '/services#equipment', label: 'Equipment Sourcing' },
-    { href: '/services#consulting', label: 'Technical Consulting' },
+  const resources = [
+    { href: '/pricing', label: 'Pricing' },
+    { href: '/process', label: 'Our Process' },
+    { href: '/faq', label: 'FAQ' },
+    { href: '/equipment', label: 'Equipment Guide' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/resources', label: 'Resources' },
+  ]
+
+  const company = [
+    { href: '/about', label: 'About Us' },
+    { href: '/contact', label: 'Contact' },
+    { href: '/calculator', label: 'Solar Calculator' },
+  ]
+
+  const getStarted = [
+    { href: '/design-request', label: 'Request a Quote' },
+    { href: '/calculator', label: 'Solar Savings Calculator' },
+    { href: '/contact', label: 'Ask a Question' },
+  ]
+
+  const stateServices = [
+    { href: '/solar-design/california', label: 'California Solar Design' },
+    { href: '/solar-design/texas', label: 'Texas Solar Design' },
+    { href: '/solar-design/florida', label: 'Florida Solar Design' },
+    { href: '/solar-design/new-york', label: 'New York Solar Design' },
+    { href: '/solar-design/arizona', label: 'Arizona Solar Design' },
   ]
 
   const trustSignals = [
@@ -44,9 +62,9 @@ export default function Footer() {
     <footer className="bg-gray-900 text-gray-300">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
               <svg
                 className="w-8 h-8 text-solar-500"
@@ -116,25 +134,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-solar-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Services */}
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
@@ -154,29 +153,102 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Trust Signals */}
+          {/* Resources */}
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              Trust Signals
+              Resources
             </h3>
             <ul className="space-y-2">
-              {trustSignals.map((signal) => (
-                <li key={signal} className="flex items-start">
-                  <svg
-                    className="w-5 h-5 mr-2 text-energy-500 flex-shrink-0 mt-0.5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+              {resources.map((resource) => (
+                <li key={resource.href}>
+                  <Link
+                    href={resource.href}
+                    className="text-sm hover:text-solar-400 transition-colors"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="text-sm">{signal}</span>
+                    {resource.label}
+                  </Link>
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* State Services */}
+          <div>
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+              State Services
+            </h3>
+            <ul className="space-y-2">
+              {stateServices.map((state) => (
+                <li key={state.href}>
+                  <Link
+                    href={state.href}
+                    className="text-sm hover:text-solar-400 transition-colors"
+                  >
+                    {state.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+              Company
+            </h3>
+            <ul className="space-y-2">
+              {company.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm hover:text-solar-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Get Started */}
+          <div>
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+              Get Started
+            </h3>
+            <ul className="space-y-2">
+              {getStarted.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm hover:text-solar-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Trust Badges in Get Started Section */}
+            <div className="mt-6 pt-6 border-t border-gray-700">
+              <div className="space-y-2">
+                {trustSignals.slice(0, 3).map((signal) => (
+                  <div key={signal} className="flex items-start">
+                    <svg
+                      className="w-4 h-4 mr-2 text-energy-500 flex-shrink-0 mt-0.5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span className="text-xs">{signal}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

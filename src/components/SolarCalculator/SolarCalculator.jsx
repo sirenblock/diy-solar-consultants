@@ -6,12 +6,14 @@ import Step4Goals from './Step4Goals';
 import ResultsDisplay from './ResultsDisplay';
 import LeadCaptureForm from './LeadCaptureForm';
 import { calculateSolarSystem, getElectricityRate } from '../../utils/solarCalculations';
+import { trackEvent, trackCalculatorUsage } from '@/utils/analytics';
 
 const SolarCalculator = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showResults, setShowResults] = useState(false);
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [results, setResults] = useState(null);
+  const [calculatorStartTime, setCalculatorStartTime] = useState(null);
 
   // Form inputs
   const [inputs, setInputs] = useState({
@@ -38,6 +40,14 @@ const SolarCalculator = () => {
     timeline: 'researching',
   });
 
+  // Track calculator start
+  useEffect(() => {
+    trackEvent('calculator_started', {
+      calculator_type: 'solar_system_size'
+    });
+    setCalculatorStartTime(Date.now());
+  }, []);
+
   // Update utility rate when state changes
   useEffect(() => {
     if (inputs.state && !inputs.customRate) {
@@ -59,10 +69,32 @@ const SolarCalculator = () => {
 
   const nextStep = () => {
     if (currentStep < 4) {
+      // Track step progression
+      trackEvent('calculator_step_completed', {
+        calculator_type: 'solar_system_size',
+        step: currentStep,
+        next_step: currentStep + 1
+      });
+
       setCurrentStep(prev => prev + 1);
     } else {
       calculateResults();
       setShowResults(true);
+
+      // Track calculator completion
+      const completionTime = calculatorStartTime ? Math.round((Date.now() - calculatorStartTime) / 1000) : 0;
+
+      trackCalculatorUsage({
+        monthly_bill: inputs.usageInputType === 'bill' ? inputs.monthlyBill : null,
+        monthly_kwh: inputs.usageInputType === 'kwh' ? inputs.monthlyKwh : null,
+        state: inputs.state,
+        zip_code: inputs.zipCode,
+        offset_percent: inputs.offsetPercent,
+        has_battery: inputs.batteryOption !== null,
+        battery_type: inputs.batteryOption,
+        inverter_type: inputs.inverterType,
+        completion_time_seconds: completionTime
+      });
     }
   };
 
@@ -101,11 +133,27 @@ const SolarCalculator = () => {
   };
 
   const handleGetReport = () => {
+    // Track report request (high-intent action)
+    trackEvent('calculator_report_requested', {
+      calculator_type: 'solar_system_size',
+      system_size_kw: results?.systemSize,
+      estimated_cost: results?.systemCost
+    });
+
     setShowLeadForm(true);
   };
 
   const handleLeadFormSubmit = (leadData) => {
     console.log('Lead captured:', leadData);
+
+    // Track lead capture (conversion)
+    trackEvent('lead_captured', {
+      source: 'calculator',
+      calculator_type: 'solar_system_size',
+      system_size_kw: results?.systemSize,
+      estimated_cost: results?.systemCost
+    });
+
     // TODO: Send to API/email service
     alert('Thank you! We\'ll email your detailed report within 24 hours.');
     setShowLeadForm(false);
