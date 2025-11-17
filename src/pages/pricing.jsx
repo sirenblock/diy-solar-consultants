@@ -358,6 +358,8 @@ export default function Pricing() {
           </div>
         </section>
       </div>
+    <Footer />
+
     </>
   );
 }

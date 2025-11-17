@@ -174,6 +174,7 @@ export default function About() {
           })}
         </script>
       </Head>
+      <Header />
 
       <main className="pt-20 bg-gray-50">
         {/* Hero Section */}
@@ -517,6 +518,7 @@ export default function About() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

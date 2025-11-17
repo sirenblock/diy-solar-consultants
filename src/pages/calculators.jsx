@@ -231,6 +231,8 @@ export default function Calculators() {
           </div>
         </section>
       </div>
+    <Footer />
+
     </>
   );
 }

@@ -858,6 +858,8 @@ export default function Services() {
           </div>
         </section>
       </div>
+    <Footer />
+
     </>
   );
 }

@@ -705,6 +705,8 @@ export default function Equipment() {
           </div>
         </section>
       </div>
+    <Footer />
+
     </>
   );
 }

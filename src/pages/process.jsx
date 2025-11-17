@@ -168,6 +168,8 @@ export default function Process() {
 
       {/* CTA Section */}
       <CTASection />
+    <Footer />
+
     </>
   );
 }

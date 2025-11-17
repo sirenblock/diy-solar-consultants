@@ -121,6 +121,8 @@ export default function DesignRequest() {
 
       {/* Form Section */}
       <DesignRequestForm />
+    <Footer />
+
     </>
   );
 }

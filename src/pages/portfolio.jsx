@@ -327,6 +327,8 @@ export default function Portfolio() {
       {selectedStudy && (
         <CaseStudyDetail caseStudy={selectedStudy} onClose={handleCloseDetail} />
       )}
+    <Footer />
+
     </>
   );
 }

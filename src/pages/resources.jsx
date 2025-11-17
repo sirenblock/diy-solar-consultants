@@ -324,6 +324,8 @@ export default function Resources() {
         isOpen={isDownloadModalOpen}
         onClose={() => setIsDownloadModalOpen(false)}
       />
+    <Footer />
+
     </>
   );
 }

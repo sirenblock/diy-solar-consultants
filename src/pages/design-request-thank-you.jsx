@@ -280,6 +280,8 @@ export default function DesignRequestThankYou() {
           </div>
         </div>
       </div>
+    <Footer />
+
     </>
   );
 }
