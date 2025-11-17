@@ -1,9 +1,13 @@
-import Link from 'next/link';
-import { trackCTAClick } from '@/utils/analytics';
+import Button from './Button';
 
 /**
  * CTA Button/Link Component with Analytics Tracking
- * Tracks when users click call-to-action buttons
+ *
+ * This is a wrapper around the Button component that maintains
+ * backward compatibility with the old TrackedCTA API.
+ *
+ * Note: The Button component now includes analytics tracking,
+ * so this wrapper primarily exists for legacy support.
  */
 export default function TrackedCTA({
   href,
@@ -13,72 +17,30 @@ export default function TrackedCTA({
   variant = 'primary',
   external = false,
   onClick,
+  size = 'lg',
   ...props
 }) {
-  const handleClick = (e) => {
-    // Track CTA click
-    trackCTAClick(
-      typeof children === 'string' ? children : 'CTA',
-      location,
-      href || '#'
-    );
-
-    // Call custom onClick if provided
-    if (onClick) {
-      onClick(e);
-    }
+  // Map old variant names to new ones if needed
+  const variantMap = {
+    primary: 'primary',
+    secondary: 'secondary',
+    outline: 'ghost', // Map outline to ghost variant
   };
 
-  // Base button classes
-  const baseClasses = 'inline-block px-8 py-4 rounded-lg font-semibold transition-all duration-300';
+  const mappedVariant = variantMap[variant] || variant;
 
-  // Variant classes
-  const variantClasses = {
-    primary: 'bg-orange-500 text-white hover:bg-orange-600 hover:shadow-lg transform hover:-translate-y-0.5',
-    secondary: 'bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-50',
-    outline: 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-orange-500'
-  };
-
-  const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
-
-  // If no href, render as button
-  if (!href) {
-    return (
-      <button
-        onClick={handleClick}
-        className={buttonClasses}
-        {...props}
-      >
-        {children}
-      </button>
-    );
-  }
-
-  // External link
-  if (external) {
-    return (
-      <a
-        href={href}
-        onClick={handleClick}
-        className={buttonClasses}
-        target="_blank"
-        rel="noopener noreferrer"
-        {...props}
-      >
-        {children}
-      </a>
-    );
-  }
-
-  // Internal link
   return (
-    <Link
+    <Button
       href={href}
-      onClick={handleClick}
-      className={buttonClasses}
+      variant={mappedVariant}
+      size={size}
+      className={className}
+      external={external}
+      location={location}
+      onClick={onClick}
       {...props}
     >
       {children}
-    </Link>
+    </Button>
   );
 }

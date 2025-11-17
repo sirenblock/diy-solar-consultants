@@ -247,10 +247,10 @@ function companyEmailTemplate(data) {
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #0284c7; color: white; padding: 20px; border-radius: 5px 5px 0 0; }
+        .header { background: #ea580c; color: white; padding: 20px; border-radius: 5px 5px 0 0; }
         .content { background: #f9fafb; padding: 20px; border: 1px solid #e5e7eb; }
         .field { margin-bottom: 15px; }
-        .label { font-weight: bold; color: #0369a1; }
+        .label { font-weight: bold; color: #c2410c; }
         .value { margin-top: 5px; }
         .footer { margin-top: 20px; padding: 15px; background: #f3f4f6; border-radius: 0 0 5px 5px; font-size: 12px; color: #6b7280; }
       </style>
@@ -329,9 +329,9 @@ function userConfirmationTemplate(data) {
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #0284c7; color: white; padding: 30px 20px; text-align: center; border-radius: 5px 5px 0 0; }
+        .header { background: #ea580c; color: white; padding: 30px 20px; text-align: center; border-radius: 5px 5px 0 0; }
         .content { background: white; padding: 30px 20px; border: 1px solid #e5e7eb; }
-        .button { display: inline-block; padding: 12px 24px; background: #0284c7; color: white; text-decoration: none; border-radius: 5px; margin: 10px 5px; }
+        .button { display: inline-block; padding: 12px 24px; background: #ea580c; color: white; text-decoration: none; border-radius: 5px; margin: 10px 5px; }
         .resources { background: #f9fafb; padding: 20px; border-radius: 5px; margin: 20px 0; }
         .footer { margin-top: 20px; padding: 20px; background: #f3f4f6; border-radius: 0 0 5px 5px; font-size: 12px; color: #6b7280; text-align: center; }
       </style>

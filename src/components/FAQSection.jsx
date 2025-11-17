@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 /**
  * Enhanced FAQ Component with Automatic Schema Generation
@@ -101,22 +102,12 @@ export default function FAQSection({
               </span>
 
               {/* Expand/Collapse Icon */}
-              <svg
+              <ChevronDown
                 className={`w-5 h-5 md:w-6 md:h-6 text-solar-600 flex-shrink-0 transition-transform duration-200 ${
                   openIndex === index ? 'transform rotate-180' : ''
                 }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
                 aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              />
             </button>
 
             {/* Answer Panel */}
@@ -207,21 +198,11 @@ export function FAQSectionCompact({ questions, generateSchema = false }) {
               <span className="font-medium text-gray-900 pr-4">
                 {faq.question}
               </span>
-              <svg
+              <ChevronDown
                 className={`w-4 h-4 text-solar-600 flex-shrink-0 transition-transform ${
                   openIndex === index ? 'transform rotate-180' : ''
                 }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              />
             </button>
 
             {openIndex === index && (

@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Input from './Input';
+import Select from './Select';
+import TextArea from './TextArea';
 
 const FormStep3 = ({ formData, updateFormData, errors }) => {
   const [showSummary, setShowSummary] = useState(false);
@@ -26,56 +29,36 @@ const FormStep3 = ({ formData, updateFormData, errors }) => {
       </div>
 
       {/* 1. Name */}
-      <div className="space-y-2">
-        <label className="block text-sm font-semibold text-gray-900">
-          Full Name <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="text"
-          placeholder="John Smith"
-          value={formData.name || ''}
-          onChange={(e) => handleChange('name', e.target.value)}
-          autoComplete="name"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-        />
-        {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
-      </div>
+      <Input
+        type="text"
+        label="Full Name *"
+        value={formData.name || ''}
+        onChange={(e) => handleChange('name', e.target.value)}
+        autoComplete="name"
+        error={errors.name}
+      />
 
       {/* 2. Email */}
-      <div className="space-y-2">
-        <label className="block text-sm font-semibold text-gray-900">
-          Email Address <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="email"
-          placeholder="john@example.com"
-          value={formData.email || ''}
-          onChange={(e) => handleChange('email', e.target.value)}
-          autoComplete="email"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-        />
-        <p className="text-sm text-gray-500">
-          We'll send your design and quote to this address
-        </p>
-        {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
-      </div>
+      <Input
+        type="email"
+        label="Email Address *"
+        value={formData.email || ''}
+        onChange={(e) => handleChange('email', e.target.value)}
+        autoComplete="email"
+        helperText="We'll send your design and quote to this address"
+        error={errors.email}
+      />
 
       {/* 3. Phone */}
-      <div className="space-y-2">
-        <label className="block text-sm font-semibold text-gray-900">
-          Phone Number <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="tel"
-          placeholder="(555) 123-4567"
-          value={formData.phone || ''}
-          onChange={(e) => handleChange('phone', e.target.value)}
-          autoComplete="tel"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-        />
-        <p className="text-sm text-gray-500">For follow-up questions about your design</p>
-        {errors.phone && <p className="text-sm text-red-600">{errors.phone}</p>}
-      </div>
+      <Input
+        type="tel"
+        label="Phone Number *"
+        value={formData.phone || ''}
+        onChange={(e) => handleChange('phone', e.target.value)}
+        autoComplete="tel"
+        helperText="For follow-up questions about your design"
+        error={errors.phone}
+      />
 
       {/* 4. Best Time to Contact */}
       <div className="space-y-3">
@@ -142,25 +125,20 @@ const FormStep3 = ({ formData, updateFormData, errors }) => {
       </div>
 
       {/* 6. How Did You Hear About Us */}
-      <div className="space-y-2">
-        <label className="block text-sm font-semibold text-gray-900">
-          How did you find us?
-        </label>
-        <select
-          value={formData.referralSource || ''}
-          onChange={(e) => handleChange('referralSource', e.target.value)}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-        >
-          <option value="">Select source</option>
-          <option value="google">Google search</option>
-          <option value="social-media">Social media</option>
-          <option value="referral">Referral from friend/family</option>
-          <option value="forum">Online forum/Reddit</option>
-          <option value="youtube">YouTube</option>
-          <option value="blog">Blog/article</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
+      <Select
+        label="How did you find us?"
+        value={formData.referralSource || ''}
+        onChange={(e) => handleChange('referralSource', e.target.value)}
+      >
+        <option value="">Select source</option>
+        <option value="google">Google search</option>
+        <option value="social-media">Social media</option>
+        <option value="referral">Referral from friend/family</option>
+        <option value="forum">Online forum/Reddit</option>
+        <option value="youtube">YouTube</option>
+        <option value="blog">Blog/article</option>
+        <option value="other">Other</option>
+      </Select>
 
       {/* 7. Budget */}
       <div className="space-y-3">
@@ -202,23 +180,15 @@ const FormStep3 = ({ formData, updateFormData, errors }) => {
       </div>
 
       {/* 8. Additional Information */}
-      <div className="space-y-2">
-        <label className="block text-sm font-semibold text-gray-900">
-          Anything else we should know?
-        </label>
-        <textarea
-          placeholder="Special requirements, concerns, goals, questions, etc."
-          value={formData.additionalInfo || ''}
-          onChange={(e) => handleChange('additionalInfo', e.target.value)}
-          maxLength={1000}
-          rows={5}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent resize-none"
-        />
-        <div className="flex justify-between text-sm text-gray-500">
-          <span>Tell us about any specific goals, concerns, or requirements</span>
-          <span>{(formData.additionalInfo || '').length}/1000</span>
-        </div>
-      </div>
+      <TextArea
+        label="Anything else we should know?"
+        value={formData.additionalInfo || ''}
+        onChange={(e) => handleChange('additionalInfo', e.target.value)}
+        maxLength={1000}
+        rows={5}
+        charCount
+        helperText="Tell us about any specific goals, concerns, or requirements"
+      />
 
       {/* 9. Service Package Interest */}
       <div className="space-y-3">

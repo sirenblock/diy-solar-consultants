@@ -3,17 +3,17 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import {
-  CheckCircleIcon,
-  ClockIcon,
-  DocumentTextIcon,
-  WrenchScrewdriverIcon,
-  ChatBubbleLeftRightIcon,
-  BeakerIcon,
-  BuildingOfficeIcon,
-  BoltIcon,
-  SparklesIcon,
-  ShieldCheckIcon
-} from '@heroicons/react/24/outline';
+  CheckCircle,
+  Clock,
+  FileText,
+  Wrench,
+  MessageSquare,
+  Beaker,
+  Building,
+  Zap,
+  Sparkles,
+  ShieldCheck
+} from 'lucide-react';
 import {
   generateHowToSchema,
   generateBreadcrumbSchema,
@@ -196,14 +196,25 @@ export default function Process() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white">
-        <div className="section-container text-center">
-          <h1 className="heading-xl mb-6">How It Works</h1>
-          <p className="text-xl sm:text-2xl mb-8 max-w-4xl mx-auto opacity-95">
+      <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="relative max-w-6xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            How <span className="bg-gradient-to-r from-yellow-300 to-energy-200 bg-clip-text text-transparent">It Works</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
             From design to installation, here's exactly what to expect when you go solar with professional guidance
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link href="/design-request" className="px-8 py-4 bg-white text-solar-700 rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/30 hover:-translate-y-1 transition-all">
+              Start Your Project →
+            </Link>
+            <Link href="/calculator" className="px-8 py-4 bg-solar-700 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-solar-800 transition-all">
+              Calculate System Size
+            </Link>
+          </div>
           <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3 text-sm sm:text-base">
-            <ShieldCheckIcon className="w-5 h-5 mr-2" />
+            <ShieldCheck className="w-5 h-5 mr-2" />
             <span className="font-semibold">5,000+ homeowners have successfully completed this process</span>
           </div>
         </div>
@@ -263,7 +274,7 @@ function ProcessTimeline() {
       title: 'Consultation',
       duration: '30-60 minutes',
       cost: 'Free',
-      icon: ChatBubbleLeftRightIcon,
+      icon: MessageSquare,
       color: 'from-blue-500 to-blue-600'
     },
     {
@@ -271,7 +282,7 @@ function ProcessTimeline() {
       title: 'Design',
       duration: '5-7 days',
       cost: 'Starting at $XXX',
-      icon: BeakerIcon,
+      icon: Beaker,
       color: 'from-solar-500 to-solar-600'
     },
     {
@@ -279,7 +290,7 @@ function ProcessTimeline() {
       title: 'Permitting',
       duration: '2-6 weeks',
       cost: 'Included',
-      icon: DocumentTextIcon,
+      icon: FileText,
       color: 'from-energy-500 to-energy-600'
     },
     {
@@ -287,7 +298,7 @@ function ProcessTimeline() {
       title: 'Support',
       duration: 'Throughout',
       cost: 'Included',
-      icon: WrenchScrewdriverIcon,
+      icon: Wrench,
       color: 'from-amber-500 to-amber-600'
     }
   ];
@@ -325,7 +336,7 @@ function ProcessTimeline() {
                     <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
                     <div className="space-y-1 text-gray-600">
                       <div className="flex items-center justify-center">
-                        <ClockIcon className="w-4 h-4 mr-1" />
+                        <Clock className="w-4 h-4 mr-1" />
                         <span className="text-sm">{step.duration}</span>
                       </div>
                       <p className="font-semibold text-solar-600">{step.cost}</p>
@@ -359,7 +370,7 @@ function ProcessTimeline() {
                   <h3 className="text-xl sm:text-2xl font-bold mb-2">{step.title}</h3>
                   <div className="space-y-1 text-gray-600">
                     <div className="flex items-center">
-                      <ClockIcon className="w-4 h-4 mr-2" />
+                      <Clock className="w-4 h-4 mr-2" />
                       <span>{step.duration}</span>
                     </div>
                     <p className="font-semibold text-solar-600">{step.cost}</p>
@@ -381,14 +392,14 @@ function Step1Consultation() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-start space-x-6 mb-8">
           <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-            <ChatBubbleLeftRightIcon className="w-8 h-8 text-white" />
+            <MessageSquare className="w-8 h-8 text-white" />
           </div>
           <div>
             <div className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-2">Step 1</div>
             <h2 className="heading-md mb-2">Consultation & Assessment</h2>
             <div className="flex flex-wrap gap-4 text-gray-600">
               <span className="flex items-center">
-                <ClockIcon className="w-4 h-4 mr-1" />
+                <Clock className="w-4 h-4 mr-1" />
                 30-60 minutes
               </span>
               <span className="font-semibold text-blue-600">Free</span>
@@ -414,7 +425,7 @@ function Step1Consultation() {
                   'Your energy goals and budget'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
@@ -435,7 +446,7 @@ function Step1Consultation() {
                   'Timeline expectations'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircleIcon className="w-5 h-5 text-solar-600 mr-2 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-solar-600 mr-2 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
@@ -478,7 +489,7 @@ function Step1Consultation() {
                 'Next steps'
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <SparklesIcon className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                  <Sparkles className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -517,14 +528,14 @@ function Step2Design() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-start space-x-6 mb-8">
           <div className="w-16 h-16 bg-gradient-to-br from-solar-500 to-solar-600 rounded-full flex items-center justify-center flex-shrink-0">
-            <BeakerIcon className="w-8 h-8 text-white" />
+            <Beaker className="w-8 h-8 text-white" />
           </div>
           <div>
             <div className="text-sm font-semibold text-solar-600 uppercase tracking-wide mb-2">Step 2</div>
             <h2 className="heading-md mb-2">Professional Design</h2>
             <div className="flex flex-wrap gap-4 text-gray-600">
               <span className="flex items-center">
-                <ClockIcon className="w-4 h-4 mr-1" />
+                <Clock className="w-4 h-4 mr-1" />
                 5-7 business days
               </span>
               <span className="font-semibold text-solar-600">Starting at $XXX</span>
@@ -608,7 +619,7 @@ function Step2Design() {
                       'Ensure code compliance'
                     ].map((item, index) => (
                       <div key={index} className="flex items-start">
-                        <CheckCircleIcon className="w-5 h-5 text-solar-600 mr-2 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-solar-600 mr-2 flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700">{item}</span>
                       </div>
                     ))}
@@ -683,7 +694,7 @@ function Step2Design() {
                 </div>
 
                 <div className="flex items-start space-x-4 bg-white border-2 border-solar-200 rounded-lg p-6">
-                  <ShieldCheckIcon className="w-8 h-8 text-solar-600 flex-shrink-0" />
+                  <ShieldCheck className="w-8 h-8 text-solar-600 flex-shrink-0" />
                   <div>
                     <h4 className="font-bold text-lg mb-2">98% First-Time Approval Rate</h4>
                     <p className="text-gray-700">
@@ -712,7 +723,7 @@ function DesignPhase({ phase, title, timeline, content }) {
             <h3 className="text-xl font-bold">{title}</h3>
           </div>
           <div className="flex items-center bg-white/20 rounded-lg px-3 py-1">
-            <ClockIcon className="w-4 h-4 mr-1" />
+            <Clock className="w-4 h-4 mr-1" />
             <span className="text-sm font-semibold">{timeline}</span>
           </div>
         </div>
@@ -731,14 +742,14 @@ function Step3Permitting() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-start space-x-6 mb-8">
           <div className="w-16 h-16 bg-gradient-to-br from-energy-500 to-energy-600 rounded-full flex items-center justify-center flex-shrink-0">
-            <DocumentTextIcon className="w-8 h-8 text-white" />
+            <FileText className="w-8 h-8 text-white" />
           </div>
           <div>
             <div className="text-sm font-semibold text-energy-600 uppercase tracking-wide mb-2">Step 3</div>
             <h2 className="heading-md mb-2">Permitting & Approval</h2>
             <div className="flex flex-wrap gap-4 text-gray-600">
               <span className="flex items-center">
-                <ClockIcon className="w-4 h-4 mr-1" />
+                <Clock className="w-4 h-4 mr-1" />
                 2-6 weeks
               </span>
               <span className="font-semibold text-energy-600">Included in Design</span>
@@ -774,7 +785,7 @@ function Step3Permitting() {
                     'Fire setback calculations'
                   ].map((item, index) => (
                     <div key={index} className="flex items-start bg-gray-50 rounded-lg p-3">
-                      <CheckCircleIcon className="w-5 h-5 text-energy-600 mr-2 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-energy-600 mr-2 flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-gray-700">{item}</span>
                     </div>
                   ))}
@@ -817,7 +828,7 @@ function Step3Permitting() {
                       'Building department contact info'
                     ].map((item, index) => (
                       <li key={index} className="flex items-start text-gray-700">
-                        <SparklesIcon className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <Sparkles className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
                         {item}
                       </li>
                     ))}
@@ -856,7 +867,7 @@ function Step3Permitting() {
 
                 <div className="bg-gradient-to-r from-energy-50 to-green-50 rounded-lg p-6">
                   <h4 className="font-bold text-lg mb-3 flex items-center">
-                    <ShieldCheckIcon className="w-6 h-6 text-energy-600 mr-2" />
+                    <ShieldCheck className="w-6 h-6 text-energy-600 mr-2" />
                     Free Revision Support
                   </h4>
                   <p className="text-gray-700">
@@ -897,14 +908,14 @@ function Step4Installation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-start space-x-6 mb-8">
           <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
-            <WrenchScrewdriverIcon className="w-8 h-8 text-white" />
+            <Wrench className="w-8 h-8 text-white" />
           </div>
           <div>
             <div className="text-sm font-semibold text-amber-600 uppercase tracking-wide mb-2">Step 4</div>
             <h2 className="heading-md mb-2">Installation Support & Activation</h2>
             <div className="flex flex-wrap gap-4 text-gray-600">
               <span className="flex items-center">
-                <ClockIcon className="w-4 h-4 mr-1" />
+                <Clock className="w-4 h-4 mr-1" />
                 1-5 days installation | 1-4 weeks activation
               </span>
               <span className="font-semibold text-amber-600">Support Included</span>
@@ -941,7 +952,7 @@ function Step4Installation() {
                       'Rapid shutdown'
                     ].map((item, index) => (
                       <div key={index} className="flex items-start text-sm">
-                        <CheckCircleIcon className="w-4 h-4 text-amber-600 mr-1 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-amber-600 mr-1 flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700">{item}</span>
                       </div>
                     ))}
@@ -1052,7 +1063,7 @@ function Step4Installation() {
                       {['Structural attachments', 'Electrical connections', 'Grounding & bonding',
                         'Rapid shutdown', 'Labeling & placards', 'Fire setbacks'].map((item, index) => (
                         <li key={index} className="flex items-start">
-                          <CheckCircleIcon className="w-4 h-4 text-amber-600 mr-2 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-4 h-4 text-amber-600 mr-2 flex-shrink-0 mt-0.5" />
                           {item}
                         </li>
                       ))}
@@ -1090,7 +1101,7 @@ function Step4Installation() {
 
                 <div className="bg-gradient-to-r from-green-50 to-energy-50 rounded-lg p-6">
                   <h4 className="font-bold text-lg mb-3 flex items-center">
-                    <BoltIcon className="w-6 h-6 text-energy-600 mr-2" />
+                    <Zap className="w-6 h-6 text-energy-600 mr-2" />
                     Net Metering Setup
                   </h4>
                   <p className="text-gray-700">
@@ -1106,7 +1117,7 @@ function Step4Installation() {
           <div className="bg-gradient-to-br from-green-500 to-energy-500 rounded-xl shadow-lg p-8 text-white">
             <div className="flex items-start space-x-4">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <SparklesIcon className="w-8 h-8" />
+                <Sparkles className="w-8 h-8" />
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-bold mb-3">System Activation & Celebration! 🎉</h3>
@@ -1151,7 +1162,7 @@ function InstallPhase({ phase, title, timeline, content }) {
           </div>
           {timeline && (
             <div className="flex items-center bg-white/20 rounded-lg px-3 py-1">
-              <ClockIcon className="w-4 h-4 mr-1" />
+              <Clock className="w-4 h-4 mr-1" />
               <span className="text-sm font-semibold">{timeline}</span>
             </div>
           )}
@@ -1278,7 +1289,7 @@ function WhatToExpect() {
               <ul className="space-y-2">
                 {item.points.map((point, idx) => (
                   <li key={idx} className="flex items-start text-sm text-gray-700">
-                    <CheckCircleIcon className="w-4 h-4 text-solar-600 mr-2 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-solar-600 mr-2 flex-shrink-0 mt-0.5" />
                     {point}
                   </li>
                 ))}
@@ -1454,15 +1465,15 @@ function CTASection() {
 
         <div className="flex flex-wrap justify-center gap-6 text-sm opacity-90">
           <div className="flex items-center">
-            <ShieldCheckIcon className="w-5 h-5 mr-2" />
+            <ShieldCheck className="w-5 h-5 mr-2" />
             <span>98% approval rate</span>
           </div>
           <div className="flex items-center">
-            <ClockIcon className="w-5 h-5 mr-2" />
+            <Clock className="w-5 h-5 mr-2" />
             <span>5-7 day design</span>
           </div>
           <div className="flex items-center">
-            <CheckCircleIcon className="w-5 h-5 mr-2" />
+            <CheckCircle className="w-5 h-5 mr-2" />
             <span>Licensed PE engineers</span>
           </div>
         </div>

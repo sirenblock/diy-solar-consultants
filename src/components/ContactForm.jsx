@@ -1,4 +1,8 @@
 import { useState } from 'react'
+import Input from './Input'
+import TextArea from './TextArea'
+import Select from './Select'
+import Checkbox from './Checkbox'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -290,247 +294,139 @@ export default function ContactForm() {
         </div>
 
         {/* Name Field */}
-        <div>
-          <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-            Full Name <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            placeholder="John Smith"
-            autoComplete="name"
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors ${
-              touched.name && errors.name ? 'border-red-300 bg-red-50' : 'border-gray-300'
-            }`}
-            aria-required="true"
-            aria-invalid={touched.name && errors.name ? 'true' : 'false'}
-            aria-describedby={touched.name && errors.name ? 'name-error' : undefined}
-          />
-          {touched.name && errors.name && (
-            <p id="name-error" className="mt-2 text-sm text-red-600 flex items-center">
-              <svg className="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              {errors.name}
-            </p>
-          )}
-        </div>
+        <Input
+          id="name"
+          name="name"
+          type="text"
+          label="Full Name *"
+          value={formData.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          autoComplete="name"
+          error={touched.name && errors.name}
+          success={touched.name && !errors.name && formData.name.length >= 2}
+          aria-required="true"
+          aria-invalid={touched.name && errors.name ? 'true' : 'false'}
+        />
 
         {/* Email Field */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-            Email Address <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            placeholder="john@example.com"
-            autoComplete="email"
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors ${
-              touched.email && errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'
-            }`}
-            aria-required="true"
-            aria-invalid={touched.email && errors.email ? 'true' : 'false'}
-            aria-describedby={touched.email && errors.email ? 'email-error' : undefined}
-          />
-          {touched.email && errors.email && (
-            <p id="email-error" className="mt-2 text-sm text-red-600 flex items-center">
-              <svg className="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              {errors.email}
-            </p>
-          )}
-        </div>
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          label="Email Address *"
+          value={formData.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          autoComplete="email"
+          error={touched.email && errors.email}
+          success={touched.email && !errors.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)}
+          aria-required="true"
+          aria-invalid={touched.email && errors.email ? 'true' : 'false'}
+        />
 
         {/* Phone Field */}
-        <div>
-          <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-            Phone Number
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            placeholder="(555) 123-4567"
-            autoComplete="tel"
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors ${
-              touched.phone && errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-300'
-            }`}
-            aria-describedby="phone-help"
-            aria-invalid={touched.phone && errors.phone ? 'true' : 'false'}
-          />
-          {touched.phone && errors.phone ? (
-            <p className="mt-2 text-sm text-red-600 flex items-center">
-              <svg className="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              {errors.phone}
-            </p>
-          ) : (
-            <p id="phone-help" className="mt-2 text-sm text-gray-500">
-              Optional - for faster response
-            </p>
-          )}
-        </div>
+        <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          label="Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          autoComplete="tel"
+          error={touched.phone && errors.phone}
+          success={touched.phone && !errors.phone && formData.phone && /^[\d\s\-\(\)]+$/.test(formData.phone)}
+          helperText="Optional - for faster response"
+          aria-invalid={touched.phone && errors.phone ? 'true' : 'false'}
+        />
 
         {/* Project Type */}
-        <div>
-          <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
-            What are you interested in? <span className="text-red-500">*</span>
-          </label>
-          <select
-            id="projectType"
-            name="projectType"
-            value={formData.projectType}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors ${
-              touched.projectType && errors.projectType ? 'border-red-300 bg-red-50' : 'border-gray-300'
-            }`}
-            aria-required="true"
-            aria-invalid={touched.projectType && errors.projectType ? 'true' : 'false'}
-            aria-describedby={touched.projectType && errors.projectType ? 'projectType-error' : undefined}
-          >
-            <option value="">Select an option</option>
-            <option value="Solar System Design">Solar System Design</option>
-            <option value="Permitting Services">Permitting Services</option>
-            <option value="Equipment Sourcing">Equipment Sourcing</option>
-            <option value="Technical Consulting">Technical Consulting</option>
-            <option value="Complete Package">Complete Package (Design + Permit + Equipment)</option>
-            <option value="General Question">General Question</option>
-            <option value="Other">Other</option>
-          </select>
-          {touched.projectType && errors.projectType && (
-            <p id="projectType-error" className="mt-2 text-sm text-red-600 flex items-center">
-              <svg className="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              {errors.projectType}
-            </p>
-          )}
-        </div>
+        <Select
+          id="projectType"
+          name="projectType"
+          label="What are you interested in? *"
+          value={formData.projectType}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.projectType && errors.projectType}
+          success={touched.projectType && !errors.projectType && formData.projectType}
+          aria-required="true"
+          aria-invalid={touched.projectType && errors.projectType ? 'true' : 'false'}
+        >
+          <option value="">Select an option</option>
+          <option value="Solar System Design">Solar System Design</option>
+          <option value="Permitting Services">Permitting Services</option>
+          <option value="Equipment Sourcing">Equipment Sourcing</option>
+          <option value="Technical Consulting">Technical Consulting</option>
+          <option value="Complete Package">Complete Package (Design + Permit + Equipment)</option>
+          <option value="General Question">General Question</option>
+          <option value="Other">Other</option>
+        </Select>
 
         {/* System Size */}
-        <div>
-          <label htmlFor="systemSize" className="block text-sm font-semibold text-gray-700 mb-2">
-            Estimated System Size (if known)
-          </label>
-          <select
-            id="systemSize"
-            name="systemSize"
-            value={formData.systemSize}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors"
-            aria-describedby="systemSize-help"
-          >
-            <option value="">Select size (optional)</option>
-            <option value="Under 5 kW">Under 5 kW</option>
-            <option value="5-8 kW">5-8 kW</option>
-            <option value="8-12 kW">8-12 kW</option>
-            <option value="12-16 kW">12-16 kW</option>
-            <option value="16+ kW">16+ kW</option>
-            <option value="Commercial (20+ kW)">Commercial (20+ kW)</option>
-            <option value="Not sure yet">Not sure yet</option>
-          </select>
-          <p id="systemSize-help" className="mt-2 text-sm text-gray-500">
-            Don&apos;t worry if you&apos;re unsure - we can help you determine this
-          </p>
-        </div>
+        <Select
+          id="systemSize"
+          name="systemSize"
+          label="Estimated System Size (if known)"
+          value={formData.systemSize}
+          onChange={handleChange}
+          helperText="Don't worry if you're unsure - we can help you determine this"
+        >
+          <option value="">Select size (optional)</option>
+          <option value="Under 5 kW">Under 5 kW</option>
+          <option value="5-8 kW">5-8 kW</option>
+          <option value="8-12 kW">8-12 kW</option>
+          <option value="12-16 kW">12-16 kW</option>
+          <option value="16+ kW">16+ kW</option>
+          <option value="Commercial (20+ kW)">Commercial (20+ kW)</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </Select>
 
         {/* Timeline */}
-        <div>
-          <label htmlFor="timeline" className="block text-sm font-semibold text-gray-700 mb-2">
-            Project Timeline
-          </label>
-          <select
-            id="timeline"
-            name="timeline"
-            value={formData.timeline}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors"
-            aria-describedby="timeline-help"
-          >
-            <option value="">Select timeline (optional)</option>
-            <option value="Within 1 month">Within 1 month</option>
-            <option value="1-3 months">1-3 months</option>
-            <option value="3-6 months">3-6 months</option>
-            <option value="6-12 months">6-12 months</option>
-            <option value="12+ months">12+ months</option>
-            <option value="Just researching">Just researching</option>
-          </select>
-          <p id="timeline-help" className="mt-2 text-sm text-gray-500">
-            When are you planning to start?
-          </p>
-        </div>
+        <Select
+          id="timeline"
+          name="timeline"
+          label="Project Timeline"
+          value={formData.timeline}
+          onChange={handleChange}
+          helperText="When are you planning to start?"
+        >
+          <option value="">Select timeline (optional)</option>
+          <option value="Within 1 month">Within 1 month</option>
+          <option value="1-3 months">1-3 months</option>
+          <option value="3-6 months">3-6 months</option>
+          <option value="6-12 months">6-12 months</option>
+          <option value="12+ months">12+ months</option>
+          <option value="Just researching">Just researching</option>
+        </Select>
 
         {/* Message */}
-        <div>
-          <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-            Message <span className="text-red-500">*</span>
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            value={formData.message}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            placeholder="Tell us about your project, questions, or what you're trying to accomplish..."
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-solar-500 transition-colors resize-y ${
-              touched.message && errors.message ? 'border-red-300 bg-red-50' : 'border-gray-300'
-            }`}
-            aria-required="true"
-            aria-invalid={touched.message && errors.message ? 'true' : 'false'}
-            aria-describedby={touched.message && errors.message ? 'message-error' : 'message-count'}
-          />
-          {touched.message && errors.message ? (
-            <p id="message-error" className="mt-2 text-sm text-red-600 flex items-center">
-              <svg className="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              {errors.message}
-            </p>
-          ) : (
-            <p id="message-count" className={`mt-2 text-sm ${charCount >= 10 ? 'text-gray-500' : 'text-gray-400'}`}>
-              {charCount} characters (minimum 10)
-            </p>
-          )}
-        </div>
+        <TextArea
+          id="message"
+          name="message"
+          label="Message *"
+          rows={5}
+          value={formData.message}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.message && errors.message}
+          success={touched.message && !errors.message && formData.message.trim().length >= 10}
+          charCount
+          helperText="Tell us about your project, questions, or what you're trying to accomplish"
+          aria-required="true"
+          aria-invalid={touched.message && errors.message ? 'true' : 'false'}
+        />
 
         {/* Newsletter Opt-in */}
-        <div className="flex items-start">
-          <div className="flex items-center h-5">
-            <input
-              id="newsletter"
-              name="newsletter"
-              type="checkbox"
-              checked={formData.newsletter}
-              onChange={handleChange}
-              className="h-4 w-4 text-solar-600 focus:ring-solar-500 border-gray-300 rounded cursor-pointer"
-              aria-describedby="newsletter-help"
-            />
-          </div>
-          <div className="ml-3">
-            <label htmlFor="newsletter" className="font-medium text-gray-700 cursor-pointer">
-              Send me DIY solar tips and guides
-            </label>
-            <p id="newsletter-help" className="text-sm text-gray-500">
-              We send helpful guides and updates (unsubscribe anytime)
-            </p>
-          </div>
-        </div>
+        <Checkbox
+          id="newsletter"
+          name="newsletter"
+          checked={formData.newsletter}
+          onChange={handleChange}
+          label="Send me DIY solar tips and guides"
+          description="We send helpful guides and updates (unsubscribe anytime)"
+        />
 
         {/* Submit Button */}
         <div className="pt-4">

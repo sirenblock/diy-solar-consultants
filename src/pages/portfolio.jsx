@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { caseStudies } from '@/data/caseStudies';
 import FilterBar from '@/components/FilterBar';
 import CaseStudyCard from '@/components/CaseStudyCard';
@@ -138,25 +139,36 @@ export default function Portfolio() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-20 bg-gradient-to-br from-solar-600 via-solar-700 to-energy-600 text-white py-16 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="heading-xl mb-6">Solar Success Stories</h1>
-          <p className="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+      <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-solar-600 via-solar-700 to-energy-600 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="relative max-w-6xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            Solar <span className="bg-gradient-to-r from-yellow-300 to-energy-200 bg-clip-text text-transparent">Success Stories</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
             Real systems designed by our engineers, installed by homeowners like you
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link href="/design-request" className="px-8 py-4 bg-white text-solar-700 rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/30 hover:-translate-y-1 transition-all">
+              Start Your Project →
+            </Link>
+            <Link href="/calculator" className="px-8 py-4 bg-solar-700 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-solar-800 transition-all">
+              Calculate System Size
+            </Link>
+          </div>
 
           {/* Stats Bar */}
           <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto bg-white/10 backdrop-blur rounded-lg p-6">
             <div>
-              <div className="text-3xl font-bold mb-1">5,000+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">5,000+</div>
               <div className="text-sm text-white/80">Systems Designed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-1">All 50</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">All 50</div>
               <div className="text-sm text-white/80">States</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-1">$50M+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">$50M+</div>
               <div className="text-sm text-white/80">Savings Delivered</div>
             </div>
           </div>

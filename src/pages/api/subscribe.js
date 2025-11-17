@@ -129,10 +129,10 @@ function welcomeEmailTemplate(data) {
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
         .container { max-width: 600px; margin: 0 auto; }
-        .header { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; padding: 40px 20px; text-align: center; }
+        .header { background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); color: white; padding: 40px 20px; text-align: center; }
         .content { background: white; padding: 30px 20px; }
-        .button { display: inline-block; padding: 15px 30px; background: #0284c7; color: white; text-decoration: none; border-radius: 5px; margin: 15px 0; font-weight: bold; }
-        .tip-box { background: #f0f9ff; border-left: 4px solid #0284c7; padding: 15px 20px; margin: 15px 0; }
+        .button { display: inline-block; padding: 15px 30px; background: #ea580c; color: white; text-decoration: none; border-radius: 5px; margin: 15px 0; font-weight: bold; }
+        .tip-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 15px 20px; margin: 15px 0; }
         .footer { background: #f3f4f6; padding: 30px 20px; text-align: center; font-size: 14px; color: #6b7280; }
       </style>
     </head>
@@ -162,7 +162,7 @@ function welcomeEmailTemplate(data) {
             </a>
           </div>
 
-          <h3 style="color: #0369a1;">Quick Solar Tips to Get Started:</h3>
+          <h3 style="color: #c2410c;">Quick Solar Tips to Get Started:</h3>
 
           <div class="tip-box">
             <strong>Tip #1: Understand Your Energy Usage</strong>
@@ -210,8 +210,8 @@ function welcomeEmailTemplate(data) {
             Licensed Professional Engineers | NABCEP Certified | 98% Permit Approval Rate
           </p>
           <p style="margin: 15px 0 10px 0;">
-            <a href="mailto:info@diysolar.com" style="color: #0284c7; text-decoration: none;">info@diysolar.com</a> |
-            <a href="tel:+15555551234" style="color: #0284c7; text-decoration: none;">(555) 555-1234</a>
+            <a href="mailto:info@diysolar.com" style="color: #ea580c; text-decoration: none;">info@diysolar.com</a> |
+            <a href="tel:+15555551234" style="color: #ea580c; text-decoration: none;">(555) 555-1234</a>
           </p>
           <p style="margin: 20px 0 0 0; font-size: 12px; color: #9ca3af;">
             <a href="https://diysolar.com/unsubscribe?email=${data.email}" style="color: #9ca3af;">Unsubscribe</a> |

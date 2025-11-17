@@ -227,7 +227,7 @@ const ResultsDisplay = ({ results, inputs, onGetReport, onStartOver, onBack }) =
               <YAxis tickFormatter={(value) => `$${value / 1000}k`} />
               <Tooltip formatter={(value) => formatCurrency(value)} />
               <Legend />
-              <Bar dataKey="DIY" fill="#0ea5e9" name="DIY Installation" />
+              <Bar dataKey="DIY" fill="#ea580c" name="DIY Installation" />
               <Bar dataKey="Professional" fill="#6b7280" name="Professional Installation" />
             </BarChart>
           </ResponsiveContainer>
@@ -293,7 +293,7 @@ const ResultsDisplay = ({ results, inputs, onGetReport, onStartOver, onBack }) =
               <Line
                 type="monotone"
                 dataKey="savings"
-                stroke="#22c55e"
+                stroke="#2563eb"
                 strokeWidth={3}
                 dot={false}
                 name="Cumulative Savings"

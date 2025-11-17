@@ -7,6 +7,8 @@ import CustomerCounter from '@/components/CustomerCounter'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 import FAQSection from '@/components/FAQSection'
 import QuickCalculator from '@/components/QuickCalculator'
+import { IconCard, Card, StatCard } from '@/components/Card'
+import { FadeIn, FadeInScale, StaggerChildren } from '@/components/animations'
 import useScrollTracking from '@/hooks/useScrollTracking'
 import {
   generateLocalBusinessSchema,
@@ -401,93 +403,44 @@ export default function Home() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-solar-50 via-white to-energy-50 overflow-hidden">
-          <div className="section-container">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="heading-xl mb-6">
-                Expert Solar Design &{' '}
-                <span className="text-solar-600">Permitting Services</span>
-              </h1>
-              <p className="text-xl sm:text-2xl text-gray-600 mb-8 leading-relaxed">
-                Professional solar design for DIY homeowners. Save 40-60% on
-                installation costs with expert guidance.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <Link href="/design-request" className="btn-primary text-lg">
-                  Get Your Solar Design
-                </Link>
-                <Link href="/calculator" className="btn-secondary text-lg">
-                  Calculate System Size
-                </Link>
+        <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-gray-50 via-white to-solar-50 overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="relative max-w-6xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-solar-700 to-energy-700 bg-clip-text text-transparent leading-tight animate-fade-in">
+              Professional Solar Design<br />for DIY Homeowners
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Licensed PE engineers help you save 40-60% on solar installation. Get your custom design in 5-7 days.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link href="/design-request" className="px-8 py-4 bg-gradient-to-r from-solar-600 to-energy-600 text-white rounded-xl font-bold text-lg shadow-2xl shadow-solar-600/30 hover:shadow-solar-600/50 hover:-translate-y-1 transition-all">
+                Get Free Quote →
+              </Link>
+              <Link href="/calculator" className="px-8 py-4 bg-white border-2 border-gray-300 text-gray-800 rounded-xl font-bold text-lg hover:border-solar-600 hover:text-solar-600 transition-all">
+                Calculate Savings
+              </Link>
+            </div>
+            <div className="flex flex-wrap justify-center gap-8 text-sm">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold text-gray-700">5,000+ Systems Designed</span>
               </div>
-
-              {/* Trust Badge Strip */}
-              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm sm:text-base text-gray-700 border-t border-b border-gray-200 py-6">
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2 text-energy-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-semibold">Licensed PE</span>
-                </div>
-                <div className="hidden sm:block text-gray-300">|</div>
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2 text-energy-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-semibold">NABCEP Certified</span>
-                </div>
-                <div className="hidden sm:block text-gray-300">|</div>
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2 text-energy-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-semibold">5,000+ Systems</span>
-                </div>
-                <div className="hidden sm:block text-gray-300">|</div>
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2 text-energy-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-semibold">98% Approval Rate</span>
-                </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold text-gray-700">98% Approval Rate</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold text-gray-700">Licensed in 50 States</span>
               </div>
             </div>
           </div>
-
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 -mt-40 -mr-40 w-80 h-80 bg-solar-200 rounded-full opacity-20 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 -mb-40 -ml-40 w-80 h-80 bg-energy-200 rounded-full opacity-20 blur-3xl"></div>
@@ -495,46 +448,46 @@ export default function Home() {
 
         {/* Trust Badges Section */}
         <section className="section-container bg-white">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-              Trusted & Certified Professionals
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Industry-leading credentials and proven track record
-            </p>
-          </div>
-          <TrustBadges variant="horizontal" />
+          <FadeIn>
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                Trusted & Certified Professionals
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Industry-leading credentials and proven track record
+              </p>
+            </div>
+          </FadeIn>
+          <FadeInScale delay={0.2}>
+            <TrustBadges variant="horizontal" />
+          </FadeInScale>
         </section>
 
         {/* Value Propositions Section */}
         <section className="section-container bg-gray-50">
-          <div className="text-center mb-16">
-            <h2 className="heading-lg mb-4">Why DIY Solar Consultants?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Professional expertise without the installation markup. When you choose to{' '}
-              <Link href="/process" className="text-solar-600 hover:text-solar-700 underline font-semibold">
-                work with our team
-              </Link>
-              , you get licensed engineers without paying installer prices.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="heading-lg mb-4">Why DIY Solar Consultants?</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Professional expertise without the installation markup. When you choose to{' '}
+                <Link href="/process" className="text-solar-600 hover:text-solar-700 underline font-semibold">
+                  work with our team
+                </Link>
+                , you get licensed engineers without paying installer prices.
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {valueProps.map((prop, index) => (
-              <div
+              <IconCard
                 key={index}
-                className="text-center p-8 rounded-xl hover:shadow-xl transition-shadow duration-300 border border-gray-100 bg-white"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-solar-100 text-solar-600">
-                  {prop.icon}
-                </div>
-                <h3 className="heading-sm mb-4">{prop.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {prop.description}
-                </p>
-              </div>
+                icon={prop.icon}
+                title={prop.title}
+                description={prop.description}
+              />
             ))}
-          </div>
+          </StaggerChildren>
         </section>
 
         {/* Customer Counter Section */}
@@ -544,40 +497,35 @@ export default function Home() {
 
         {/* Services Overview Grid */}
         <section className="section-container bg-gray-50">
-          <div className="text-center mb-16">
-            <h2 className="heading-lg mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Everything you need for your DIY solar project. From{' '}
-              <Link href="/services#design" className="text-solar-600 hover:text-solar-700 underline">
-                professional system design
-              </Link>
-              {' '}to{' '}
-              <Link href="/services#permitting" className="text-solar-600 hover:text-solar-700 underline">
-                permit-ready plansets
-              </Link>
-              {' '}and{' '}
-              <Link href="/equipment" className="text-solar-600 hover:text-solar-700 underline">
-                equipment sourcing
-              </Link>
-              .
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="heading-lg mb-4">Our Services</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Everything you need for your DIY solar project. From{' '}
+                <Link href="/services#design" className="text-solar-600 hover:text-solar-700 underline">
+                  professional system design
+                </Link>
+                {' '}to{' '}
+                <Link href="/services#permitting" className="text-solar-600 hover:text-solar-700 underline">
+                  permit-ready plansets
+                </Link>
+                {' '}and{' '}
+                <Link href="/equipment" className="text-solar-600 hover:text-solar-700 underline">
+                  equipment sourcing
+                </Link>
+                .
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.08}>
             {services.map((service, index) => (
-              <div
+              <IconCard
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
               >
-                <div className="text-solar-600 mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-900">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  {service.description}
-                </p>
                 <Link
                   href={service.link}
                   className="inline-flex items-center text-solar-600 hover:text-solar-700 font-semibold transition-colors"
@@ -597,29 +545,31 @@ export default function Home() {
                     />
                   </svg>
                 </Link>
-              </div>
+              </IconCard>
             ))}
-          </div>
+          </StaggerChildren>
         </section>
 
         {/* Process Summary Section */}
         <section className="section-container bg-white">
-          <div className="text-center mb-16">
-            <h2 className="heading-lg mb-4">How It Works</h2>
-            <p className="text-xl text-gray-600">
-              Professional solar design made simple. Learn more about{' '}
-              <Link href="/process" className="text-solar-600 hover:text-solar-700 underline font-semibold">
-                our proven process
-              </Link>
-              {' '}and{' '}
-              <Link href="/pricing" className="text-solar-600 hover:text-solar-700 underline font-semibold">
-                transparent pricing
-              </Link>
-              .
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="heading-lg mb-4">How It Works</h2>
+              <p className="text-xl text-gray-600">
+                Professional solar design made simple. Learn more about{' '}
+                <Link href="/process" className="text-solar-600 hover:text-solar-700 underline font-semibold">
+                  our proven process
+                </Link>
+                {' '}and{' '}
+                <Link href="/pricing" className="text-solar-600 hover:text-solar-700 underline font-semibold">
+                  transparent pricing
+                </Link>
+                .
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.12}>
             {process.map((step, index) => (
               <div key={index} className="relative">
                 {/* Connector Line */}
@@ -627,7 +577,7 @@ export default function Home() {
                   <div className="hidden lg:block absolute top-16 left-1/2 w-full h-0.5 bg-gradient-to-r from-solar-300 to-solar-200"></div>
                 )}
 
-                <div className="relative bg-white p-6 rounded-xl border-2 border-solar-100 hover:border-solar-300 transition-colors text-center">
+                <Card variant="outlined" className="relative text-center hover:border-solar-300">
                   <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-solar-600 text-white font-bold text-2xl relative z-10">
                     {step.step}
                   </div>
@@ -643,10 +593,10 @@ export default function Home() {
                   <div className="inline-block px-3 py-1 bg-solar-50 text-solar-700 text-sm font-semibold rounded-full">
                     {step.timeline}
                   </div>
-                </div>
+                </Card>
               </div>
             ))}
-          </div>
+          </StaggerChildren>
         </section>
 
         {/* Social Proof Section */}
@@ -665,14 +615,14 @@ export default function Home() {
 
         {/* Quick Calculator Lead Magnet */}
         <section className="section-container bg-white">
-          <div className="max-w-4xl mx-auto">
+          <FadeInScale className="max-w-4xl mx-auto">
             <QuickCalculator />
-          </div>
+          </FadeInScale>
         </section>
 
         {/* Call-to-Action Section */}
         <section className="section-container bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white">
-          <div className="max-w-4xl mx-auto text-center">
+          <FadeIn className="max-w-4xl mx-auto text-center">
             <h2 className="heading-lg mb-6">Ready to Start Your Solar Project?</h2>
             <p className="text-xl mb-8 text-solar-100 leading-relaxed">
               Get a professional solar design and start saving on your energy
@@ -740,7 +690,7 @@ export default function Home() {
                 5-7 day turnaround
               </div>
             </div>
-          </div>
+          </FadeIn>
         </section>
 
         {/* Quick Answers Section with Schema Markup */}

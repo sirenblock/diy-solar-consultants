@@ -1,5 +1,8 @@
+'use client'
+
 import { useState } from 'react'
 import Link from 'next/link'
+import { Zap, Facebook, Twitter, Linkedin, Youtube, Phone, Mail, ShieldCheck, Star, CheckCircle } from 'lucide-react'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -13,304 +16,162 @@ export default function Footer() {
     setTimeout(() => setIsSubscribed(false), 3000)
   }
 
-  const services = [
-    { href: '/services', label: 'All Services' },
-    { href: '/services#design', label: 'Solar System Design' },
-    { href: '/services#permitting', label: 'PE Stamping' },
-    { href: '/services#equipment', label: 'Permit Assistance' },
-    { href: '/services#consulting', label: 'Equipment Selection' },
-  ]
-
-  const resources = [
-    { href: '/pricing', label: 'Pricing' },
-    { href: '/process', label: 'Our Process' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/equipment', label: 'Equipment Guide' },
-    { href: '/portfolio', label: 'Portfolio' },
-    { href: '/resources', label: 'Resources' },
-  ]
-
-  const company = [
-    { href: '/about', label: 'About Us' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/calculator', label: 'Solar Calculator' },
-  ]
-
-  const getStarted = [
-    { href: '/design-request', label: 'Request a Quote' },
-    { href: '/calculator', label: 'Solar Savings Calculator' },
-    { href: '/contact', label: 'Ask a Question' },
-  ]
-
-  const stateServices = [
-    { href: '/solar-design/california', label: 'California Solar Design' },
-    { href: '/solar-design/texas', label: 'Texas Solar Design' },
-    { href: '/solar-design/florida', label: 'Florida Solar Design' },
-    { href: '/solar-design/new-york', label: 'New York Solar Design' },
-    { href: '/solar-design/arizona', label: 'Arizona Solar Design' },
-  ]
-
-  const trustSignals = [
-    'Licensed Professional Engineers',
-    'NABCEP Certified',
-    '5,000+ Systems Designed',
-    '98% Permit Approval Rate',
-    'All 50 States',
-  ]
-
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-300">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center mb-4">
-              <svg
-                className="w-8 h-8 text-solar-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
-              <span className="ml-2 text-xl font-bold text-white">
-                DIY Solar Consultants
-              </span>
-            </div>
-            <p className="text-sm font-semibold text-solar-400 mb-3">
-              Professional Solar Design for DIY Homeowners
-            </p>
-            <p className="text-sm leading-relaxed mb-6">
-              Licensed PE and NABCEP-certified professionals providing solar
-              design, permitting, and equipment sourcing services.
-            </p>
-
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <a
-                href="tel:+18885551234"
-                className="flex items-center text-sm hover:text-solar-400 transition-colors"
-              >
-                <svg
-                  className="w-5 h-5 mr-2 text-solar-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                <span className="font-semibold">(888) 555-1234</span>
-              </a>
-              <a
-                href="mailto:info@diysolarcosnultants.com"
-                className="flex items-center text-sm hover:text-solar-400 transition-colors"
-              >
-                <svg
-                  className="w-5 h-5 mr-2 text-solar-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                info@diysolarcosnultants.com
-              </a>
-            </div>
-          </div>
-
-          {/* Services */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Column 1: Company */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              Services
-            </h3>
-            <ul className="space-y-2">
-              {services.map((service) => (
-                <li key={service.href}>
-                  <Link
-                    href={service.href}
-                    className="text-sm hover:text-solar-400 transition-colors"
-                  >
-                    {service.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              Resources
-            </h3>
-            <ul className="space-y-2">
-              {resources.map((resource) => (
-                <li key={resource.href}>
-                  <Link
-                    href={resource.href}
-                    className="text-sm hover:text-solar-400 transition-colors"
-                  >
-                    {resource.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* State Services */}
-          <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              State Services
-            </h3>
-            <ul className="space-y-2">
-              {stateServices.map((state) => (
-                <li key={state.href}>
-                  <Link
-                    href={state.href}
-                    className="text-sm hover:text-solar-400 transition-colors"
-                  >
-                    {state.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              Company
-            </h3>
-            <ul className="space-y-2">
-              {company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-solar-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Get Started */}
-          <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              Get Started
-            </h3>
-            <ul className="space-y-2">
-              {getStarted.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-solar-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            {/* Trust Badges in Get Started Section */}
-            <div className="mt-6 pt-6 border-t border-gray-700">
-              <div className="space-y-2">
-                {trustSignals.slice(0, 3).map((signal) => (
-                  <div key={signal} className="flex items-start">
-                    <svg
-                      className="w-4 h-4 mr-2 text-energy-500 flex-shrink-0 mt-0.5"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span className="text-xs">{signal}</span>
-                  </div>
-                ))}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-gradient-to-br from-solar-400 to-energy-500 rounded-xl flex items-center justify-center">
+                <Zap className="w-6 h-6 text-white" fill="currentColor" />
               </div>
+              <span className="text-xl font-bold text-white">DIY Solar</span>
+            </div>
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              Professional solar design and permitting services for DIY homeowners. Save 40-60% with expert guidance.
+            </p>
+            <div className="flex gap-3">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
+                <Youtube className="w-5 h-5" />
+              </a>
             </div>
           </div>
-        </div>
 
-        {/* Newsletter Signup */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="max-w-md">
-            <h3 className="text-white font-semibold mb-2">
-              Get DIY Solar Tips & Exclusive Guides
-            </h3>
-            <p className="text-sm text-gray-400 mb-4">
-              Join our newsletter for expert solar insights and money-saving tips.
-            </p>
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-                required
-              />
-              <button
-                type="submit"
-                className="px-6 py-2 bg-solar-600 hover:bg-solar-700 text-white font-semibold rounded-lg transition-colors duration-200"
-              >
-                Subscribe
-              </button>
+          {/* Column 2: Quick Links */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
+            <ul className="space-y-3">
+              <li><Link href="/about" className="footer-link">About Us</Link></li>
+              <li><Link href="/services" className="footer-link">Services</Link></li>
+              <li><Link href="/pricing" className="footer-link">Pricing</Link></li>
+              <li><Link href="/portfolio" className="footer-link">Portfolio</Link></li>
+              <li><Link href="/faq" className="footer-link">FAQ</Link></li>
+              <li><Link href="/contact" className="footer-link">Contact</Link></li>
+              <li><Link href="/calculator" className="footer-link">Solar Calculator</Link></li>
+              <li><Link href="/resources" className="footer-link">Resources</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Services */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Our Services</h3>
+            <ul className="space-y-3">
+              <li><Link href="/services#design" className="footer-link">System Design</Link></li>
+              <li><Link href="/services#permitting" className="footer-link">PE Stamping</Link></li>
+              <li><Link href="/services#equipment" className="footer-link">Equipment Sourcing</Link></li>
+              <li><Link href="/services#consulting" className="footer-link">Solar Consulting</Link></li>
+              <li><Link href="/process" className="footer-link">Our Process</Link></li>
+              <li><Link href="/equipment" className="footer-link">Equipment Guide</Link></li>
+            </ul>
+
+            {/* State Services */}
+            <div className="mt-8">
+              <h4 className="text-white font-semibold text-sm mb-3">Popular States</h4>
+              <ul className="space-y-2">
+                <li><Link href="/solar-design/california" className="footer-link text-sm">California</Link></li>
+                <li><Link href="/solar-design/texas" className="footer-link text-sm">Texas</Link></li>
+                <li><Link href="/solar-design/florida" className="footer-link text-sm">Florida</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Column 4: Contact + Newsletter */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Stay Updated</h3>
+            <form onSubmit={handleSubscribe} className="mb-6">
+              <div className="flex flex-col gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-solar-500 transition-colors"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-3 bg-gradient-to-r from-solar-600 to-energy-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-solar-600/50 transition-all"
+                >
+                  Subscribe
+                </button>
+              </div>
+              {isSubscribed ? (
+                <p className="text-sm text-energy-500 mt-2">✓ Successfully subscribed!</p>
+              ) : (
+                <p className="text-xs text-gray-500 mt-2">Get solar tips & exclusive offers</p>
+              )}
             </form>
-            {isSubscribed && (
-              <p className="mt-2 text-sm text-energy-500">
-                ✓ Successfully subscribed!
-              </p>
-            )}
+
+            <div className="space-y-3">
+              <a href="tel:+18885551234" className="flex items-center gap-2 footer-link">
+                <Phone className="w-4 h-4" />
+                <span>(888) 555-1234</span>
+              </a>
+              <a href="mailto:info@diysolar.com" className="flex items-center gap-2 footer-link">
+                <Mail className="w-4 h-4" />
+                <span>info@diysolar.com</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Trust Badges */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} DIY Solar Consultants. All rights
-              reserved.
-            </p>
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500">
+            <span className="flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-solar-500" />
+              Licensed PE - 50 States
+            </span>
+            <span className="flex items-center gap-2">
+              <Star className="w-5 h-5 text-energy-500" fill="currentColor" />
+              NABCEP Certified
+            </span>
+            <span className="flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-solar-500" />
+              5,000+ Systems
+            </span>
+            <span className="flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-energy-500" />
+              98% Approval Rate
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <p>© {new Date().getFullYear()} DIY Solar Consultants. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link
-                href="/privacy"
-                className="text-sm text-gray-400 hover:text-solar-400 transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-sm text-gray-400 hover:text-solar-400 transition-colors"
-              >
-                Terms of Service
-              </Link>
+              <Link href="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-gray-300 transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .footer-link {
+          @apply text-gray-400 hover:text-white transition-colors duration-200;
+        }
+        .social-icon {
+          @apply w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 hover:shadow-lg hover:shadow-solar-600/20 transition-all duration-200;
+        }
+      `}</style>
     </footer>
   )
 }

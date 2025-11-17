@@ -111,42 +111,41 @@ export default function Equipment() {
 
       <div className="pt-20 min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white py-20 px-4">
-          <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Tier-1 Solar Equipment at Competitive Prices
+        <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="relative max-w-6xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Tier-1 Solar Equipment at<br /><span className="bg-gradient-to-r from-energy-300 to-yellow-200 bg-clip-text text-transparent">Competitive Prices</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-solar-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-solar-100 mb-10 max-w-3xl mx-auto leading-relaxed">
               We source premium solar panels, inverters, batteries, and mounting systems from trusted manufacturers
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="bg-white text-solar-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-solar-50 transition-colors">
-                Get Equipment Quote
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link href="/contact" className="px-8 py-4 bg-white text-solar-700 rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/30 hover:-translate-y-1 transition-all">
+                Get Equipment Quote →
               </Link>
-              <Link href="/design-request" className="bg-solar-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-solar-600 transition-colors border-2 border-white">
+              <Link href="/design-request" className="px-8 py-4 bg-solar-800 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-solar-900 transition-all">
                 Schedule Consultation
               </Link>
             </div>
-
-            {/* Trust Signal */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-solar-100">
+            <div className="flex flex-wrap justify-center gap-8 text-sm sm:text-base">
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Tier-1 manufacturers</span>
+                <span className="font-semibold">Tier-1 Manufacturers</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>25-year warranties</span>
+                <span className="font-semibold">25-Year Warranties</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Competitive pricing</span>
+                <span className="font-semibold">15-30% Below Retail</span>
               </div>
             </div>
           </div>

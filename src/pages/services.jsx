@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FAQSection from '@/components/FAQSection';
 import TrustBadges from '@/components/TrustBadges';
+import { Card } from '@/components/Card';
 import {
   generateServicesPageSchema,
   generateBreadcrumbSchema,
@@ -72,21 +73,42 @@ export default function Services() {
 
       <div className="pt-20 min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white py-20 px-4">
-          <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Professional Solar Services for DIY Success
+        <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="relative max-w-6xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Professional Solar Services<br />for <span className="bg-gradient-to-r from-energy-300 to-yellow-200 bg-clip-text text-transparent">DIY Success</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-solar-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-solar-100 mb-10 max-w-3xl mx-auto leading-relaxed">
               From design to installation support, we provide the expertise you need to successfully go solar
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/pricing" className="bg-white text-solar-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-solar-50 transition-colors">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link href="/design-request" className="px-8 py-4 bg-white text-solar-700 rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/30 hover:-translate-y-1 transition-all">
+                Get Started →
+              </Link>
+              <Link href="/pricing" className="px-8 py-4 bg-solar-800 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-solar-900 transition-all">
                 View Pricing
               </Link>
-              <Link href="/design-request" className="bg-solar-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-solar-600 transition-colors border-2 border-white">
-                Get Started
-              </Link>
+            </div>
+            <div className="flex flex-wrap justify-center gap-8 text-sm sm:text-base">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">5,000+ Systems Designed</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">98% Approval Rate</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">5-7 Day Turnaround</span>
+              </div>
             </div>
           </div>
         </section>
@@ -114,21 +136,29 @@ export default function Services() {
 
             {/* Quick Navigation */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <a href="#design" className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                <div className="text-3xl mb-2">📐</div>
-                <h3 className="font-semibold text-gray-900">System Design</h3>
+              <a href="#design">
+                <Card padding="sm" className="text-center">
+                  <div className="text-3xl mb-2">📐</div>
+                  <h3 className="font-semibold text-gray-900">System Design</h3>
+                </Card>
               </a>
-              <a href="#permitting" className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                <div className="text-3xl mb-2">📋</div>
-                <h3 className="font-semibold text-gray-900">Permitting</h3>
+              <a href="#permitting">
+                <Card padding="sm" className="text-center">
+                  <div className="text-3xl mb-2">📋</div>
+                  <h3 className="font-semibold text-gray-900">Permitting</h3>
+                </Card>
               </a>
-              <a href="#equipment" className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                <div className="text-3xl mb-2">📦</div>
-                <h3 className="font-semibold text-gray-900">Equipment</h3>
+              <a href="#equipment">
+                <Card padding="sm" className="text-center">
+                  <div className="text-3xl mb-2">📦</div>
+                  <h3 className="font-semibold text-gray-900">Equipment</h3>
+                </Card>
               </a>
-              <a href="#consulting" className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                <div className="text-3xl mb-2">💡</div>
-                <h3 className="font-semibold text-gray-900">Consulting</h3>
+              <a href="#consulting">
+                <Card padding="sm" className="text-center">
+                  <div className="text-3xl mb-2">💡</div>
+                  <h3 className="font-semibold text-gray-900">Consulting</h3>
+                </Card>
               </a>
             </div>
           </div>
@@ -137,7 +167,7 @@ export default function Services() {
         {/* Service 1: Solar System Design */}
         <section id="design" className="py-16 px-4 scroll-mt-4">
           <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+            <Card variant="elevated" className="overflow-hidden p-0">
               <div className="bg-gradient-to-r from-solar-600 to-solar-700 p-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-5xl">📐</div>
@@ -242,14 +272,14 @@ export default function Services() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </section>
 
         {/* Service 2: Permitting Plansets */}
         <section id="permitting" className="py-16 px-4 bg-gray-50 scroll-mt-4">
           <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+            <Card variant="elevated" className="overflow-hidden p-0">
               <div className="bg-gradient-to-r from-energy-600 to-energy-700 p-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-5xl">📋</div>
@@ -366,14 +396,14 @@ export default function Services() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </section>
 
         {/* Service 3: Equipment Sourcing */}
         <section id="equipment" className="py-16 px-4 scroll-mt-4">
           <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+            <Card variant="elevated" className="overflow-hidden p-0">
               <div className="bg-gradient-to-r from-solar-600 to-solar-700 p-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-5xl">📦</div>
@@ -481,14 +511,14 @@ export default function Services() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </section>
 
         {/* Service 4: Technical Consulting */}
         <section id="consulting" className="py-16 px-4 bg-gray-50 scroll-mt-4">
           <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+            <Card variant="elevated" className="overflow-hidden p-0">
               <div className="bg-gradient-to-r from-energy-600 to-energy-700 p-8 text-white">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-5xl">💡</div>
@@ -617,7 +647,7 @@ export default function Services() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </section>
 

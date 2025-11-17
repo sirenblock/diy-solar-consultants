@@ -1,4 +1,6 @@
 import React from 'react';
+import Input from './Input';
+import Select from './Select';
 
 const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
   const handleChange = (field, value) => {
@@ -38,38 +40,35 @@ const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
 
       {/* 1. Property Address */}
       <div className="space-y-4">
-        <label className="block text-sm font-semibold text-gray-900">
+        <label className="block text-sm font-semibold text-gray-900 mb-3">
           Installation Address <span className="text-red-500">*</span>
         </label>
         <div className="space-y-3">
-          <input
+          <Input
             type="text"
-            placeholder="Street Address"
+            label="Street Address"
             value={formData.street || ''}
             onChange={(e) => handleChange('street', e.target.value)}
             autoComplete="street-address"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
+            error={errors.street}
           />
-          {errors.street && <p className="text-sm text-red-600">{errors.street}</p>}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <Input
+              type="text"
+              label="City"
+              value={formData.city || ''}
+              onChange={(e) => handleChange('city', e.target.value)}
+              autoComplete="address-level2"
+              error={errors.city}
+            />
             <div>
-              <input
-                type="text"
-                placeholder="City"
-                value={formData.city || ''}
-                onChange={(e) => handleChange('city', e.target.value)}
-                autoComplete="address-level2"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-              />
-              {errors.city && <p className="text-sm text-red-600 mt-1">{errors.city}</p>}
-            </div>
-            <div>
-              <select
+              <Select
+                label="State"
                 value={formData.state || ''}
                 onChange={(e) => handleChange('state', e.target.value)}
                 autoComplete="address-level1"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
+                error={errors.state}
               >
                 <option value="">State</option>
                 <option value="AL">Alabama</option>
@@ -122,21 +121,17 @@ const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
                 <option value="WV">West Virginia</option>
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
-              </select>
-              {errors.state && <p className="text-sm text-red-600 mt-1">{errors.state}</p>}
+              </Select>
             </div>
-            <div>
-              <input
-                type="text"
-                placeholder="ZIP Code"
-                value={formData.zip || ''}
-                onChange={(e) => handleChange('zip', e.target.value)}
-                autoComplete="postal-code"
-                inputMode="numeric"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-              />
-              {errors.zip && <p className="text-sm text-red-600 mt-1">{errors.zip}</p>}
-            </div>
+            <Input
+              type="text"
+              label="ZIP Code"
+              value={formData.zip || ''}
+              onChange={(e) => handleChange('zip', e.target.value)}
+              autoComplete="postal-code"
+              inputMode="numeric"
+              error={errors.zip}
+            />
           </div>
         </div>
         <p className="text-sm text-gray-500 mt-2">
@@ -185,18 +180,12 @@ const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
       </div>
 
       {formData.roofType === 'other' && (
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Describe Roof Type
-          </label>
-          <input
-            type="text"
-            placeholder="Enter roof type description"
-            value={formData.roofTypeOther || ''}
-            onChange={(e) => handleChange('roofTypeOther', e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-          />
-        </div>
+        <Input
+          type="text"
+          label="Describe Roof Type"
+          value={formData.roofTypeOther || ''}
+          onChange={(e) => handleChange('roofTypeOther', e.target.value)}
+        />
       )}
 
       {/* 3. Roof Age */}
@@ -509,26 +498,19 @@ const FormStep2 = ({ formData, updateFormData, errors, onFileUpload }) => {
       </div>
 
       {/* 9. Mounting System Preference */}
-      <div className="space-y-3">
-        <label className="block text-sm font-semibold text-gray-900">
-          Mounting/Racking Preference
-        </label>
-        <select
-          value={formData.mountingSystem || ''}
-          onChange={(e) => handleChange('mountingSystem', e.target.value)}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-        >
-          <option value="">Select mounting preference</option>
-          <option value="ironridge">IronRidge (premium, most common)</option>
-          <option value="unirac">Unirac (reliable mid-range)</option>
-          <option value="quickmount">Quick Mount PV (excellent flashings)</option>
-          <option value="s5">S-5! (for metal roofs)</option>
-          <option value="no-preference">No preference - recommend best option</option>
-        </select>
-        <p className="text-sm text-gray-500 mt-2">
-          We'll recommend the appropriate system for your roof type
-        </p>
-      </div>
+      <Select
+        label="Mounting/Racking Preference"
+        value={formData.mountingSystem || ''}
+        onChange={(e) => handleChange('mountingSystem', e.target.value)}
+        helperText="We'll recommend the appropriate system for your roof type"
+      >
+        <option value="">Select mounting preference</option>
+        <option value="ironridge">IronRidge (premium, most common)</option>
+        <option value="unirac">Unirac (reliable mid-range)</option>
+        <option value="quickmount">Quick Mount PV (excellent flashings)</option>
+        <option value="s5">S-5! (for metal roofs)</option>
+        <option value="no-preference">No preference - recommend best option</option>
+      </Select>
 
       {/* 10. Electrical Service */}
       <div className="space-y-3">

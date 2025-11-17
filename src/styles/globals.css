@@ -3,6 +3,69 @@
 @tailwind utilities;
 
 @layer base {
+  /* CSS Custom Properties for Theme Switching */
+  :root {
+    /* Solar (Primary) Colors */
+    --color-solar-50: 255 247 237;
+    --color-solar-100: 255 237 213;
+    --color-solar-200: 254 215 170;
+    --color-solar-300: 253 186 116;
+    --color-solar-400: 251 146 60;
+    --color-solar-500: 249 115 22;
+    --color-solar-600: 234 88 12;
+    --color-solar-700: 194 65 12;
+    --color-solar-800: 154 52 18;
+    --color-solar-900: 124 45 18;
+
+    /* Energy (Secondary) Colors */
+    --color-energy-50: 239 246 255;
+    --color-energy-100: 219 234 254;
+    --color-energy-200: 191 219 254;
+    --color-energy-300: 147 197 253;
+    --color-energy-400: 96 165 250;
+    --color-energy-500: 59 130 246;
+    --color-energy-600: 37 99 235;
+    --color-energy-700: 29 78 216;
+    --color-energy-800: 30 64 175;
+    --color-energy-900: 30 58 138;
+
+    /* Neutral Colors */
+    --color-neutral-50: 250 250 250;
+    --color-neutral-100: 245 245 245;
+    --color-neutral-200: 229 229 229;
+    --color-neutral-300: 212 212 212;
+    --color-neutral-400: 163 163 163;
+    --color-neutral-500: 115 115 115;
+    --color-neutral-600: 82 82 82;
+    --color-neutral-700: 64 64 64;
+    --color-neutral-800: 38 38 38;
+    --color-neutral-900: 23 23 23;
+    --color-neutral-950: 10 10 10;
+
+    /* Semantic Colors */
+    --color-success-600: 22 163 74;
+    --color-success-700: 21 128 61;
+    --color-warning-600: 217 119 6;
+    --color-warning-700: 180 83 9;
+    --color-error-600: 220 38 38;
+    --color-error-700: 185 28 28;
+
+    /* Theme-specific mappings */
+    --color-primary: var(--color-solar-600);
+    --color-primary-hover: var(--color-solar-700);
+    --color-secondary: var(--color-energy-600);
+    --color-background: 255 255 255;
+    --color-foreground: var(--color-neutral-900);
+  }
+
+  /* Dark mode theme (optional - for future implementation) */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: var(--color-neutral-950);
+      --color-foreground: var(--color-neutral-100);
+    }
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -18,16 +81,54 @@
 }
 
 @layer components {
+  /* Primary Button - Modern gradient design with lift effect */
   .btn-primary {
-    @apply px-6 py-3 bg-solar-600 hover:bg-solar-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg;
+    @apply px-6 py-3 bg-gradient-to-r from-solar-600 to-energy-600 text-white font-medium rounded-lg shadow-lg shadow-solar-600/30 hover:shadow-solar-600/50 hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-solar-500;
   }
 
+  /* Secondary Button - Outlined with hover effects */
   .btn-secondary {
-    @apply px-6 py-3 bg-white hover:bg-gray-50 text-solar-600 font-semibold rounded-lg border-2 border-solar-600 transition-colors duration-200;
+    @apply px-6 py-3 bg-white border-2 border-gray-300 text-gray-800 font-medium rounded-lg hover:border-solar-600 hover:text-solar-600 hover:shadow-md transition-all duration-200 inline-flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-solar-500;
   }
 
+  /* Ghost Button - Transparent with subtle hover */
+  .btn-ghost {
+    @apply px-6 py-3 bg-transparent text-gray-700 font-medium rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-all duration-200 inline-flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500;
+  }
+
+  /* Button size variants */
+  .btn-sm {
+    @apply py-2 px-4 text-sm;
+  }
+
+  .btn-md {
+    @apply py-3 px-6 text-base;
+  }
+
+  .btn-lg {
+    @apply py-4 px-8 text-lg;
+  }
+
+  /* Icon button variants */
+  .btn-icon {
+    @apply p-3 bg-white text-gray-700 hover:bg-solar-50 hover:text-solar-600 shadow-md hover:shadow-lg rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-solar-500;
+  }
+
+  .btn-icon-circle {
+    @apply p-3 bg-white text-gray-700 hover:bg-solar-50 hover:text-solar-600 shadow-md hover:shadow-lg rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-solar-500;
+  }
+
+  /* Layout Containers - Modern, consistent spacing system */
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24;
+  }
+
+  .content-container {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .narrow-container {
+    @apply max-w-2xl mx-auto;
   }
 
   .heading-xl {
@@ -200,5 +301,13 @@
 
   .animate-pulse-slow {
     animation: pulseSlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Background Grid Pattern */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }

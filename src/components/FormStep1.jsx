@@ -1,4 +1,6 @@
 import React from 'react';
+import Input from './Input';
+import Select from './Select';
 
 const FormStep1 = ({ formData, updateFormData, errors }) => {
   const handleChange = (field, value) => {
@@ -72,36 +74,23 @@ const FormStep1 = ({ formData, updateFormData, errors }) => {
       {/* Show if "Not sure" selected */}
       {formData.systemSize === 'not-sure' && (
         <div className="space-y-4 p-4 bg-gray-50 rounded-lg">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Average Monthly Electric Bill
-            </label>
-            <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
-              <input
-                type="number"
-                placeholder="150"
-                value={formData.monthlyBill || ''}
-                onChange={(e) => handleChange('monthlyBill', e.target.value)}
-                className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-              />
-            </div>
+          <div className="relative">
+            <Input
+              type="number"
+              label="Average Monthly Electric Bill ($)"
+              value={formData.monthlyBill || ''}
+              onChange={(e) => handleChange('monthlyBill', e.target.value)}
+            />
           </div>
-          <div className="text-center text-gray-500">OR</div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Average Monthly kWh Usage
-            </label>
-            <div className="relative">
-              <input
-                type="number"
-                placeholder="850"
-                value={formData.monthlyKwh || ''}
-                onChange={(e) => handleChange('monthlyKwh', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-              />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">kWh</span>
-            </div>
+          <div className="text-center text-gray-500 py-2">OR</div>
+          <div className="relative">
+            <Input
+              type="number"
+              label="Average Monthly kWh Usage"
+              value={formData.monthlyKwh || ''}
+              onChange={(e) => handleChange('monthlyKwh', e.target.value)}
+              helperText="kWh"
+            />
           </div>
         </div>
       )}
@@ -151,63 +140,45 @@ const FormStep1 = ({ formData, updateFormData, errors }) => {
       </div>
 
       {/* 3. Solar Panel Preference */}
-      <div className="space-y-3">
-        <label className="block text-sm font-semibold text-gray-900">
-          Solar Panel Preference
-        </label>
-        <select
-          value={formData.panelPreference || ''}
-          onChange={(e) => handleChange('panelPreference', e.target.value)}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-        >
-          <option value="">Select panel preference</option>
-          <option value="rec-alpha">REC Alpha Pure-R (premium, highest efficiency)</option>
-          <option value="qpeak">Q.PEAK DUO BLK-G10+ (mid-premium)</option>
-          <option value="jinko">Jinko Tiger Neo (value, high performance)</option>
-          <option value="canadian">Canadian Solar HiKu7 (reliable value)</option>
-          <option value="longi">Longi Hi-MO 6 (value, high efficiency)</option>
-          <option value="no-preference">No preference - recommend best option</option>
-          <option value="other">Other (specify)</option>
-        </select>
-        <p className="text-sm text-gray-500 mt-2">
-          We'll recommend the best panels for your needs and budget
-        </p>
-      </div>
+      <Select
+        label="Solar Panel Preference"
+        value={formData.panelPreference || ''}
+        onChange={(e) => handleChange('panelPreference', e.target.value)}
+        helperText="We'll recommend the best panels for your needs and budget"
+      >
+        <option value="">Select panel preference</option>
+        <option value="rec-alpha">REC Alpha Pure-R (premium, highest efficiency)</option>
+        <option value="qpeak">Q.PEAK DUO BLK-G10+ (mid-premium)</option>
+        <option value="jinko">Jinko Tiger Neo (value, high performance)</option>
+        <option value="canadian">Canadian Solar HiKu7 (reliable value)</option>
+        <option value="longi">Longi Hi-MO 6 (value, high efficiency)</option>
+        <option value="no-preference">No preference - recommend best option</option>
+        <option value="other">Other (specify)</option>
+      </Select>
 
       {formData.panelPreference === 'other' && (
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Specify Panel Model
-          </label>
-          <input
-            type="text"
-            placeholder="Enter panel model"
-            value={formData.panelOther || ''}
-            onChange={(e) => handleChange('panelOther', e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-          />
-        </div>
+        <Input
+          type="text"
+          label="Specify Panel Model"
+          value={formData.panelOther || ''}
+          onChange={(e) => handleChange('panelOther', e.target.value)}
+        />
       )}
 
       {/* 4. Panel Power Rating */}
-      <div className="space-y-3">
-        <label className="block text-sm font-semibold text-gray-900">
-          Preferred Panel Wattage (Optional)
-        </label>
-        <select
-          value={formData.panelWattage || ''}
-          onChange={(e) => handleChange('panelWattage', e.target.value)}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-        >
-          <option value="">Select wattage preference</option>
-          <option value="370-400">370-400W</option>
-          <option value="400-430">400-430W</option>
-          <option value="430-460">430-460W</option>
-          <option value="460plus">460W+</option>
-          <option value="no-preference">No preference</option>
-        </select>
-        <p className="text-sm text-gray-500 mt-2">Higher wattage = fewer panels needed</p>
-      </div>
+      <Select
+        label="Preferred Panel Wattage (Optional)"
+        value={formData.panelWattage || ''}
+        onChange={(e) => handleChange('panelWattage', e.target.value)}
+        helperText="Higher wattage = fewer panels needed"
+      >
+        <option value="">Select wattage preference</option>
+        <option value="370-400">370-400W</option>
+        <option value="400-430">400-430W</option>
+        <option value="430-460">430-460W</option>
+        <option value="460plus">460W+</option>
+        <option value="no-preference">No preference</option>
+      </Select>
 
       {/* 5. Inverter Type */}
       <div className="space-y-3">
@@ -270,32 +241,27 @@ const FormStep1 = ({ formData, updateFormData, errors }) => {
 
       {/* 6. Inverter Brand/Model */}
       {formData.inverterType && formData.inverterType !== 'no-preference' && (
-        <div className="space-y-3">
-          <label className="block text-sm font-semibold text-gray-900">
-            Inverter Brand Preference
-          </label>
-          <select
-            value={formData.inverterBrand || ''}
-            onChange={(e) => handleChange('inverterBrand', e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solar-500 focus:border-transparent"
-          >
-            <option value="">Select brand preference</option>
-            {formData.inverterType === 'micro' ? (
-              <>
-                <option value="enphase">Enphase IQ8 Series</option>
-                <option value="apsystems">APsystems DS3</option>
-                <option value="other">Other (specify)</option>
-              </>
-            ) : (
-              <>
-                <option value="solaredge">SolarEdge HD-Wave</option>
-                <option value="sma">SMA Sunny Boy</option>
-                <option value="fronius">Fronius Primo/Symo</option>
-                <option value="other">Other (specify)</option>
-              </>
-            )}
-          </select>
-        </div>
+        <Select
+          label="Inverter Brand Preference"
+          value={formData.inverterBrand || ''}
+          onChange={(e) => handleChange('inverterBrand', e.target.value)}
+        >
+          <option value="">Select brand preference</option>
+          {formData.inverterType === 'micro' ? (
+            <>
+              <option value="enphase">Enphase IQ8 Series</option>
+              <option value="apsystems">APsystems DS3</option>
+              <option value="other">Other (specify)</option>
+            </>
+          ) : (
+            <>
+              <option value="solaredge">SolarEdge HD-Wave</option>
+              <option value="sma">SMA Sunny Boy</option>
+              <option value="fronius">Fronius Primo/Symo</option>
+              <option value="other">Other (specify)</option>
+            </>
+          )}
+        </Select>
       )}
 
       {/* 7. Battery Storage */}

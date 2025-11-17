@@ -206,33 +206,42 @@ export default function About() {
 
       <main className="pt-20 bg-gray-50">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-solar-700 via-solar-600 to-solar-800 text-white">
+        <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-solar-700 via-solar-600 to-solar-800 text-white overflow-hidden">
           <div className="absolute inset-0 bg-black opacity-10"></div>
-          <div className="section-container relative z-10 text-center">
-            <h1 className="heading-xl mb-6">
-              Professional Solar Expertise for DIY Success
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="relative z-10 max-w-6xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Professional Solar Expertise<br />for <span className="bg-gradient-to-r from-energy-300 to-solar-200 bg-clip-text text-transparent">DIY Success</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-solar-100 max-w-4xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-solar-100 max-w-3xl mx-auto mb-10 leading-relaxed">
               Licensed PE and NABCEP-certified professionals helping homeowners save thousands on solar installation
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link href="/design-request" className="px-8 py-4 bg-white text-solar-700 rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/30 hover:-translate-y-1 transition-all">
+                Get Your Design →
+              </Link>
+              <Link href="/pricing" className="px-8 py-4 bg-solar-800 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-solar-900 transition-all">
+                View Pricing
+              </Link>
+            </div>
+            <div className="flex flex-wrap justify-center gap-8 text-sm sm:text-base">
               <div className="flex items-center gap-2">
-                <svg className="w-6 h-6 text-energy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Licensed in All 50 States</span>
+                <span className="font-semibold">Licensed in All 50 States</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-6 h-6 text-energy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>5,000+ Systems Designed</span>
+                <span className="font-semibold">5,000+ Systems Designed</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-6 h-6 text-energy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>98% Approval Rate</span>
+                <span className="font-semibold">98% Approval Rate</span>
               </div>
             </div>
           </div>

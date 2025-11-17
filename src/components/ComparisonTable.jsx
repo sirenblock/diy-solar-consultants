@@ -1,5 +1,6 @@
 import React from 'react';
 import { comparisonFeatures } from '../data/pricingData';
+import { CheckCircle, XCircle } from 'lucide-react';
 
 export default function ComparisonTable({ packages }) {
   // Filter out consultation package for comparison
@@ -63,17 +64,13 @@ export default function ComparisonTable({ packages }) {
                     <td key={pkg.id} className="py-4 px-6 text-center">
                       {hasIt ? (
                         <div className="flex flex-col items-center">
-                          <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
+                          <CheckCircle className="w-6 h-6 text-green-600" />
                           {note && (
                             <div className="text-xs text-gray-600 mt-1">({note})</div>
                           )}
                         </div>
                       ) : (
-                        <svg className="w-6 h-6 text-gray-300 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                        </svg>
+                        <XCircle className="w-6 h-6 text-gray-300 mx-auto" />
                       )}
                     </td>
                   );

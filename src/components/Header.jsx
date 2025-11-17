@@ -1,137 +1,189 @@
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import MobileMenu from './MobileMenu'
+'use client';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Phone, Menu, X, Zap } from 'lucide-react';
+import Button, { IconButton } from './Button';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
     { href: '/equipment', label: 'Equipment' },
     { href: '/portfolio', label: 'Portfolio' },
-    { href: '/calculator', label: 'Calculator' },
-    { href: '/contact', label: 'Contact' },
-  ]
+    { href: '/pricing', label: 'Pricing' },
+  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white shadow-lg'
-          : 'bg-white/95 backdrop-blur-sm'
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center group">
-            <div className="flex items-center">
-              <svg
-                className="w-10 h-10 text-solar-600 group-hover:text-solar-700 transition-colors"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/80 backdrop-blur-lg shadow-lg shadow-black/5'
+            : 'bg-white/60 backdrop-blur-md'
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-solar-500 to-energy-600 rounded-xl flex items-center justify-center shadow-lg shadow-solar-500/20 group-hover:shadow-solar-500/40 transition-shadow">
+                <Zap className="w-6 h-6 text-white" fill="currentColor" />
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                DIY Solar
+              </span>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="nav-link"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="hidden lg:flex items-center gap-3">
+              <a
+                href="tel:+18885551234"
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-solar-600 transition-colors rounded-lg hover:bg-gray-100"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
-              <div className="ml-3">
-                <span className="block text-xl font-bold text-gray-900 group-hover:text-solar-600 transition-colors">
-                  DIY Solar Consultants
-                </span>
-                <span className="hidden sm:block text-xs text-gray-600">
-                  Professional Design for DIY Homeowners
-                </span>
+                <Phone className="w-4 h-4" />
+                <span className="text-sm font-medium">(888) 555-1234</span>
+              </a>
+              <Button
+                href="/design-request"
+                variant="primary"
+                size="md"
+                location="header-desktop"
+              >
+                Get Free Quote
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <IconButton
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden"
+              variant="ghost"
+              size="md"
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              icon={isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            />
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div className="absolute top-16 left-0 right-0 bottom-0 bg-white/95 backdrop-blur-lg p-6 animate-fade-in overflow-y-auto">
+            <div className="flex flex-col gap-4">
+              <Link
+                href="/"
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="mobile-nav-link"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                className="mobile-nav-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+
+              <div className="mt-6 pt-6 border-t border-gray-200 flex flex-col gap-3">
+                <Button
+                  href="/design-request"
+                  variant="primary"
+                  size="md"
+                  className="w-full justify-center"
+                  location="header-mobile"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Get Free Quote
+                </Button>
+                <Button
+                  href="tel:+18885551234"
+                  variant="secondary"
+                  size="md"
+                  className="w-full justify-center"
+                  external={true}
+                  location="header-mobile-phone"
+                  leftIcon={<Phone className="w-5 h-5" />}
+                >
+                  Call (888) 555-1234
+                </Button>
               </div>
             </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-gray-700 hover:text-solar-600 font-medium transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
           </div>
-
-          {/* Contact Info & CTA - Desktop */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <a
-              href="tel:+18885551234"
-              className="flex items-center text-gray-700 hover:text-solar-600 transition-colors"
-            >
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span className="font-semibold">(888) 555-1234</span>
-            </a>
-            <Link href="/design-request" className="btn-primary">
-              Get Your Solar Design
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-solar-600 hover:bg-gray-100 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
         </div>
-      </nav>
+      )}
 
-      {/* Mobile Menu Component */}
-      <MobileMenu
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-        navLinks={navLinks}
-      />
-    </header>
-  )
+      <style jsx global>{`
+        .nav-link {
+          @apply text-gray-700 font-medium transition-all duration-200 relative;
+        }
+        .nav-link:hover {
+          @apply text-solar-600;
+        }
+        .nav-link::after {
+          content: '';
+          @apply absolute -bottom-1 left-1/2 w-0 h-0.5 bg-solar-600 transition-all duration-200;
+          transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+          @apply w-full;
+        }
+        .mobile-nav-link {
+          @apply text-2xl font-medium text-gray-800 py-3 hover:text-solar-600 transition-colors;
+        }
+      `}</style>
+    </>
+  );
 }

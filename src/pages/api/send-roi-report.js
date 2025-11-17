@@ -138,13 +138,13 @@ function roiReportTemplate(data) {
       <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
         .container { max-width: 600px; margin: 0 auto; }
-        .header { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; padding: 40px 20px; text-align: center; }
+        .header { background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); color: white; padding: 40px 20px; text-align: center; }
         .content { background: white; padding: 30px 20px; }
-        .highlight-box { background: #f0f9ff; border-left: 4px solid #0284c7; padding: 20px; margin: 20px 0; }
+        .highlight-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 20px; margin: 20px 0; }
         .stat { text-align: center; padding: 20px; margin: 10px 0; background: #f9fafb; border-radius: 8px; }
-        .stat-value { font-size: 36px; font-weight: bold; color: #0284c7; margin: 0; }
+        .stat-value { font-size: 36px; font-weight: bold; color: #ea580c; margin: 0; }
         .stat-label { color: #6b7280; margin: 5px 0 0 0; }
-        .button { display: inline-block; padding: 15px 30px; background: #0284c7; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; }
+        .button { display: inline-block; padding: 15px 30px; background: #ea580c; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; }
         .breakdown { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; margin: 20px 0; }
         .breakdown-row { display: flex; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid #e5e7eb; }
         .breakdown-row:last-child { border-bottom: none; background: #f9fafb; font-weight: bold; }
@@ -178,7 +178,7 @@ function roiReportTemplate(data) {
           </div>
 
           <div class="highlight-box">
-            <h3 style="margin-top: 0; color: #0369a1;">Investment Breakdown</h3>
+            <h3 style="margin-top: 0; color: #c2410c;">Investment Breakdown</h3>
             <div class="breakdown">
               <div class="breakdown-row">
                 <span>System Cost (DIY)</span>
@@ -235,8 +235,8 @@ function roiReportTemplate(data) {
             Licensed Professional Engineers | NABCEP Certified | 98% Permit Approval Rate
           </p>
           <p style="margin: 15px 0 10px 0;">
-            <a href="mailto:info@diysolar.com" style="color: #0284c7; text-decoration: none;">info@diysolar.com</a> |
-            <a href="tel:+15555551234" style="color: #0284c7; text-decoration: none;">(555) 555-1234</a>
+            <a href="mailto:info@diysolar.com" style="color: #ea580c; text-decoration: none;">info@diysolar.com</a> |
+            <a href="tel:+15555551234" style="color: #ea580c; text-decoration: none;">(555) 555-1234</a>
           </p>
           <p style="margin: 20px 0 0 0; font-size: 12px; color: #9ca3af;">
             <a href="https://diysolar.com/unsubscribe" style="color: #9ca3af;">Unsubscribe</a> |

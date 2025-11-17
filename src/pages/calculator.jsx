@@ -97,19 +97,34 @@ export default function CalculatorPage() {
 
       <main className="pt-20 min-h-screen bg-gradient-to-b from-gray-50 to-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-solar-600 to-energy-600 text-white py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Solar System Size Calculator
-              </h1>
-              <p className="text-xl md:text-2xl text-solar-100 mb-6">
-                Find out how much solar you need and how much you can save
-              </p>
-              <p className="text-lg text-solar-50 max-w-2xl mx-auto">
-                Get instant estimates for system size, costs, and savings based on your energy usage and location.
-                Professional calculations in just 2 minutes.
-              </p>
+        <section className="relative pt-32 pb-20 px-4 bg-gradient-to-r from-solar-600 to-energy-600 text-white overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+          <div className="relative max-w-6xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Solar System<br /><span className="bg-gradient-to-r from-yellow-300 to-energy-200 bg-clip-text text-transparent">Size Calculator</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-solar-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Find out how much solar you need and how much you can save. Get instant estimates for system size, costs, and savings.
+            </p>
+            <div className="flex flex-wrap justify-center gap-8 text-sm sm:text-base mb-8">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">Free & Instant</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">2-Minute Estimate</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">No Obligation</span>
+              </div>
             </div>
           </div>
         </section>
