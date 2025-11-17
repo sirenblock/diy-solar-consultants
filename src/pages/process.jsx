@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import {
   CheckCircleIcon,
   ClockIcon,
@@ -110,6 +112,7 @@ export default function Process() {
           }}
         />
       </Head>
+      <Header />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white">

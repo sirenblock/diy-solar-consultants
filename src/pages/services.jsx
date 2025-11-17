@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import Link from 'next/link';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Services() {
   const [activeService, setActiveService] = useState(null);
@@ -27,6 +29,7 @@ export default function Services() {
         <meta property="og:description" content="Professional solar services for DIY homeowners. From design to installation support." />
         <meta property="og:type" content="website" />
       </Head>
+      <Header />
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}

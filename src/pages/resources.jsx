@@ -6,6 +6,8 @@ import SearchFilter from '../components/SearchFilter';
 import { resources, resourceCategories, getFeaturedResources, getResourcesByCategory } from '../data/resources';
 import { statesData, getAllStates } from '../data/stateInfo';
 import { blogArticles } from '../data/blogArticles';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Resources() {
   const [filteredResources, setFilteredResources] = useState(resources);
@@ -99,6 +101,7 @@ export default function Resources() {
         <meta property="og:description" content="Everything you need to successfully plan, design, and install your solar system. Comprehensive guides from licensed professionals." />
         <meta property="og:type" content="website" />
       </Head>
+      <Header />
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

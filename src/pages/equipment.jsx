@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import EquipmentCard from '../components/EquipmentCard';
 import EquipmentComparisonTable from '../components/EquipmentComparisonTable';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import {
   solarPanels,
   stringInverters,
@@ -63,6 +65,7 @@ export default function Equipment() {
           }}
         />
       </Head>
+      <Header />
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}

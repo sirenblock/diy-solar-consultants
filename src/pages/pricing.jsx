@@ -7,6 +7,8 @@ import AddOnServices from '../components/AddOnServices';
 import SuccessStories from '../components/SuccessStories';
 import PricingFAQ from '../components/PricingFAQ';
 import PaymentInfo from '../components/PaymentInfo';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import {
   packages,
   addons,
@@ -63,6 +65,7 @@ export default function Pricing() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
         />
       </Head>
+      <Header />
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

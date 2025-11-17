@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import SolarCalculator from '../components/SolarCalculator/SolarCalculator';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function CalculatorPage() {
   const jsonLd = {
@@ -88,6 +90,7 @@ export default function CalculatorPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
+      <Header />
 
       <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         {/* Hero Section */}
@@ -284,6 +287,7 @@ export default function CalculatorPage() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

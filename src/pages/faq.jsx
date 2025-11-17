@@ -3,6 +3,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Accordion from '../components/Accordion';
 import { faqData, faqCategories } from '../data/faqData';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function FAQPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -119,6 +121,7 @@ export default function FAQPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }}
         />
       </Head>
+      <Header />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">

@@ -5,6 +5,8 @@ import FilterBar from '@/components/FilterBar';
 import CaseStudyCard from '@/components/CaseStudyCard';
 import CaseStudyDetail from '@/components/CaseStudyDetail';
 import StatsDisplay from '@/components/StatsDisplay';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Portfolio() {
   const [filteredStudies, setFilteredStudies] = useState(caseStudies);
@@ -133,6 +135,7 @@ export default function Portfolio() {
           }}
         />
       </Head>
+      <Header />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-solar-600 via-solar-700 to-energy-600 text-white py-16 sm:py-20 lg:py-24">

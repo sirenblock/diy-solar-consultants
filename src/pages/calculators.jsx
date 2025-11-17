@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import SimpleCalculator from '../components/SimpleCalculator';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Calculators() {
   const [activeCalculator, setActiveCalculator] = useState('system-size');
@@ -38,6 +40,7 @@ export default function Calculators() {
           content="Free interactive solar calculators for system sizing, ROI analysis, payback periods, and battery sizing. Professional tools from licensed engineers."
         />
       </Head>
+      <Header />
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}

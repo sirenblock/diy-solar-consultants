@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import DesignRequestForm from '../components/DesignRequestForm';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function DesignRequest() {
   return (
@@ -55,6 +57,7 @@ export default function DesignRequest() {
           }}
         />
       </Head>
+      <Header />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white py-16">

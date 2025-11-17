@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function DesignRequestThankYou() {
   const router = useRouter();
@@ -13,6 +15,7 @@ export default function DesignRequestThankYou() {
         <title>Request Received | DIY Solar Consultants</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
+      <Header />
 
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
         <div className="max-w-4xl mx-auto">

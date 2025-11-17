@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import ContactForm from '@/components/ContactForm'
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Contact() {
   return (
@@ -51,6 +53,7 @@ export default function Contact() {
           }}
         />
       </Head>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
