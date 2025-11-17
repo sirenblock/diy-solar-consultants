@@ -67,7 +67,7 @@ export default function Pricing() {
       </Head>
       <Header />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="pt-20 min-h-screen bg-gray-50">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
           <div className="container mx-auto px-4 max-w-6xl">

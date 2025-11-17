@@ -115,7 +115,7 @@ export default function Process() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white">
+      <section className="pt-20 bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white">
         <div className="section-container text-center">
           <h1 className="heading-xl mb-6">How It Works</h1>
           <p className="text-xl sm:text-2xl mb-8 max-w-4xl mx-auto opacity-95">

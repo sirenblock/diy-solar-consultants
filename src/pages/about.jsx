@@ -175,7 +175,7 @@ export default function About() {
         </script>
       </Head>
 
-      <main className="bg-gray-50">
+      <main className="pt-20 bg-gray-50">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-solar-700 via-solar-600 to-solar-800 text-white">
           <div className="absolute inset-0 bg-black opacity-10"></div>

@@ -42,7 +42,7 @@ export default function Calculators() {
       </Head>
       <Header />
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="pt-20 min-h-screen bg-gray-50">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white">
           <div className="section-container">

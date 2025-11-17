@@ -17,7 +17,7 @@ export default function DesignRequestThankYou() {
       </Head>
       <Header />
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
+      <div className="pt-20 min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Success Card */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">

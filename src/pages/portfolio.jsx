@@ -138,7 +138,7 @@ export default function Portfolio() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-solar-600 via-solar-700 to-energy-600 text-white py-16 sm:py-20 lg:py-24">
+      <section className="pt-20 bg-gradient-to-br from-solar-600 via-solar-700 to-energy-600 text-white py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="heading-xl mb-6">Solar Success Stories</h1>
           <p className="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">

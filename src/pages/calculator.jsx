@@ -92,7 +92,7 @@ export default function CalculatorPage() {
       </Head>
       <Header />
 
-      <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <main className="pt-20 min-h-screen bg-gradient-to-b from-gray-50 to-white">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-solar-600 to-energy-600 text-white py-12 md:py-16">
           <div className="container mx-auto px-4">

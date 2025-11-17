@@ -56,7 +56,7 @@ export default function Contact() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
+      <section className="pt-20 relative bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/patterns/solar-panel-pattern.svg')] opacity-10"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 

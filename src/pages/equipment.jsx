@@ -67,7 +67,7 @@ export default function Equipment() {
       </Head>
       <Header />
 
-      <div className="min-h-screen bg-white">
+      <div className="pt-20 min-h-screen bg-white">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white py-20 px-4">
           <div className="max-w-7xl mx-auto text-center">
