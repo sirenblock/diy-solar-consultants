@@ -102,7 +102,7 @@ export default function Portfolio() {
   return (
     <>
       <Head>
-        <title>Solar Portfolio & Case Studies | Real DIY Solar Success Stories</title>
+        <title>Solar Portfolio & Case Studies | DIY Solar Consultants</title>
         <meta
           name="description"
           content="See real solar systems designed by our engineers and installed by homeowners. From 4kW to 35kW systems across all 50 states. 98% approval rate, 40-60% savings."

@@ -280,3 +280,100 @@ export const revokeConsent = () => {
     });
   }
 };
+
+/**
+ * Track funnel step
+ * @param {string} funnelName - Name of the funnel
+ * @param {string} stepName - Name of the step
+ * @param {number} stepNumber - Step number
+ * @param {number} value - Step value
+ */
+export const trackFunnelStep = (funnelName, stepName, stepNumber, value = 0) => {
+  trackEvent('funnel_step', {
+    funnel_name: funnelName,
+    step_name: stepName,
+    step_number: stepNumber,
+    value: value
+  });
+};
+
+/**
+ * Track form error
+ * @param {string} formName - Name of the form
+ * @param {string} fieldName - Name of the field with error
+ * @param {string} errorMessage - Error message
+ */
+export const trackFormError = (formName, fieldName, errorMessage) => {
+  trackEvent('form_error', {
+    form_name: formName,
+    field_name: fieldName,
+    error_message: errorMessage
+  });
+};
+
+/**
+ * Track enhanced lead generation with detailed data
+ * @param {object} leadData - Lead data
+ */
+export const trackEnhancedLead = (leadData) => {
+  trackEvent('generate_lead', {
+    currency: 'USD',
+    value: 2299,
+    lead_type: 'design_request',
+    electric_bill: leadData.electricBill || 'unknown',
+    timeline: leadData.timeline || 'unknown',
+    location: leadData.state || 'unknown',
+    system_size: leadData.systemSize || 'unknown',
+    project_type: leadData.projectType || 'unknown'
+  });
+};
+
+/**
+ * Track button/CTA interaction with enhanced data
+ * @param {string} buttonText - Button text
+ * @param {string} buttonLocation - Where the button is located
+ * @param {string} buttonType - Type of button (primary, secondary, etc.)
+ */
+export const trackButtonClick = (buttonText, buttonLocation, buttonType = 'button') => {
+  trackEvent('button_click', {
+    button_text: buttonText,
+    button_location: buttonLocation,
+    button_type: buttonType
+  });
+};
+
+/**
+ * Track element visibility/impression
+ * @param {string} elementName - Name of the element
+ * @param {string} elementType - Type of element (hero, cta, testimonial, etc.)
+ */
+export const trackElementView = (elementName, elementType) => {
+  trackEvent('element_view', {
+    element_name: elementName,
+    element_type: elementType
+  });
+};
+
+/**
+ * Track FAQ interaction
+ * @param {string} question - FAQ question
+ * @param {string} action - Action (expand/collapse)
+ */
+export const trackFAQInteraction = (question, action) => {
+  trackEvent('faq_interaction', {
+    faq_question: question,
+    action: action
+  });
+};
+
+/**
+ * Track testimonial view
+ * @param {string} testimonialAuthor - Author of testimonial
+ * @param {number} testimonialIndex - Index of testimonial
+ */
+export const trackTestimonialView = (testimonialAuthor, testimonialIndex) => {
+  trackEvent('testimonial_view', {
+    testimonial_author: testimonialAuthor,
+    testimonial_index: testimonialIndex
+  });
+};

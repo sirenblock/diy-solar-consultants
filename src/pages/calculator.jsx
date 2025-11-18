@@ -100,30 +100,36 @@ export default function CalculatorPage() {
         <section className="relative pt-32 pb-20 px-4 bg-gradient-to-r from-solar-600 to-energy-600 text-white overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
           <div className="relative max-w-6xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Solar System<br /><span className="bg-gradient-to-r from-yellow-300 to-energy-200 bg-clip-text text-transparent">Size Calculator</span>
+            {/* Headline - Benefit-focused (60 chars) */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Calculate Your Exact Solar Savings<br />
+              <span className="bg-gradient-to-r from-yellow-300 to-energy-200 bg-clip-text text-transparent">in 60 Seconds</span>
             </h1>
+
+            {/* Subheadline - Address pain point (94 chars) */}
             <p className="text-xl md:text-2xl text-solar-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Find out how much solar you need and how much you can save. Get instant estimates for system size, costs, and savings.
+              Get a personalized estimate based on your actual electric bill
             </p>
-            <div className="flex flex-wrap justify-center gap-8 text-sm sm:text-base mb-8">
+
+            {/* Trust Signals */}
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm sm:text-base mb-8">
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-6 h-6 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="font-semibold">Free & Instant</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-6 h-6 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="font-semibold">2-Minute Estimate</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-6 h-6 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="font-semibold">No Obligation</span>
+                <span className="font-semibold">No Email Required</span>
               </div>
             </div>
           </div>
@@ -290,13 +296,16 @@ export default function CalculatorPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/design-request"
-                  className="px-8 py-4 bg-white text-solar-700 rounded-lg font-bold text-lg hover:bg-solar-50 transition-colors shadow-lg inline-block"
+                  className="inline-flex items-center justify-center px-8 py-4 h-14 bg-white text-solar-700 rounded-lg font-bold text-lg hover:bg-solar-50 transition-colors shadow-lg"
                 >
-                  Request Professional Design
+                  Get Custom Design
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </a>
                 <a
                   href="/contact"
-                  className="px-8 py-4 bg-solar-700 text-white rounded-lg font-semibold hover:bg-solar-800 transition-colors border-2 border-white inline-block"
+                  className="inline-flex items-center justify-center px-8 py-4 h-14 bg-solar-700 text-white rounded-lg font-semibold hover:bg-solar-800 transition-colors border-2 border-white"
                 >
                   Schedule Consultation
                 </a>

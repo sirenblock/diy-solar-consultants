@@ -1,25 +1,5 @@
 import { useState, useEffect } from 'react';
-
-const activities = [
-  { name: 'Sarah M.', location: 'Denver, CO', action: 'requested a design quote', time: '2 minutes ago' },
-  { name: 'Mike R.', location: 'Austin, TX', action: 'system approved in 3 days', time: '5 minutes ago' },
-  { name: 'Jennifer P.', location: 'Portland, OR', action: 'saved $22,000 with our design', time: '12 minutes ago' },
-  { name: 'David T.', location: 'Phoenix, AZ', action: 'received permit approval', time: '18 minutes ago' },
-  { name: 'Amanda K.', location: 'Seattle, WA', action: 'completed installation', time: '25 minutes ago' },
-  { name: 'Robert L.', location: 'San Diego, CA', action: 'got approved for financing', time: '32 minutes ago' },
-  { name: 'Lisa W.', location: 'Miami, FL', action: 'started saving on energy bills', time: '45 minutes ago' },
-  { name: 'Thomas H.', location: 'Boston, MA', action: 'received custom design', time: '1 hour ago' },
-  { name: 'Maria G.', location: 'Las Vegas, NV', action: 'passed final inspection', time: '1 hour ago' },
-  { name: 'Kevin S.', location: 'Atlanta, GA', action: 'requested a site assessment', time: '2 hours ago' },
-  { name: 'Patricia D.', location: 'Chicago, IL', action: 'saved $18,500 with rebates', time: '2 hours ago' },
-  { name: 'James B.', location: 'Houston, TX', action: 'upgraded to 12kW system', time: '3 hours ago' },
-  { name: 'Nancy C.', location: 'San Francisco, CA', action: 'referred 3 neighbors', time: '3 hours ago' },
-  { name: 'Christopher M.', location: 'Raleigh, NC', action: 'received permit-ready plans', time: '4 hours ago' },
-  { name: 'Jessica T.', location: 'Salt Lake City, UT', action: 'scheduled installation', time: '4 hours ago' },
-  { name: 'Daniel R.', location: 'Minneapolis, MN', action: 'got utility approval', time: '5 hours ago' },
-  { name: 'Michelle L.', location: 'Tampa, FL', action: 'downloaded system design', time: '5 hours ago' },
-  { name: 'Ryan K.', location: 'Sacramento, CA', action: 'added battery storage', time: '6 hours ago' },
-];
+import { liveActivities } from '../data/testimonials';
 
 export default function LiveActivityFeed() {
   const [currentActivity, setCurrentActivity] = useState(0);
@@ -31,7 +11,7 @@ export default function LiveActivityFeed() {
     const interval = setInterval(() => {
       setIsAnimating(true);
       setTimeout(() => {
-        setCurrentActivity(prev => (prev + 1) % activities.length);
+        setCurrentActivity(prev => (prev + 1) % liveActivities.length);
         setIsAnimating(false);
       }, 500);
     }, Math.floor(Math.random() * (15000 - 8000) + 8000));
@@ -54,7 +34,7 @@ export default function LiveActivityFeed() {
 
   if (!isVisible) return null;
 
-  const activity = activities[currentActivity];
+  const activity = liveActivities[currentActivity];
 
   return (
     <div
@@ -78,6 +58,11 @@ export default function LiveActivityFeed() {
             {activity.name} <span className="text-gray-500 font-normal">from {activity.location}</span>
           </p>
           <p className="text-sm text-gray-600 mt-0.5">{activity.action}</p>
+          {activity.savings && (
+            <p className="text-sm text-green-600 font-semibold mt-1">
+              {activity.savings}/year savings
+            </p>
+          )}
           <p className="text-xs text-gray-400 mt-1.5 flex items-center gap-1">
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

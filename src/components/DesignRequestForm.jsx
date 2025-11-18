@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import FormProgress from './FormProgress';
 import FormStep1 from './FormStep1';
 import FormStep2 from './FormStep2';
 import FormStep3 from './FormStep3';
+import SecurityBadges from './SecurityBadges';
 import { trackFormStart, trackEvent, trackFormSubmission, trackConversion } from '@/utils/analytics';
 
 const DesignRequestForm = () => {
@@ -40,11 +42,35 @@ const DesignRequestForm = () => {
 
   const updateFormData = (updates) => {
     setFormData((prev) => ({ ...prev, ...updates }));
-    // Clear errors for updated fields
+
+    // Clear errors for updated fields and perform inline validation
     const updatedFields = Object.keys(updates);
     setErrors((prev) => {
       const newErrors = { ...prev };
-      updatedFields.forEach((field) => delete newErrors[field]);
+      updatedFields.forEach((field) => {
+        delete newErrors[field];
+
+        // Inline validation for email
+        if (field === 'email' && updates[field]) {
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(updates[field])) {
+            newErrors[field] = 'Please enter a valid email address';
+          }
+        }
+
+        // Inline validation for phone
+        if (field === 'phone' && updates[field]) {
+          if (!/^[\d\s\-\(\)]+$/.test(updates[field]) || updates[field].replace(/\D/g, '').length < 10) {
+            newErrors[field] = 'Please enter a valid 10-digit phone number';
+          }
+        }
+
+        // Inline validation for ZIP code
+        if (field === 'zip' && updates[field]) {
+          if (!/^\d{5}(-\d{4})?$/.test(updates[field])) {
+            newErrors[field] = 'Please enter a valid ZIP code';
+          }
+        }
+      });
       return newErrors;
     });
   };
@@ -410,8 +436,23 @@ const DesignRequestForm = () => {
           </form>
         </div>
 
+        {/* Security Badges & Privacy Notice */}
+        <div className="mt-8 text-center space-y-4">
+          <SecurityBadges />
+
+          <div className="text-sm text-gray-600">
+            <p>
+              We respect your privacy. Read our{' '}
+              <Link href="/privacy" className="text-solar-600 underline hover:text-solar-700">
+                Privacy Policy
+              </Link>
+              . Your information is never sold or shared.
+            </p>
+          </div>
+        </div>
+
         {/* Help Text */}
-        <div className="mt-8 text-center">
+        <div className="mt-6 text-center">
           <p className="text-gray-600">
             Questions?{' '}
             <a href="/contact" className="text-solar-600 hover:text-solar-700 font-semibold">

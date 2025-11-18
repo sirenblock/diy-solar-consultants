@@ -1,8 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Phone, Menu, X, Zap } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
 import Button, { IconButton } from './Button';
+import Logo from './Logo';
+import { trackPhoneClick } from '@/utils/analytics';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,13 +50,8 @@ export default function Header() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-solar-500 to-energy-600 rounded-xl flex items-center justify-center shadow-lg shadow-solar-500/20 group-hover:shadow-solar-500/40 transition-shadow">
-                <Zap className="w-6 h-6 text-white" fill="currentColor" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                DIY Solar
-              </span>
+            <Link href="/" className="group">
+              <Logo />
             </Link>
 
             {/* Desktop Navigation */}
@@ -74,6 +71,7 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href="tel:+18885551234"
+                onClick={() => trackPhoneClick('+18885551234', 'Header - Desktop')}
                 className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-solar-600 transition-colors rounded-lg hover:bg-gray-100"
               >
                 <Phone className="w-4 h-4" />
@@ -112,6 +110,30 @@ export default function Header() {
           />
           <div className="absolute top-16 left-0 right-0 bottom-0 bg-white/95 backdrop-blur-lg p-6 animate-fade-in overflow-y-auto">
             <div className="flex flex-col gap-4">
+              {/* Primary actions first - mobile optimization */}
+              <div className="space-y-3 pb-6 border-gray-200">
+                <a
+                  href="tel:+18885551234"
+                  onClick={() => trackPhoneClick('+18885551234', 'Header - Mobile')}
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-6 rounded-lg active:scale-95 transition-transform shadow-lg shadow-blue-600/30"
+                  data-location="header-mobile-phone"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>Call (888) 555-1234</span>
+                </a>
+                <Button
+                  href="/design-request"
+                  variant="primary"
+                  size="md"
+                  className="w-full justify-center"
+                  location="header-mobile"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Get Free Quote
+                </Button>
+              </div>
+
+              {/* Navigation links */}
               <Link
                 href="/"
                 className="mobile-nav-link"
@@ -136,30 +158,6 @@ export default function Header() {
               >
                 Contact
               </Link>
-
-              <div className="mt-6 pt-6 border-t border-gray-200 flex flex-col gap-3">
-                <Button
-                  href="/design-request"
-                  variant="primary"
-                  size="md"
-                  className="w-full justify-center"
-                  location="header-mobile"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Get Free Quote
-                </Button>
-                <Button
-                  href="tel:+18885551234"
-                  variant="secondary"
-                  size="md"
-                  className="w-full justify-center"
-                  external={true}
-                  location="header-mobile-phone"
-                  leftIcon={<Phone className="w-5 h-5" />}
-                >
-                  Call (888) 555-1234
-                </Button>
-              </div>
             </div>
           </div>
         </div>

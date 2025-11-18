@@ -9,6 +9,14 @@ const nextConfig = {
   // Enable SWC minification for better performance
   swcMinify: true,
 
+  // Compiler options for production optimization
+  compiler: {
+    // Remove console logs in production for smaller bundle size
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'], // Keep error and warn logs
+    } : false,
+  },
+
   // Optimize images for performance and Core Web Vitals
   images: {
     formats: ['image/avif', 'image/webp'],

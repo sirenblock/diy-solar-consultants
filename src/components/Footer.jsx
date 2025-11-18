@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Zap, Facebook, Twitter, Linkedin, Youtube, Phone, Mail, ShieldCheck, Star, CheckCircle } from 'lucide-react'
+import { trackPhoneClick, trackEmailClick } from '@/utils/analytics'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -27,7 +28,12 @@ export default function Footer() {
               <div className="w-10 h-10 bg-gradient-to-br from-solar-400 to-energy-500 rounded-xl flex items-center justify-center">
                 <Zap className="w-6 h-6 text-white" fill="currentColor" />
               </div>
-              <span className="text-xl font-bold text-white">DIY Solar</span>
+              <div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-xl font-bold text-white">DIY Solar</span>
+                  <span className="text-xl font-medium text-gray-300">Consultants</span>
+                </div>
+              </div>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Professional solar design and permitting services for DIY homeowners. Save 40-60% with expert guidance.
@@ -114,11 +120,19 @@ export default function Footer() {
             </form>
 
             <div className="space-y-3">
-              <a href="tel:+18885551234" className="flex items-center gap-2 footer-link">
+              <a
+                href="tel:+18885551234"
+                onClick={() => trackPhoneClick('+18885551234', 'Footer')}
+                className="flex items-center gap-2 footer-link"
+              >
                 <Phone className="w-4 h-4" />
                 <span>(888) 555-1234</span>
               </a>
-              <a href="mailto:info@diysolar.com" className="flex items-center gap-2 footer-link">
+              <a
+                href="mailto:info@diysolar.com"
+                onClick={() => trackEmailClick('info@diysolar.com', 'Footer')}
+                className="flex items-center gap-2 footer-link"
+              >
                 <Mail className="w-4 h-4" />
                 <span>info@diysolar.com</span>
               </a>

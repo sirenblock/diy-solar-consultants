@@ -12,7 +12,7 @@ export default function DesignRequest() {
   return (
     <>
       <Head>
-        <title>Request Free Solar Design Quote | DIY Solar</title>
+        <title>Request Free Solar Design Quote | DIY Solar Consultants</title>
         <meta
           name="description"
           content="Get your custom solar design from licensed PE engineers. Free consultation, 5-7 day turnaround, 98% approval rate. Start saving today - request your quote!"

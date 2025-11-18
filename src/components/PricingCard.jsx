@@ -9,6 +9,10 @@ export default function PricingCard({ pkg, onSelect }) {
     id,
     name,
     price,
+    originalPrice,
+    savings,
+    paymentPlan,
+    valueNote,
     priceNote,
     badge,
     featured,
@@ -66,12 +70,32 @@ export default function PricingCard({ pkg, onSelect }) {
             </div>
           ) : (
             <div>
-              <span className="text-5xl font-bold text-gray-900">${price}</span>
+              {/* Anchor Pricing - Show original price crossed out */}
+              {originalPrice && savings && (
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-2xl text-gray-400 line-through">${originalPrice.toLocaleString()}</span>
+                  <span className="bg-red-100 text-red-700 text-sm font-bold px-2 py-1 rounded">
+                    Save ${savings.toLocaleString()}
+                  </span>
+                </div>
+              )}
+              {/* Current Price - Charm Pricing */}
+              <div className="flex items-baseline justify-center gap-1">
+                <span className="text-5xl font-bold text-gray-900">${price.toLocaleString()}</span>
+              </div>
+              {/* Payment Plan */}
+              <p className="text-gray-600 mt-2">One-time payment</p>
+              {paymentPlan && (
+                <p className="text-sm text-gray-500">{paymentPlan}</p>
+              )}
+              {valueNote && (
+                <p className="text-xs text-green-600 mt-1 font-semibold">{valueNote}</p>
+              )}
             </div>
           )}
         </div>
         <p className="text-gray-600">{subtitle}</p>
-        {savingsBadge && (
+        {savingsBadge && !originalPrice && (
           <div className="mt-3 inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">
             {savingsBadge}
           </div>

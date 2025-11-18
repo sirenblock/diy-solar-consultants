@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { email, source = 'unknown', name = '' } = req.body;
+    const { email, source = 'unknown', name = '', leadMagnet = 'roi-report' } = req.body;
 
     // Validate email
     if (!email || !isValidEmail(email)) {
@@ -27,6 +27,7 @@ export default async function handler(req, res) {
       email: sanitizeString(email),
       source: sanitizeString(source),
       name: name ? sanitizeString(name) : '',
+      leadMagnet: sanitizeString(leadMagnet),
       subscribedAt: new Date().toISOString()
     };
 
@@ -48,11 +49,21 @@ export default async function handler(req, res) {
       console.error('Notification failed:', notifyError);
     }
 
+    // Get success message based on lead magnet type
+    const successMessages = {
+      'diy-solar-guide': 'Success! Check your email for your FREE DIY Solar Guide.',
+      'calculator-spreadsheet': 'Success! Check your email for your FREE Solar Calculator.',
+      'roi-report': 'Success! Check your email for your FREE Solar ROI Report.',
+      'equipment-guide': 'Success! Check your email for your FREE Equipment Guide.',
+      'default': 'Success! Check your email for your free download.'
+    };
+
     return res.status(200).json({
       success: true,
-      message: 'Success! Check your email for your FREE Solar ROI Report.',
+      message: successMessages[sanitizedData.leadMagnet] || successMessages.default,
       data: {
-        email: sanitizedData.email
+        email: sanitizedData.email,
+        leadMagnet: sanitizedData.leadMagnet
       }
     });
 
@@ -94,10 +105,20 @@ async function sendWelcomeEmail(data) {
    * See /api/contact.js for integration examples
    */
 
+  const leadMagnetTitles = {
+    'diy-solar-guide': 'Your FREE DIY Solar Guide',
+    'calculator-spreadsheet': 'Your FREE Solar Calculator',
+    'roi-report': 'Your FREE Solar ROI Report',
+    'equipment-guide': 'Your FREE Equipment Guide'
+  };
+
+  const subject = leadMagnetTitles[data.leadMagnet] || 'Your FREE Solar Resource';
+
   console.log('=== WELCOME EMAIL ===');
   console.log('To:', data.email);
-  console.log('Subject: Your FREE Solar ROI Report + Welcome Gift');
+  console.log('Subject:', subject + ' + Welcome Gift');
   console.log('Source:', data.source);
+  console.log('Lead Magnet:', data.leadMagnet);
   console.log('==================');
 
   await new Promise(resolve => setTimeout(resolve, 100));

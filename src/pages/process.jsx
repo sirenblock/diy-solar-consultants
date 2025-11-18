@@ -24,7 +24,7 @@ export default function Process() {
   return (
     <>
       <Head>
-        <title>How Our Solar Design Process Works | DIY Solar</title>
+        <title>How Our Solar Design Process Works | DIY Solar Consultants</title>
         <meta
           name="description"
           content="Simple 4-step process: consultation, design, permitting & support. 5-7 day turnaround, 98% approval rate. Licensed PE engineers guide you from start to finish."

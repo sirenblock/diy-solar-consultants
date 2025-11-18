@@ -1,11 +1,14 @@
 export const packages = [
   {
     id: 'design-only',
-    name: 'Solar Design Package',
-    price: 595,
-    badge: 'Most Flexible',
+    name: 'Basic Design',
+    price: 1499,
+    originalPrice: 1999,
+    savings: 500,
+    paymentPlan: 'Or 3 payments of $533',
+    badge: 'Simple Projects',
     featured: false,
-    subtitle: 'Professional system design for DIY installation',
+    subtitle: 'Perfect for simple roofs',
     timeline: '5-7 business days',
     includes: [
       'Complete system design and engineering',
@@ -38,12 +41,16 @@ export const packages = [
   },
   {
     id: 'design-permit',
-    name: 'Complete Design & Permit Package',
-    price: 995,
+    name: 'Professional Design',
+    price: 2299,
+    originalPrice: 3499,
+    savings: 1200,
+    paymentPlan: 'Or 4 payments of $599',
+    valueNote: 'Saves you $15K+ vs installers',
     badge: 'MOST POPULAR',
     featured: true,
-    subtitle: 'Design + permit-ready documentation with PE stamp',
-    savingsBadge: 'Save $200 vs. buying separately',
+    subtitle: 'Complete DIY solution',
+    savingsBadge: 'Save $1,200',
     timeline: '5-7 business days',
     successRate: '98% first-time permit approval',
     includes: [
@@ -73,12 +80,15 @@ export const packages = [
   },
   {
     id: 'full-service',
-    name: 'Complete DIY Solar Package',
-    price: 1495,
-    badge: 'Best Value',
+    name: 'Premium + Support',
+    price: 3499,
+    originalPrice: 4999,
+    savings: 1500,
+    paymentPlan: 'Or 6 payments of $599',
+    badge: 'White-glove Service',
     featured: false,
-    subtitle: 'Design + Permitting + Equipment + Installation Support',
-    savingsBadge: 'Save $400+ vs. buying separately',
+    subtitle: 'White-glove service',
+    savingsBadge: 'Save $1,500',
     timeline: 'Design + Permit: 5-7 days\nEquipment sourcing: 1-2 weeks\nSupport: Throughout installation',
     includes: [
       'Everything in Design + Permitting package',
@@ -353,4 +363,28 @@ export const guarantee = {
     'Licensed PEs in all 50 states',
     'We stand behind our work'
   ]
+};
+
+export const valueStack = {
+  totalValue: 8500,
+  yourInvestment: 2299,
+  savingsAmount: 6201,
+  savingsPercent: 73,
+  items: [
+    { item: 'Custom Solar System Design', value: '$2,500' },
+    { item: 'Engineered Stamped Drawings', value: '$1,200' },
+    { item: 'Permit-Ready Plans', value: '$800' },
+    { item: 'Equipment Sourcing Guide', value: '$500' },
+    { item: 'Installation Training Videos', value: '$400' },
+    { item: 'Expert Consultation (2 hrs)', value: '$600' },
+    { item: '90-Day Support Package', value: '$1,500' },
+    { item: 'Lifetime Access to Resources', value: '$1,000' }
+  ]
+};
+
+export const savingsComparison = {
+  traditional: 28500,
+  withDIY: 12200,
+  totalSavings: 16300,
+  savingsPercent: 57
 };

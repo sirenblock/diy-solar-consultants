@@ -1,8 +1,18 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Input from './Input'
 import TextArea from './TextArea'
 import Select from './Select'
 import Checkbox from './Checkbox'
+import SecurityBadges from './SecurityBadges'
+import Link from 'next/link'
+import {
+  trackFormStart,
+  trackFormFieldInteraction,
+  trackFormError,
+  trackFormSubmission,
+  trackConversion,
+  trackEnhancedLead
+} from '@/utils/analytics'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -23,6 +33,7 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null) // 'success' or 'error'
   const [charCount, setCharCount] = useState(0)
+  const formStartTracked = useRef(false)
 
   // Validation rules
   const validateField = (name, value) => {
@@ -70,6 +81,17 @@ export default function ContactForm() {
     const { name, value, type, checked } = e.target
     const fieldValue = type === 'checkbox' ? checked : value
 
+    // Track form start on first interaction
+    if (!formStartTracked.current) {
+      trackFormStart('Contact Form');
+      formStartTracked.current = true;
+    }
+
+    // Track field interaction
+    if (!touched[name]) {
+      trackFormFieldInteraction('Contact Form', name);
+    }
+
     setFormData(prev => ({
       ...prev,
       [name]: fieldValue
@@ -98,6 +120,9 @@ export default function ContactForm() {
     }))
 
     const error = validateField(name, value)
+    if (error) {
+      trackFormError('Contact Form', name, error);
+    }
     setErrors(prev => ({
       ...prev,
       [name]: error
@@ -163,6 +188,27 @@ export default function ContactForm() {
       const data = await response.json()
 
       if (response.ok) {
+        // Track successful submission
+        trackFormSubmission('Contact Form', {
+          project_type: formData.projectType,
+          system_size: formData.systemSize,
+          timeline: formData.timeline,
+          newsletter_opted_in: formData.newsletter
+        });
+
+        // Track as conversion
+        trackConversion('contact_form_submission', 2299, {
+          project_type: formData.projectType,
+          timeline: formData.timeline
+        });
+
+        // Track enhanced lead data
+        trackEnhancedLead({
+          projectType: formData.projectType,
+          systemSize: formData.systemSize,
+          timeline: formData.timeline
+        });
+
         setSubmitStatus('success')
         // Reset form
         setFormData({
@@ -179,11 +225,17 @@ export default function ContactForm() {
         setCharCount(0)
         setTouched({})
         setErrors({})
+        // Reset form start tracker for potential re-submission
+        formStartTracked.current = false;
       } else {
+        // Track submission error
+        trackFormError('Contact Form', 'submission', 'Server error - form submission failed');
         setSubmitStatus('error')
       }
     } catch (error) {
       console.error('Form submission error:', error)
+      // Track submission error
+      trackFormError('Contact Form', 'submission', error.message || 'Network error');
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -459,9 +511,22 @@ export default function ContactForm() {
           </button>
         </div>
 
-        <p className="text-sm text-gray-500 text-center">
-          <span className="text-red-500">*</span> Required fields
-        </p>
+        {/* Security Badges */}
+        <SecurityBadges />
+
+        {/* Privacy Notice */}
+        <div className="text-sm text-gray-600 text-center">
+          <p className="mb-2">
+            <span className="text-red-500">*</span> Required fields
+          </p>
+          <p>
+            We respect your privacy. Read our{' '}
+            <Link href="/privacy" className="text-solar-600 underline hover:text-solar-700">
+              Privacy Policy
+            </Link>
+            . Your information is never sold or shared.
+          </p>
+        </div>
       </form>
     </div>
   )

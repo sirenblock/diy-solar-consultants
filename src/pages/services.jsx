@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import FAQSection from '@/components/FAQSection';
 import TrustBadges from '@/components/TrustBadges';
 import { Card } from '@/components/Card';
+import { PrimaryCTA, SecondaryCTA, InContentCTA, EndOfPageCTA } from '@/components/CTA';
 import {
   generateServicesPageSchema,
   generateBreadcrumbSchema,
@@ -23,7 +24,7 @@ export default function Services() {
   return (
     <>
       <Head>
-        <title>Solar Design Services - PE Stamped Plans | DIY Solar</title>
+        <title>Solar Design Services - PE Stamped Plans | DIY Solar Consultants</title>
         <meta
           name="description"
           content="Expert solar design, permitting & equipment sourcing for DIY installers. Licensed PE stamps in all 50 states. 98% approval rate. 5-7 day turnaround guaranteed."
@@ -77,10 +78,10 @@ export default function Services() {
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
           <div className="relative max-w-6xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Professional Solar Services<br />for <span className="bg-gradient-to-r from-energy-300 to-yellow-200 bg-clip-text text-transparent">DIY Success</span>
+              Save $15K+ With Expert<br /><span className="bg-gradient-to-r from-energy-300 to-yellow-200 bg-clip-text text-transparent">DIY Solar Guidance</span>
             </h1>
             <p className="text-xl md:text-2xl text-solar-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-              From design to installation support, we provide the expertise you need to successfully go solar
+              Professional designs, permit packages, and support—without the installer markup
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link href="/design-request" className="px-8 py-4 bg-white text-solar-700 rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/30 hover:-translate-y-1 transition-all">
@@ -125,12 +126,12 @@ export default function Services() {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-                Comprehensive Solar Design and Support Services
+                Everything You Need to Go Solar on Your Terms
               </h2>
               <p className="text-lg text-gray-700">
-                We offer comprehensive solar design and support services tailored for DIY homeowners.
-                Whether you need a complete design package or just equipment sourcing, we have flexible
-                options to meet your needs.
+                From professional system design to permit-ready plansets and equipment sourcing—we give you the
+                expertise of big solar companies without the big price tag. Pick exactly what you need, install
+                on your schedule, and save thousands.
               </p>
             </div>
 
@@ -172,17 +173,17 @@ export default function Services() {
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-5xl">📐</div>
                   <div>
-                    <h2 className="text-3xl md:text-4xl font-bold">Solar System Design</h2>
-                    <p className="text-xl text-solar-100 mt-2">Custom-engineered solar systems optimized for your property</p>
+                    <h2 className="text-3xl md:text-4xl font-bold">Get Maximum Solar Production at Minimum Cost</h2>
+                    <p className="text-xl text-solar-100 mt-2">Professional PE-stamped designs that maximize your ROI and pass permitting first try</p>
                   </div>
                 </div>
               </div>
 
               <div className="p-8">
                 <p className="text-lg text-gray-700 mb-8">
-                  Our licensed Professional Engineers design complete solar systems tailored to your energy needs,
-                  roof characteristics, and local requirements. Every design is optimized for maximum production
-                  and cost-effectiveness.
+                  Skip the $15K+ installation markup. Our licensed Professional Engineers design complete solar systems
+                  that give you the same quality as big solar companies, but at a fraction of the cost. Every design
+                  is optimized for maximum energy production and fastest payback period.
                 </p>
 
                 {/* What's Included */}
@@ -284,17 +285,17 @@ export default function Services() {
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-5xl">📋</div>
                   <div>
-                    <h2 className="text-3xl md:text-4xl font-bold">Permitting Plansets</h2>
-                    <p className="text-xl text-energy-100 mt-2">Professional engineering stamps for permit approval</p>
+                    <h2 className="text-3xl md:text-4xl font-bold">Get Permit-Ready Plans in 5 Days</h2>
+                    <p className="text-xl text-energy-100 mt-2">PE-stamped plansets that pass permitting on the first try (98% approval rate)</p>
                   </div>
                 </div>
               </div>
 
               <div className="p-8">
                 <p className="text-lg text-gray-700 mb-8">
-                  We prepare comprehensive permit packages with professional engineering stamps (PE seal) as required
-                  by your local jurisdiction. Our 98% first-time approval rate means you get permitted quickly without
-                  costly delays or revisions.
+                  Stop wasting weeks waiting for permits. Our engineered solar designs pass permitting on the first try,
+                  saving you weeks of delays and expensive revision fees. Get professional PE stamps for any jurisdiction
+                  in all 50 states without the professional markup.
                 </p>
 
                 {/* What's Included */}

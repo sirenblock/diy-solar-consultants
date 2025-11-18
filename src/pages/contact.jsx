@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ContactForm from '@/components/ContactForm'
+import OptimizedContactForm from '@/components/OptimizedContactForm'
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GuaranteeBadge from '@/components/GuaranteeBadge';
@@ -81,12 +81,38 @@ export default function Contact() {
 
         <div className="relative section-container py-20 sm:py-24 lg:py-28">
           <div className="max-w-3xl">
-            <h1 className="heading-xl text-white mb-6">
-              Get in Touch
+            {/* Headline - Benefit-focused (47 chars) */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Let's Design Your Perfect
+              <span className="block bg-gradient-to-r from-yellow-300 to-energy-200 bg-clip-text text-transparent">Solar System</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-solar-100 leading-relaxed">
-              Have questions about solar design or DIY installation? We&apos;re here to help.
+
+            {/* Subheadline - Address pain point (64 chars) */}
+            <p className="text-xl sm:text-2xl text-solar-100 leading-relaxed mb-8">
+              Free consultation with licensed solar experts
             </p>
+
+            {/* Trust Signals */}
+            <div className="flex flex-wrap gap-6 text-sm sm:text-base">
+              <div className="flex items-center gap-2">
+                <svg className="w-6 h-6 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">24-Hour Response Time</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-6 h-6 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">Licensed PE Engineers</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-6 h-6 text-energy-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-semibold">No Obligation</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -96,7 +122,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Left Column - Contact Form (60% / 3 columns) */}
           <div className="lg:col-span-3">
-            <ContactForm />
+            <OptimizedContactForm />
           </div>
 
           {/* Right Column - Contact Info & Details (40% / 2 columns) */}

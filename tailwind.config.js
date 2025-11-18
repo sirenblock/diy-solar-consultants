@@ -136,6 +136,15 @@ module.exports = {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.5" },
         },
+        // Mobile-optimized animations
+        "slideUp": {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "scaleIn": {
+          "0%": { transform: "scale(0)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -145,6 +154,9 @@ module.exports = {
         "scale-in": "scale-in 0.5s ease-out",
         "slide-up": "slide-up 0.5s ease-out",
         "pulse-slow": "pulse-slow 3s ease-in-out infinite",
+        // Mobile-optimized animations
+        "slideUp": "slideUp 0.3s ease-out",
+        "scaleIn": "scaleIn 0.2s ease-out",
       },
     },
   },

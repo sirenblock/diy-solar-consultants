@@ -13,13 +13,17 @@ import Footer from '@/components/Footer';
 import UrgencyBanner from '@/components/UrgencyBanner';
 import InlineCTA from '@/components/InlineCTA';
 import GuaranteeBadge from '@/components/GuaranteeBadge';
+import MoneyBackGuarantee from '@/components/MoneyBackGuarantee';
+import CertificationBadges from '@/components/CertificationBadges';
 import {
   packages,
   addons,
   faqs,
   successStories,
   paymentInfo,
-  guarantee
+  guarantee,
+  valueStack,
+  savingsComparison
 } from '../data/pricingData';
 import {
   generateBreadcrumbSchema,
@@ -58,7 +62,7 @@ export default function Pricing() {
   return (
     <>
       <Head>
-        <title>Solar Design Pricing - Save 40-60% | DIY Solar</title>
+        <title>Solar Design Pricing - Save 40-60% | DIY Solar Consultants</title>
         <meta
           name="description"
           content="Professional solar design from $297. Licensed PE stamps, permit-ready plans delivered in 3-5 days. 98% approval rate guaranteed. Get your quote today!"
@@ -125,45 +129,74 @@ export default function Pricing() {
       <UrgencyBanner type="limited-spots" />
 
       <div className="pt-20 min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-          <div className="relative max-w-6xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Transparent Pricing for<br /><span className="bg-gradient-to-r from-yellow-300 to-green-200 bg-clip-text text-transparent">Professional Solar Design</span>
+        {/* Hero Section with Savings Comparison */}
+        <section className="relative pt-20 pb-12 px-4 bg-gradient-to-br from-blue-50 to-green-50 overflow-hidden">
+          <div className="relative max-w-4xl mx-auto text-center">
+            {/* Headline - Benefit-focused (54 chars) */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 leading-tight">
+              Transparent DIY Solar Pricing
+              <br />
+              <span className="bg-gradient-to-r from-solar-600 to-energy-600 bg-clip-text text-transparent">No Hidden Fees</span>
             </h1>
-            <p className="text-xl md:text-2xl text-green-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-              No hidden fees. No surprises. Professional engineering at honest prices.
+
+            {/* Subheadline - Address pain point (89 chars) */}
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+              Professional solar consulting for a fraction of installation costs
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link href="/design-request" className="px-8 py-4 bg-white text-green-700 rounded-xl font-bold text-lg shadow-2xl hover:shadow-white/30 hover:-translate-y-1 transition-all">
-                Get Your Quote →
-              </Link>
-              <Link href="/calculator" className="px-8 py-4 bg-green-800 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-green-900 transition-all">
-                Calculate Savings
+
+            {/* Savings Calculator */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto mb-8">
+              <div className="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <p className="text-gray-600 mb-2">Traditional Installer</p>
+                  <p className="text-4xl font-bold text-gray-400 line-through">
+                    ${savingsComparison.traditional.toLocaleString()}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gray-600 mb-2">With DIY Solar Consultants</p>
+                  <p className="text-4xl font-bold text-green-600">
+                    ${savingsComparison.withDIY.toLocaleString()}
+                  </p>
+                </div>
+              </div>
+              <div className="bg-green-50 border-2 border-green-500 rounded-xl p-4 mb-6">
+                <p className="text-3xl font-bold text-green-700">
+                  Save ${savingsComparison.totalSavings.toLocaleString()}
+                </p>
+                <p className="text-green-600 font-semibold">
+                  {savingsComparison.savingsPercent}% less than traditional solar
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <Link
+                href="/design-request"
+                className="inline-flex items-center justify-center px-8 py-4 h-14 bg-gradient-to-r from-solar-600 to-energy-600 text-white rounded-xl font-bold text-lg shadow-2xl hover:shadow-solar-600/50 hover:-translate-y-1 transition-all"
+              >
+                Get Free Quote
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
-            <div className="flex flex-wrap justify-center gap-8 text-sm sm:text-base">
+
+            {/* Trust Signals */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="font-semibold">98% Approval Rate</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="font-semibold">Licensed PE</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="font-semibold">All 50 States</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="font-semibold">Money-Back Guarantee</span>
@@ -204,8 +237,16 @@ export default function Pricing() {
             <div className="mt-16">
               <GuaranteeBadge variant="full" />
             </div>
+
+            {/* Enhanced Money-Back Guarantee */}
+            <div className="mt-12">
+              <MoneyBackGuarantee />
+            </div>
           </div>
         </section>
+
+        {/* Certifications & Trust Section */}
+        <CertificationBadges />
 
         {/* Comparison Table */}
         <section className="py-16 bg-white">
@@ -217,6 +258,36 @@ export default function Pricing() {
               See exactly what's included in each package to make an informed decision
             </p>
             <ComparisonTable packages={packages} />
+
+            {/* Value Stack Section */}
+            <div className="mt-16 max-w-4xl mx-auto">
+              <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 border-2 border-blue-200">
+                <h3 className="text-2xl font-bold text-center mb-8">
+                  Everything You Get (Total Value: ${valueStack.totalValue.toLocaleString()})
+                </h3>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  {valueStack.items.map(({ item, value }) => (
+                    <div key={item} className="flex justify-between items-center bg-white rounded-lg p-4">
+                      <span className="font-medium text-gray-900">{item}</span>
+                      <span className="text-green-600 font-bold">{value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-6 border-t-2 border-blue-300 flex justify-between items-center">
+                  <span className="text-xl font-bold">Your Investment:</span>
+                  <div className="text-right">
+                    <p className="text-3xl font-bold text-green-600">
+                      Only ${valueStack.yourInvestment.toLocaleString()}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Save ${valueStack.savingsAmount.toLocaleString()} ({valueStack.savingsPercent}% off)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Inline CTA after comparison */}
             <InlineCTA
@@ -369,50 +440,39 @@ export default function Pricing() {
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="py-16 bg-gradient-to-br from-green-600 to-green-800 text-white">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
+        {/* Final CTA with Scarcity and Risk Reversal */}
+        <section className="py-16 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+          <div className="container mx-auto px-4 max-w-3xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Get Started?
+              Ready to Save $15,000+?
             </h2>
-            <p className="text-xl mb-8 text-green-100">
-              Choose your package and start saving on solar
+            <p className="text-xl mb-6 text-white/90">
+              Join 127 homeowners who started their solar journey this month
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <button className="bg-white text-green-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-50 transition-all shadow-lg hover:shadow-xl">
-                Get Design + Permit Package
-              </button>
-              <button className="bg-green-700 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-800 transition-all border-2 border-white">
-                Request Custom Quote
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-all border-2 border-white">
-                Schedule Free Consultation
-              </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Link href="/design-request" className="px-8 py-4 bg-white text-green-600 font-bold rounded-lg hover:bg-gray-100 text-lg transition-all shadow-lg hover:shadow-xl">
+                Get Started Now
+              </Link>
+              <a href="tel:+18005551234" className="px-8 py-4 bg-transparent border-2 border-white font-bold rounded-lg hover:bg-white/10 text-lg transition-all">
+                Call (800) 555-1234
+              </a>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            {/* Risk Reversal - Money-Back Guarantee */}
+            <div className="mt-8 pt-6 border-t border-white/20">
+              <div className="flex items-center justify-center gap-2 text-white/90 mb-4">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                98% approval rate
+                <span className="text-lg font-semibold">Protected by 30-Day Money-Back Guarantee</span>
               </div>
-              <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                Licensed PE
-              </div>
-              <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                Money-back guarantee
-              </div>
+              <p className="text-sm text-white/80 max-w-2xl mx-auto">
+                If we can&apos;t deliver a code-compliant, permit-ready solar design for your property, we&apos;ll refund your payment 100%. No questions asked.
+              </p>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-green-500">
+            <div className="mt-12 pt-8 border-t border-white/20">
               <h3 className="text-xl font-bold mb-4">Still have questions about pricing?</h3>
               <div className="flex flex-wrap justify-center gap-6 text-sm">
                 <a href="#faq" className="hover:text-green-200 underline">View FAQ</a>

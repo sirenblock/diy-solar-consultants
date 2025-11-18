@@ -107,7 +107,7 @@ export default function FAQPage() {
   return (
     <>
       <Head>
-        <title>Solar Design FAQs - Common Questions | DIY Solar</title>
+        <title>Solar Design FAQs - Common Questions | DIY Solar Consultants</title>
         <meta
           name="description"
           content="Answers to common DIY solar questions: costs, permitting, installation, equipment & more. Expert advice from licensed PE engineers. Get started with confidence!"
@@ -121,7 +121,7 @@ export default function FAQPage() {
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://diysolar.com/faq" />
-        <meta property="og:title" content="DIY Solar FAQs - Expert Answers to Your Questions" />
+        <meta property="og:title" content="DIY Solar Consultants FAQs - Expert Answers to Your Questions" />
         <meta property="og:description" content="Common questions about DIY solar answered: costs, permitting, design, equipment & installation. Professional guidance from licensed engineers." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
         <meta property="og:image" content="https://diysolar.com/images/og-faq.jpg" />
@@ -132,10 +132,10 @@ export default function FAQPage() {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="DIY Solar FAQs - Expert Answers to Your Questions" />
+        <meta name="twitter:title" content="DIY Solar Consultants FAQs - Expert Answers to Your Questions" />
         <meta name="twitter:description" content="Common DIY solar questions answered: costs, permitting, design, equipment. Professional guidance from licensed PE engineers." />
         <meta name="twitter:image" content="https://diysolar.com/images/og-faq.jpg" />
-        <meta name="twitter:image:alt" content="DIY Solar FAQs" />
+        <meta name="twitter:image:alt" content="DIY Solar Consultants FAQs" />
 
         {/* Robots */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
