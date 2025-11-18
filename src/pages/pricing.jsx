@@ -10,7 +10,6 @@ import PricingFAQ from '../components/PricingFAQ';
 import PaymentInfo from '../components/PaymentInfo';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import UrgencyBanner from '@/components/UrgencyBanner';
 import InlineCTA from '@/components/InlineCTA';
 import GuaranteeBadge from '@/components/GuaranteeBadge';
 import MoneyBackGuarantee from '@/components/MoneyBackGuarantee';
@@ -125,9 +124,6 @@ export default function Pricing() {
       </Head>
       <Header />
 
-      {/* Urgency Banner - Top of Page */}
-      <UrgencyBanner type="limited-spots" />
-
       <div className="pt-20 min-h-screen bg-gray-50">
         {/* Hero Section with Savings Comparison */}
         <section className="relative pt-20 pb-12 px-4 bg-gradient-to-br from-blue-50 to-green-50 overflow-hidden">
@@ -216,11 +212,6 @@ export default function Pricing() {
           </div>
         </section>
 
-        {/* Social Proof Urgency Banner */}
-        <div className="bg-gray-50">
-          <UrgencyBanner type="social-proof" />
-        </div>
-
         {/* Pricing Cards */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 max-w-7xl">
@@ -301,11 +292,6 @@ export default function Pricing() {
             />
           </div>
         </section>
-
-        {/* Countdown Urgency Banner */}
-        <div className="bg-gray-50">
-          <UrgencyBanner type="countdown" />
-        </div>
 
         {/* Savings Calculator */}
         <section className="py-16 bg-gray-50">
