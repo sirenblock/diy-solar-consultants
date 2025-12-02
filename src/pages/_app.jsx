@@ -5,6 +5,7 @@ import Analytics from '@/components/Analytics'
 import GTM from '@/components/GTM'
 import Clarity from '@/components/Clarity'
 import { PageTransition } from '@/components/animations'
+import { ToastProvider } from '@/components/Toast'
 
 // Lazy load non-critical components for better performance
 // These components are below-the-fold or triggered by user interaction
@@ -48,7 +49,7 @@ const inter = Inter({
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <ToastProvider>
       <style jsx global>{`
         html {
           font-family: ${inter.style.fontFamily};
@@ -79,6 +80,6 @@ export default function App({ Component, pageProps }) {
       {/* Mobile-Optimized Conversion Components */}
       <MobileStickyCTA />
       <MobileFloatingAction />
-    </>
+    </ToastProvider>
   )
 }

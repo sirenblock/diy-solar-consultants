@@ -11,7 +11,7 @@ const ORGANIZATION_DATA = {
   legalName: 'DIY Solar Consultants LLC',
   url: SITE_URL,
   telephone: '+1-888-555-1234',
-  email: 'info@diysolarcosnultants.com',
+  email: 'info@diysolarconsultants.com',
   foundingDate: '2015',
   numberOfEmployees: '15-25',
   description: 'Professional solar design, permitting, and equipment sourcing services for DIY homeowners',

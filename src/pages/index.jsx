@@ -22,6 +22,7 @@ import {
   generateBreadcrumbSchema,
   generateSchemaGraph
 } from '@/utils/schema'
+import { SITE_URL, getAbsoluteUrl, getOgImageUrl } from '@/utils/siteConfig'
 import { homepageFAQs } from '@/data/serviceFAQs'
 
 export default function Home() {
@@ -354,11 +355,11 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://diysolar.com" />
+        <link rel="canonical" href={SITE_URL} />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com" />
+        <meta property="og:url" content={SITE_URL} />
         <meta
           property="og:title"
           content="Save 40-60% on Solar with Professional Design"
@@ -368,7 +369,7 @@ export default function Home() {
           content="Professional solar system design & permitting for DIY homeowners. Licensed PE engineers. 98% approval rate. 5,000+ systems designed."
         />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-home.jpg" />
+        <meta property="og:image" content={getOgImageUrl('og-home.jpg')} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="DIY Solar Consultants - Professional Solar Design Services" />
@@ -381,7 +382,7 @@ export default function Home() {
           name="twitter:description"
           content="Professional solar system design & permitting for DIY homeowners. Licensed PE engineers. 98% approval rate."
         />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-home.jpg" />
+        <meta name="twitter:image" content={getOgImageUrl('og-home.jpg')} />
         <meta name="twitter:image:alt" content="DIY Solar Consultants - Professional Solar Design Services" />
 
         {/* Robots */}
