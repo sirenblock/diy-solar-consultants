@@ -3,11 +3,13 @@
  * Centralized schema generation for SEO and rich snippets
  */
 
+import { SITE_URL, SITE_NAME, getAbsoluteUrl } from './siteConfig';
+
 // Base organization data
 const ORGANIZATION_DATA = {
-  name: 'DIY Solar Consultants',
+  name: SITE_NAME,
   legalName: 'DIY Solar Consultants LLC',
-  url: 'https://diysolar.com',
+  url: SITE_URL,
   telephone: '+1-888-555-1234',
   email: 'info@diysolarcosnultants.com',
   foundingDate: '2015',
@@ -352,7 +354,7 @@ export const generateBreadcrumbSchema = (breadcrumbs) => ({
     '@type': 'ListItem',
     position: index + 1,
     name: crumb.name,
-    item: crumb.url ? `https://diysolar.com${crumb.url}` : undefined
+    item: crumb.url ? getAbsoluteUrl(crumb.url) : undefined
   }))
 });
 
@@ -439,15 +441,15 @@ export const generateAggregateRatingSchema = (rating) => ({
 export const generateWebPageSchema = (page) => ({
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': `https://diysolar.com${page.url}`,
-  url: `https://diysolar.com${page.url}`,
+  '@id': getAbsoluteUrl(page.url),
+  url: getAbsoluteUrl(page.url),
   name: page.title,
   description: page.description,
   isPartOf: {
     '@type': 'WebSite',
-    '@id': 'https://diysolar.com/#website',
-    url: 'https://diysolar.com',
-    name: 'DIY Solar Consultants'
+    '@id': `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: SITE_NAME
   },
   breadcrumb: page.breadcrumbs && generateBreadcrumbSchema(page.breadcrumbs),
   primaryImageOfPage: page.image && {

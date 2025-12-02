@@ -72,7 +72,7 @@ export default function Services() {
       </Head>
       <Header />
 
-      <div className="pt-20 min-h-screen bg-white">
+      <main id="main-content" className="pt-20 min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -889,7 +889,7 @@ export default function Services() {
             </div>
           </div>
         </section>
-      </div>
+      </main>
     <Footer />
 
     </>

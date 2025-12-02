@@ -407,7 +407,7 @@ export default function Home() {
 
       <Header />
 
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-blue-50 to-green-50 pt-20 pb-24 md:pt-28 md:pb-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -450,7 +450,7 @@ export default function Home() {
                     <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="font-semibold">10,000+ Happy Customers</span>
+                    <span className="font-semibold">5,000+ Systems Designed</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <svg className="w-5 h-5 text-yellow-500 fill-yellow-500" viewBox="0 0 20 20">

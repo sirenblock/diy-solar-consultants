@@ -3,14 +3,9 @@
 # Allow all bots to crawl all content
 User-agent: *
 Allow: /
-
-# Disallow private areas
-Disallow: /api/private/
+Disallow: /api/
 Disallow: /admin/
-
-# Crawl-delay for respectful crawling
-User-agent: *
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://diysolar.com/sitemap.xml
+Sitemap: https://diysolarconsultants.com/sitemap.xml
