@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import { Inter } from 'next/font/google'
 import dynamic from 'next/dynamic'
 import Analytics from '@/components/Analytics'
 import GTM from '@/components/GTM'
@@ -38,31 +37,16 @@ const MobileFloatingAction = dynamic(() => import('@/components/MobileFloatingAc
   ssr: false, // Mobile-only, below-the-fold
 })
 
-// Configure Inter font with optimizations
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-  preload: true,
-  weight: ['400', '500', '600', '700'],
-})
-
 export default function App({ Component, pageProps }) {
   return (
     <ToastProvider>
-      <style jsx global>{`
-        html {
-          font-family: ${inter.style.fontFamily};
-        }
-      `}</style>
-
       {/* Analytics Components */}
       <Analytics />
       <GTM />
       <Clarity />
 
       {/* Main App with Page Transitions */}
-      <div className={inter.variable}>
+      <div className="font-sans">
         <PageTransition>
           <Component {...pageProps} />
         </PageTransition>

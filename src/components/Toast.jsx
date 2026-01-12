@@ -38,6 +38,13 @@ function Toast({ id, type = 'info', title, message, duration = 5000, onClose }) 
   const config = TOAST_TYPES[type] || TOAST_TYPES.info;
   const Icon = config.icon;
 
+  const handleClose = useCallback(() => {
+    setIsLeaving(true);
+    setTimeout(() => {
+      onClose(id);
+    }, 300); // Match animation duration
+  }, [id, onClose]);
+
   useEffect(() => {
     // Trigger enter animation
     requestAnimationFrame(() => setIsVisible(true));
@@ -49,14 +56,7 @@ function Toast({ id, type = 'info', title, message, duration = 5000, onClose }) 
       }, duration);
       return () => clearTimeout(timer);
     }
-  }, [duration]);
-
-  const handleClose = useCallback(() => {
-    setIsLeaving(true);
-    setTimeout(() => {
-      onClose(id);
-    }, 300); // Match animation duration
-  }, [id, onClose]);
+  }, [duration, handleClose]);
 
   return (
     <div
