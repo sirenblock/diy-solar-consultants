@@ -405,6 +405,24 @@ export const resources = [
 
   // BLOG ARTICLES (First 10 of 22)
   {
+    id: 'solar-wind-financial-outlook-2025-2035',
+    title: 'Solar and Wind Energy: Financial Outlook and Interest Rate Trends 2025-2035',
+    category: 'blog',
+    type: 'Article',
+    difficulty: 'Intermediate',
+    format: ['Article'],
+    wordCount: 2800,
+    readTime: '14 min',
+    downloadable: false,
+    featured: true,
+    tags: ['financial', 'interest-rates', 'investment', 'market-trends', 'forecast'],
+    description: 'Comprehensive analysis of solar and wind energy financing trends, interest rate impacts, and investment outlook for the next decade.',
+    summary: 'Data-driven financial analysis covering interest rates, cost projections, and investment timing for solar and wind energy through 2035.',
+    author: 'Financial Analysts',
+    lastUpdated: '2025-01-18',
+    relatedResources: ['is-solar-worth-it', 'payback-calculator', 'cost-comparison-calculator']
+  },
+  {
     id: 'solar-101',
     title: 'Solar Energy 101: How Solar Panels Work',
     category: 'blog',
