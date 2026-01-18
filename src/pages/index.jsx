@@ -22,6 +22,7 @@ import {
   generateBreadcrumbSchema,
   generateSchemaGraph
 } from '@/utils/schema'
+import { SITE_URL, getAbsoluteUrl, getOgImageUrl } from '@/utils/siteConfig'
 import { homepageFAQs } from '@/data/serviceFAQs'
 
 export default function Home() {
@@ -354,11 +355,11 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://diysolar.com" />
+        <link rel="canonical" href={SITE_URL} />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com" />
+        <meta property="og:url" content={SITE_URL} />
         <meta
           property="og:title"
           content="Save 40-60% on Solar with Professional Design"
@@ -368,7 +369,7 @@ export default function Home() {
           content="Professional solar system design & permitting for DIY homeowners. Licensed PE engineers. 98% approval rate. 5,000+ systems designed."
         />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-home.jpg" />
+        <meta property="og:image" content={getOgImageUrl('og-home.jpg')} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="DIY Solar Consultants - Professional Solar Design Services" />
@@ -381,7 +382,7 @@ export default function Home() {
           name="twitter:description"
           content="Professional solar system design & permitting for DIY homeowners. Licensed PE engineers. 98% approval rate."
         />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-home.jpg" />
+        <meta name="twitter:image" content={getOgImageUrl('og-home.jpg')} />
         <meta name="twitter:image:alt" content="DIY Solar Consultants - Professional Solar Design Services" />
 
         {/* Robots */}
@@ -407,7 +408,7 @@ export default function Home() {
 
       <Header />
 
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-blue-50 to-green-50 pt-20 pb-24 md:pt-28 md:pb-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -450,7 +451,7 @@ export default function Home() {
                     <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="font-semibold">10,000+ Happy Customers</span>
+                    <span className="font-semibold">5,000+ Systems Designed</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <svg className="w-5 h-5 text-yellow-500 fill-yellow-500" viewBox="0 0 20 20">

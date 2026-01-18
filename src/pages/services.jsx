@@ -12,6 +12,7 @@ import {
   generateBreadcrumbSchema,
   generateSchemaGraph
 } from '@/utils/schema';
+import { getAbsoluteUrl, getOgImageUrl } from '@/utils/siteConfig';
 import { designFAQs, permittingFAQs } from '@/data/serviceFAQs';
 
 export default function Services() {
@@ -30,15 +31,15 @@ export default function Services() {
           content="Expert solar design, permitting & equipment sourcing for DIY installers. Licensed PE stamps in all 50 states. 98% approval rate. 5-7 day turnaround guaranteed."
         />
         <meta name="keywords" content="solar system design services, solar permit package, solar engineering services, DIY solar design, solar permitting help, solar equipment sourcing, solar technical consulting" />
-        <link rel="canonical" href="https://diysolar.com/services" />
+        <link rel="canonical" href={getAbsoluteUrl('/services')} />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/services" />
+        <meta property="og:url" content={getAbsoluteUrl('/services')} />
         <meta property="og:title" content="Professional Solar Services for DIY Success" />
         <meta property="og:description" content="Complete solar design & permitting services. Licensed PE engineers. Equipment sourcing. Technical consulting. Everything you need to go solar DIY." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-services.jpg" />
+        <meta property="og:image" content={getOgImageUrl('og-services.jpg')} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="DIY Solar Consultants Services" />
@@ -48,7 +49,7 @@ export default function Services() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Professional Solar Services for DIY Success" />
         <meta name="twitter:description" content="Complete solar design & permitting services. Licensed PE engineers. 98% approval rate. 5-7 day turnaround." />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-services.jpg" />
+        <meta name="twitter:image" content={getOgImageUrl('og-services.jpg')} />
         <meta name="twitter:image:alt" content="DIY Solar Consultants Services" />
 
         {/* Robots */}
@@ -72,7 +73,7 @@ export default function Services() {
       </Head>
       <Header />
 
-      <div className="pt-20 min-h-screen bg-white">
+      <main id="main-content" className="pt-20 min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -889,7 +890,7 @@ export default function Services() {
             </div>
           </div>
         </section>
-      </div>
+      </main>
     <Footer />
 
     </>

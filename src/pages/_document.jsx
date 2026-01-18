@@ -4,16 +4,21 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
 
-        {/* DNS prefetch for analytics and other third-party services */}
+        {/* Theme color for mobile browsers */}
+        <meta name="theme-color" content="#F97316" />
+        <meta name="msapplication-TileColor" content="#F97316" />
+
+        {/* DNS prefetch for analytics and third-party services */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
-        {/* Note: Fonts are optimized through next/font in _app.jsx - no need for font preloading here */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>
-      <body>
+      <body className="antialiased">
         <Main />
         <NextScript />
       </body>

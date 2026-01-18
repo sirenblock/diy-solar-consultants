@@ -1,7 +1,8 @@
 // Dynamic sitemap generator for DIY Solar Consultants
+import { SITE_URL } from '@/utils/siteConfig';
 
 function generateSiteMap() {
-  const baseUrl = 'https://diysolar.com';
+  const baseUrl = SITE_URL;
   const currentDate = new Date().toISOString();
 
   const routes = [

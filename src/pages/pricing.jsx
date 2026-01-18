@@ -28,6 +28,7 @@ import {
   generateBreadcrumbSchema,
   generateSchemaGraph
 } from '@/utils/schema';
+import { getAbsoluteUrl, getOgImageUrl } from '@/utils/siteConfig';
 
 export default function Pricing() {
   const handlePackageSelect = (pkg) => {
@@ -67,15 +68,15 @@ export default function Pricing() {
           content="Professional solar design from $297. Licensed PE stamps, permit-ready plans delivered in 3-5 days. 98% approval rate guaranteed. Get your quote today!"
         />
         <meta name="keywords" content="solar design pricing, solar permit cost, DIY solar design cost, solar engineering services cost, solar plan pricing, PE stamp cost" />
-        <link rel="canonical" href="https://diysolar.com/pricing" />
+        <link rel="canonical" href={getAbsoluteUrl('/pricing')} />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/pricing" />
+        <meta property="og:url" content={getAbsoluteUrl('/pricing')} />
         <meta property="og:title" content="Save Thousands with Professional Solar Design" />
         <meta property="og:description" content="Expert solar system design from $297. Licensed PE stamps, permit-ready plans. 98% approval rate. Transparent pricing, no hidden fees." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-pricing.jpg" />
+        <meta property="og:image" content={getOgImageUrl('og-pricing.jpg')} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="DIY Solar Consultants Pricing Plans" />
@@ -85,7 +86,7 @@ export default function Pricing() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Solar Design Pricing - Save 40-60% on Installation" />
         <meta name="twitter:description" content="Professional solar system design from $297. Licensed PE stamps, permit-ready plans. 98% approval rate guaranteed." />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-pricing.jpg" />
+        <meta name="twitter:image" content={getOgImageUrl('og-pricing.jpg')} />
         <meta name="twitter:image:alt" content="DIY Solar Consultants Pricing Plans" />
 
         {/* Robots */}
@@ -95,24 +96,12 @@ export default function Pricing() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BreadcrumbList',
-              itemListElement: [
-                {
-                  '@type': 'ListItem',
-                  position: 1,
-                  name: 'Home',
-                  item: 'https://diysolar.com'
-                },
-                {
-                  '@type': 'ListItem',
-                  position: 2,
-                  name: 'Pricing',
-                  item: 'https://diysolar.com/pricing'
-                }
-              ]
-            })
+            __html: JSON.stringify(
+              generateBreadcrumbSchema([
+                { name: 'Home', url: '/' },
+                { name: 'Pricing', url: '/pricing' }
+              ])
+            )
           }}
         />
 
@@ -124,7 +113,7 @@ export default function Pricing() {
       </Head>
       <Header />
 
-      <div className="pt-20 min-h-screen bg-gray-50">
+      <main id="main-content" className="pt-20 min-h-screen bg-gray-50">
         {/* Hero Section with Savings Comparison */}
         <section className="relative pt-20 pb-12 px-4 bg-gradient-to-br from-blue-50 to-green-50 overflow-hidden">
           <div className="relative max-w-4xl mx-auto text-center">
@@ -503,7 +492,7 @@ export default function Pricing() {
             </button>
           </div>
         </section>
-      </div>
+      </main>
     <Footer />
 
     </>
