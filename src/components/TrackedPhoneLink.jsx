@@ -5,7 +5,7 @@ import { trackPhoneClick, trackConversion } from '@/utils/analytics';
  * Tracks when users click phone numbers (high-intent action)
  */
 export default function TrackedPhoneLink({
-  phoneNumber = '(555) 123-4567',
+  phoneNumber = '(888) 555-1234',
   location = 'unknown',
   className = '',
   children,

@@ -246,16 +246,16 @@ export default function DesignRequestThankYou() {
                   Contact Us
                 </Link>
                 <a
-                  href="mailto:info@diysolar.com"
+                  href="mailto:info@diysolarconsultants.com"
                   className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-solar-500 hover:text-solar-600 transition-colors"
                 >
-                  Email: info@diysolar.com
+                  Email: info@diysolarconsultants.com
                 </a>
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+18885551234"
                   className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-solar-500 hover:text-solar-600 transition-colors"
                 >
-                  Call: (555) 123-4567
+                  Call: (888) 555-1234
                 </a>
               </div>
             </div>

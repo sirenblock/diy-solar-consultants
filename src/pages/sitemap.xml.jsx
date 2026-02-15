@@ -2,7 +2,7 @@
 export default function Sitemap() {}
 
 export async function getServerSideProps({ res }) {
-  const baseUrl = 'https://www.diysolarcosnultants.com';
+  const baseUrl = 'https://diysolarconsultants.com';
   const currentDate = new Date().toISOString();
 
   const staticPages = [
@@ -16,6 +16,7 @@ export async function getServerSideProps({ res }) {
     { url: '/calculators', priority: '0.7', changefreq: 'monthly' },
     { url: '/contact', priority: '0.8', changefreq: 'monthly' },
     { url: '/design-request', priority: '1.0', changefreq: 'monthly' },
+    { url: '/reviews', priority: '0.8', changefreq: 'weekly' },
     { url: '/faq', priority: '0.8', changefreq: 'monthly' },
     { url: '/process', priority: '0.8', changefreq: 'monthly' },
     { url: '/resources', priority: '0.7', changefreq: 'weekly' },

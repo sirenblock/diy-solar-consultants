@@ -162,8 +162,8 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-semibold text-gray-900 mb-1">Phone</p>
-                    <a href="tel:+15555551234" className="text-solar-600 hover:text-solar-700 font-medium">
-                      (555) 555-1234
+                    <a href="tel:+18885551234" className="text-solar-600 hover:text-solar-700 font-medium">
+                      (888) 555-1234
                     </a>
                     <p className="text-sm text-gray-500 mt-1">Available Monday-Friday, 9am-6pm EST</p>
                   </div>

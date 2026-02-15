@@ -468,21 +468,70 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right: Visual */}
+              {/* Right: Visual - Stats Dashboard */}
               <div className="relative hidden lg:block">
-                <div className="relative bg-gradient-to-br from-solar-100 to-energy-100 rounded-2xl shadow-2xl p-8 aspect-square flex items-center justify-center">
-                  {/* Placeholder for hero image - replace with actual image */}
-                  <div className="text-center">
-                    <svg className="w-64 h-64 mx-auto text-solar-600 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                    </svg>
-                    <p className="text-gray-500 mt-4 text-sm">Beautiful home with solar panels</p>
+                <div className="relative bg-white rounded-2xl shadow-2xl p-8">
+                  {/* Mini dashboard showing key metrics */}
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+                      <h3 className="text-lg font-bold text-gray-900">Your Solar Savings</h3>
+                      <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-semibold rounded-full">Live Estimate</span>
+                    </div>
+
+                    {/* Savings Comparison */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-red-50 rounded-xl p-4 text-center">
+                        <p className="text-sm text-gray-500 mb-1">Traditional Install</p>
+                        <p className="text-2xl font-bold text-gray-400 line-through">$28,500</p>
+                      </div>
+                      <div className="bg-green-50 rounded-xl p-4 text-center">
+                        <p className="text-sm text-gray-500 mb-1">DIY + Our Design</p>
+                        <p className="text-2xl font-bold text-green-600">$12,200</p>
+                      </div>
+                    </div>
+
+                    {/* Savings Highlight */}
+                    <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-5 text-white text-center">
+                      <p className="text-sm opacity-90 mb-1">You Save</p>
+                      <p className="text-4xl font-bold">$16,300</p>
+                      <p className="text-sm opacity-90 mt-1">57% less than traditional solar</p>
+                    </div>
+
+                    {/* Quick Stats */}
+                    <div className="grid grid-cols-3 gap-3 text-center">
+                      <div>
+                        <p className="text-2xl font-bold text-solar-600">5-7</p>
+                        <p className="text-xs text-gray-500">Day Turnaround</p>
+                      </div>
+                      <div>
+                        <p className="text-2xl font-bold text-energy-600">98%</p>
+                        <p className="text-xs text-gray-500">Approval Rate</p>
+                      </div>
+                      <div>
+                        <p className="text-2xl font-bold text-green-600">5,000+</p>
+                        <p className="text-xs text-gray-500">Systems Done</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+
                 {/* Floating stat card */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-2xl p-6 border-2 border-green-500">
-                  <p className="text-4xl font-bold text-green-600">$2,341</p>
-                  <p className="text-sm text-gray-600 font-semibold">Avg. Annual Savings</p>
+                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-2xl p-5 border-2 border-green-500">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="flex -space-x-1">
+                      <div className="w-6 h-6 rounded-full bg-solar-200 border-2 border-white"></div>
+                      <div className="w-6 h-6 rounded-full bg-energy-200 border-2 border-white"></div>
+                      <div className="w-6 h-6 rounded-full bg-green-200 border-2 border-white"></div>
+                    </div>
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm font-bold text-gray-900">4.9/5 from 5,000+ customers</p>
                 </div>
               </div>
             </div>

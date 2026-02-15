@@ -3,6 +3,7 @@ import Head from 'next/head';
 import DesignRequestForm from '../components/DesignRequestForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import useScrollTracking from '@/hooks/useScrollTracking';
 
 export default function DesignRequest() {
@@ -21,15 +22,15 @@ export default function DesignRequest() {
           name="keywords"
           content="solar design request, solar quote, solar system design, DIY solar design, solar permit package, solar engineering"
         />
-        <link rel="canonical" href="https://diysolar.com/design-request" />
+        <link rel="canonical" href="https://diysolarconsultants.com/design-request" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/design-request" />
+        <meta property="og:url" content="https://diysolarconsultants.com/design-request" />
         <meta property="og:title" content="Get Your Custom Solar Design - Free Quote" />
         <meta property="og:description" content="Licensed PE engineers. Custom solar design. 5-7 day turnaround. 98% approval rate. Start saving 40-60% today." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-quote.jpg" />
+        <meta property="og:image" content="https://diysolarconsultants.com/images/og-quote.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Request Solar Design Quote" />
@@ -39,7 +40,7 @@ export default function DesignRequest() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Get Your Custom Solar Design - Free Quote" />
         <meta name="twitter:description" content="Licensed PE engineers. 5-7 day turnaround. 98% approval rate. Start saving 40-60% on solar today." />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-quote.jpg" />
+        <meta name="twitter:image" content="https://diysolarconsultants.com/images/og-quote.jpg" />
         <meta name="twitter:image:alt" content="Request Solar Design Quote" />
 
         {/* Robots */}
@@ -58,7 +59,7 @@ export default function DesignRequest() {
               provider: {
                 '@type': 'Organization',
                 name: 'DIY Solar Consultants',
-                url: 'https://diysolar.com',
+                url: 'https://diysolarconsultants.com',
               },
               areaServed: 'United States',
               offers: {
@@ -71,9 +72,12 @@ export default function DesignRequest() {
         />
       </Head>
       <Header />
+      <div className="pt-20">
+        <Breadcrumbs />
+      </div>
 
       {/* Hero Section */}
-      <section className="pt-20 bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white py-16">
+      <section className="bg-gradient-to-br from-solar-600 via-solar-500 to-energy-500 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Request Your Solar System Design

@@ -31,11 +31,12 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
-    { href: '/equipment', label: 'Equipment' },
-    { href: '/portfolio', label: 'Portfolio' },
     { href: '/pricing', label: 'Pricing' },
+    { href: '/calculator', label: 'Calculator' },
+    { href: '/reviews', label: 'Reviews' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/about', label: 'About' },
   ];
 
   return (

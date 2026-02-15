@@ -12,7 +12,8 @@ export const SITE_DESCRIPTION = 'Professional solar system design and permitting
 
 // Contact information
 export const CONTACT = {
-  phone: '(555) 123-4567',
+  phone: '(888) 555-1234',
+  phoneRaw: '+18885551234',
   email: 'info@diysolarconsultants.com',
   address: {
     street: '123 Solar Way',

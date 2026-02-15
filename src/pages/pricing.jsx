@@ -14,6 +14,7 @@ import InlineCTA from '@/components/InlineCTA';
 import GuaranteeBadge from '@/components/GuaranteeBadge';
 import MoneyBackGuarantee from '@/components/MoneyBackGuarantee';
 import CertificationBadges from '@/components/CertificationBadges';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import {
   packages,
   addons,
@@ -112,10 +113,13 @@ export default function Pricing() {
         />
       </Head>
       <Header />
+      <div className="pt-20">
+        <Breadcrumbs />
+      </div>
 
-      <main id="main-content" className="pt-20 min-h-screen bg-gray-50">
+      <main id="main-content" className="min-h-screen bg-gray-50">
         {/* Hero Section with Savings Comparison */}
-        <section className="relative pt-20 pb-12 px-4 bg-gradient-to-br from-blue-50 to-green-50 overflow-hidden">
+        <section className="relative pt-12 pb-12 px-4 bg-gradient-to-br from-blue-50 to-green-50 overflow-hidden">
           <div className="relative max-w-4xl mx-auto text-center">
             {/* Headline - Benefit-focused (54 chars) */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 leading-tight">
@@ -408,9 +412,9 @@ export default function Pricing() {
 
             <div className="text-center mt-8">
               <p className="text-lg text-gray-700 mb-4">Still unsure?</p>
-              <button className="bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-all shadow-lg hover:shadow-xl">
+              <Link href="/contact" className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-all shadow-lg hover:shadow-xl">
                 Schedule Free Consultation
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -429,8 +433,8 @@ export default function Pricing() {
               <Link href="/design-request" className="px-8 py-4 bg-white text-green-600 font-bold rounded-lg hover:bg-gray-100 text-lg transition-all shadow-lg hover:shadow-xl">
                 Get Started Now
               </Link>
-              <a href="tel:+18005551234" className="px-8 py-4 bg-transparent border-2 border-white font-bold rounded-lg hover:bg-white/10 text-lg transition-all">
-                Call (800) 555-1234
+              <a href="tel:+18885551234" className="px-8 py-4 bg-transparent border-2 border-white font-bold rounded-lg hover:bg-white/10 text-lg transition-all">
+                Call (888) 555-1234
               </a>
             </div>
 
@@ -452,8 +456,8 @@ export default function Pricing() {
               <div className="flex flex-wrap justify-center gap-6 text-sm">
                 <a href="#faq" className="hover:text-green-200 underline">View FAQ</a>
                 <a href="/contact" className="hover:text-green-200 underline">Contact Us</a>
-                <a href="tel:555-555-5555" className="hover:text-green-200 underline">Call: (555) 555-5555</a>
-                <a href="mailto:pricing@diysolar.com" className="hover:text-green-200 underline">pricing@diysolar.com</a>
+                <a href="tel:+18885551234" className="hover:text-green-200 underline">Call: (888) 555-1234</a>
+                <a href="mailto:info@diysolarconsultants.com" className="hover:text-green-200 underline">info@diysolarconsultants.com</a>
               </div>
             </div>
           </div>
@@ -487,9 +491,9 @@ export default function Pricing() {
                 </ul>
               </div>
             </div>
-            <button className="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-all">
+            <Link href="/contact?subject=commercial" className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition-all">
               Contact for Commercial Pricing
-            </button>
+            </Link>
           </div>
         </section>
       </main>
