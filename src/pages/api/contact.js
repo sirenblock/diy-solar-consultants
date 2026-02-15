@@ -142,7 +142,7 @@ async function sendEmailNotifications(data) {
    * EMAIL INTEGRATION INSTRUCTIONS:
    *
    * This function should send two emails:
-   * 1. Notification to company (info@diysolar.com)
+   * 1. Notification to company (info@diysolarconsultants.com)
    * 2. Confirmation to user
    *
    * Integration options:
@@ -155,15 +155,15 @@ async function sendEmailNotifications(data) {
    * sgMail.setApiKey(process.env.SENDGRID_API_KEY)
    *
    * await sgMail.send({
-   *   to: 'info@diysolar.com',
-   *   from: 'noreply@diysolar.com',
+   *   to: 'info@diysolarconsultants.com',
+   *   from: 'noreply@diysolarconsultants.com',
    *   subject: `New Contact Form Submission - ${data.projectType}`,
    *   html: companyEmailTemplate(data)
    * })
    *
    * await sgMail.send({
    *   to: data.email,
-   *   from: 'info@diysolar.com',
+   *   from: 'info@diysolarconsultants.com',
    *   subject: 'We received your message - DIY Solar Consultants',
    *   html: userConfirmationTemplate(data)
    * })
@@ -178,8 +178,8 @@ async function sendEmailNotifications(data) {
    *
    * // Send company notification
    * await sesClient.send(new SendEmailCommand({
-   *   Source: 'noreply@diysolar.com',
-   *   Destination: { ToAddresses: ['info@diysolar.com'] },
+   *   Source: 'noreply@diysolarconsultants.com',
+   *   Destination: { ToAddresses: ['info@diysolarconsultants.com'] },
    *   Message: {
    *     Subject: { Data: `New Contact Form Submission - ${data.projectType}` },
    *     Body: { Html: { Data: companyEmailTemplate(data) } }
@@ -201,8 +201,8 @@ async function sendEmailNotifications(data) {
    * })
    *
    * await transporter.sendMail({
-   *   from: 'noreply@diysolar.com',
-   *   to: 'info@diysolar.com',
+   *   from: 'noreply@diysolarconsultants.com',
+   *   to: 'info@diysolarconsultants.com',
    *   subject: `New Contact Form Submission - ${data.projectType}`,
    *   html: companyEmailTemplate(data)
    * })
@@ -216,8 +216,8 @@ async function sendEmailNotifications(data) {
    * const resend = new Resend(process.env.RESEND_API_KEY)
    *
    * await resend.emails.send({
-   *   from: 'DIY Solar Consultants <noreply@diysolar.com>',
-   *   to: 'info@diysolar.com',
+   *   from: 'DIY Solar Consultants <noreply@diysolarconsultants.com>',
+   *   to: 'info@diysolarconsultants.com',
    *   subject: `New Contact Form Submission - ${data.projectType}`,
    *   html: companyEmailTemplate(data)
    * })
@@ -226,7 +226,7 @@ async function sendEmailNotifications(data) {
   // For now, log the email data
   // Replace this with actual email sending implementation
   console.log('=== EMAIL NOTIFICATION ===')
-  console.log('To: info@diysolar.com')
+  console.log('To: info@diysolarconsultants.com')
   console.log('Subject: New Contact Form Submission -', data.projectType)
   console.log('Data:', data)
   console.log('========================')
@@ -351,9 +351,9 @@ function userConfirmationTemplate(data) {
 
           <div class="resources">
             <p style="margin: 0 0 10px 0; font-weight: bold;">Helpful Resources:</p>
-            <a href="https://diysolar.com/calculator" class="button">Solar Calculator</a>
-            <a href="https://diysolar.com/faq" class="button">FAQ</a>
-            <a href="https://diysolar.com/equipment" class="button">Equipment Guide</a>
+            <a href="https://diysolarconsultants.com/calculator" class="button">Solar Calculator</a>
+            <a href="https://diysolarconsultants.com/faq" class="button">FAQ</a>
+            <a href="https://diysolarconsultants.com/equipment" class="button">Equipment Guide</a>
           </div>
 
           <p><strong>What happens next?</strong></p>

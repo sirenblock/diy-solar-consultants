@@ -108,11 +108,26 @@ export default function Portfolio() {
           content="See real solar systems designed by our engineers and installed by homeowners. From 4kW to 35kW systems across all 50 states. 98% approval rate, 40-60% savings."
         />
         <meta name="keywords" content="solar case studies, DIY solar examples, solar system portfolio, real solar installations, solar success stories, DIY solar results" />
+        <link rel="canonical" href="https://diysolarconsultants.com/portfolio" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Solar Portfolio & Case Studies | DIY Solar Consultants" />
         <meta property="og:description" content="Real solar systems designed by our engineers and installed by DIY homeowners. See the results and savings." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolarconsultants.com/portfolio" />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content="https://diysolarconsultants.com/images/og-portfolio.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Solar Portfolio & Case Studies | DIY Solar Consultants" />
+        <meta name="twitter:description" content="Real solar systems designed by our engineers and installed by DIY homeowners. See results and savings." />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         {/* Schema.org markup */}
         <script

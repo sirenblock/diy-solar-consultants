@@ -30,15 +30,15 @@ export default function Process() {
           content="Simple 4-step process: consultation, design, permitting & support. 5-7 day turnaround, 98% approval rate. Licensed PE engineers guide you from start to finish."
         />
         <meta name="keywords" content="DIY solar process, how to go solar DIY, solar installation process, solar design process, DIY solar timeline, solar permit process" />
-        <link rel="canonical" href="https://diysolar.com/process" />
+        <link rel="canonical" href="https://diysolarconsultants.com/process" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/process" />
+        <meta property="og:url" content="https://diysolarconsultants.com/process" />
         <meta property="og:title" content="How the DIY Solar Design Process Works" />
         <meta property="og:description" content="Step-by-step guide to professional solar design. Consultation → Design → Permitting → Support. 98% approval rate. 5-7 day turnaround." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-process.jpg" />
+        <meta property="og:image" content="https://diysolarconsultants.com/images/og-process.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="DIY Solar Design Process" />
@@ -48,7 +48,7 @@ export default function Process() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="How the DIY Solar Design Process Works" />
         <meta name="twitter:description" content="4-step process: consultation, design, permitting & support. 98% approval rate. Licensed PE engineers guide you." />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-process.jpg" />
+        <meta name="twitter:image" content="https://diysolarconsultants.com/images/og-process.jpg" />
         <meta name="twitter:image:alt" content="DIY Solar Design Process" />
 
         {/* Robots */}

@@ -129,7 +129,7 @@ async function sendWelcomeEmail(data) {
 // Helper function: Notify company of new subscriber
 async function notifyNewSubscriber(data) {
   console.log('=== NEW SUBSCRIBER NOTIFICATION ===');
-  console.log('To: info@diysolar.com');
+  console.log('To: info@diysolarconsultants.com');
   console.log('Subject: New Email Subscriber');
   console.log('Email:', data.email);
   console.log('Source:', data.source);
@@ -178,7 +178,7 @@ function welcomeEmailTemplate(data) {
               <li>Payback period and ROI calculations</li>
               <li>Available incentives and tax credits</li>
             </ul>
-            <a href="https://diysolar.com/roi-report" class="button" style="background: #059669;">
+            <a href="https://diysolarconsultants.com/roi-report" class="button" style="background: #059669;">
               Download Your Report
             </a>
           </div>
@@ -203,7 +203,7 @@ function welcomeEmailTemplate(data) {
           <div style="background: #fef3c7; border: 1px solid #fbbf24; border-radius: 8px; padding: 20px; margin: 30px 0; text-align: center;">
             <h3 style="margin: 0 0 10px 0; color: #92400e;">Ready for a Custom Design?</h3>
             <p style="margin: 0 0 15px 0; color: #92400e;">Get your professional solar system design in 5-7 days</p>
-            <a href="https://diysolar.com/design-request" class="button">
+            <a href="https://diysolarconsultants.com/design-request" class="button">
               Request Custom Design
             </a>
           </div>
@@ -235,8 +235,8 @@ function welcomeEmailTemplate(data) {
             <a href="tel:+18885551234" style="color: #ea580c; text-decoration: none;">(888) 555-1234</a>
           </p>
           <p style="margin: 20px 0 0 0; font-size: 12px; color: #9ca3af;">
-            <a href="https://diysolar.com/unsubscribe?email=${data.email}" style="color: #9ca3af;">Unsubscribe</a> |
-            <a href="https://diysolar.com/privacy" style="color: #9ca3af;">Privacy Policy</a>
+            <a href="https://diysolarconsultants.com/unsubscribe?email=${data.email}" style="color: #9ca3af;">Unsubscribe</a> |
+            <a href="https://diysolarconsultants.com/privacy" style="color: #9ca3af;">Privacy Policy</a>
           </p>
         </div>
       </div>
