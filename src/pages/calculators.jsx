@@ -39,6 +39,12 @@ export default function Calculators() {
           name="description"
           content="Free interactive solar calculators for system sizing, ROI analysis, payback periods, and battery sizing. Professional tools from licensed engineers."
         />
+        <link rel="canonical" href="https://diysolarconsultants.com/calculators" />
+        <meta property="og:title" content="Free Solar Calculators & Tools | DIY Solar Consultants" />
+        <meta property="og:description" content="Free interactive solar calculators for system sizing, ROI, payback periods, and battery sizing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://diysolarconsultants.com/calculators" />
+        <meta name="robots" content="index, follow" />
       </Head>
       <Header />
 

@@ -116,15 +116,15 @@ export default function FAQPage() {
           name="keywords"
           content="DIY solar FAQ, solar design questions, DIY solar installation questions, solar permit questions, solar equipment questions, solar cost questions"
         />
-        <link rel="canonical" href="https://diysolar.com/faq" />
+        <link rel="canonical" href="https://diysolarconsultants.com/faq" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/faq" />
+        <meta property="og:url" content="https://diysolarconsultants.com/faq" />
         <meta property="og:title" content="DIY Solar Consultants FAQs - Expert Answers to Your Questions" />
         <meta property="og:description" content="Common questions about DIY solar answered: costs, permitting, design, equipment & installation. Professional guidance from licensed engineers." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-faq.jpg" />
+        <meta property="og:image" content="https://diysolarconsultants.com/images/og-faq.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="DIY Solar FAQs" />
@@ -134,7 +134,7 @@ export default function FAQPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DIY Solar Consultants FAQs - Expert Answers to Your Questions" />
         <meta name="twitter:description" content="Common DIY solar questions answered: costs, permitting, design, equipment. Professional guidance from licensed PE engineers." />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-faq.jpg" />
+        <meta name="twitter:image" content="https://diysolarconsultants.com/images/og-faq.jpg" />
         <meta name="twitter:image:alt" content="DIY Solar Consultants FAQs" />
 
         {/* Robots */}

@@ -75,15 +75,22 @@ export default function Resources() {
     setIsDownloadModalOpen(true);
   };
 
-  const handleNewsletterSubmit = (e) => {
+  const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
-    // In production, this would send to your email service
-    console.log('Newsletter signup:', newsletterEmail);
-    setNewsletterSubmitted(true);
-    setTimeout(() => {
-      setNewsletterEmail('');
-      setNewsletterSubmitted(false);
-    }, 3000);
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newsletterEmail, source: 'resources-page' }),
+      });
+      if (res.ok) {
+        setNewsletterSubmitted(true);
+        setNewsletterEmail('');
+        setTimeout(() => setNewsletterSubmitted(false), 5000);
+      }
+    } catch {
+      // Silently fail - newsletter is non-critical
+    }
   };
 
   const featuredResources = getFeaturedResources();

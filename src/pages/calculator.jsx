@@ -22,7 +22,7 @@ export default function CalculatorPage() {
     provider: {
       '@type': 'Organization',
       name: 'DIY Solar Consultants',
-      url: 'https://diysolar.com',
+      url: 'https://diysolarconsultants.com',
     },
     featureList: [
       'System size calculator',
@@ -53,7 +53,7 @@ export default function CalculatorPage() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/calculator" />
+        <meta property="og:url" content="https://diysolarconsultants.com/calculator" />
         <meta
           property="og:title"
           content="Free Solar Calculator - Estimate System Size & Savings"
@@ -62,11 +62,11 @@ export default function CalculatorPage() {
           property="og:description"
           content="Calculate your solar system size, costs, and savings instantly. Free estimates in 2 minutes."
         />
-        <meta property="og:image" content="https://diysolar.com/images/solar-calculator-og.jpg" />
+        <meta property="og:image" content="https://diysolarconsultants.com/images/solar-calculator-og.jpg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://diysolar.com/calculator" />
+        <meta property="twitter:url" content="https://diysolarconsultants.com/calculator" />
         <meta
           property="twitter:title"
           content="Free Solar Calculator - Estimate System Size & Savings"
@@ -75,7 +75,7 @@ export default function CalculatorPage() {
           property="twitter:description"
           content="Calculate your solar system size, costs, and savings instantly. Free estimates in 2 minutes."
         />
-        <meta property="twitter:image" content="https://diysolar.com/images/solar-calculator-og.jpg" />
+        <meta property="twitter:image" content="https://diysolarconsultants.com/images/solar-calculator-og.jpg" />
 
         {/* Additional Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -85,12 +85,47 @@ export default function CalculatorPage() {
         <meta name="author" content="DIY Solar Consultants" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://diysolar.com/calculator" />
+        <link rel="canonical" href="https://diysolarconsultants.com/calculator" />
 
         {/* JSON-LD Schema Markup */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
+        {/* FAQ Schema for rich snippets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'How accurate is a solar calculator?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Our calculator provides estimates within 10-15% of actual results. It uses real solar resource data from NREL and industry-standard calculations. For precise sizing and engineering, we recommend requesting a professional design.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'What is included in a DIY solar cost estimate?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'The DIY estimate includes all equipment (panels, inverters, mounting, balance of system), professional design, and permitting services. It does not include installation labor since you will be doing that yourself.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Can I really save 40-60% going DIY solar?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes! Professional installers typically charge $2.50-$3.50 per watt, with much of that being labor costs. By doing the installation yourself while still getting professional design and permitting, you can save 40-60% on total project costs.'
+                }
+              }
+            ]
+          }) }}
         />
       </Head>
       <Header />
@@ -288,26 +323,29 @@ export default function CalculatorPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center text-white">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Go Solar?
+                Turn Your Estimate Into a Real Design
               </h2>
-              <p className="text-xl text-solar-100 mb-8">
-                Get a professional solar design and permitting package for your DIY installation
+              <p className="text-xl text-solar-100 mb-4">
+                Get a PE-stamped solar design and permit package tailored to your home
+              </p>
+              <p className="text-sm text-solar-200 mb-8">
+                Free consultation &bull; 5-7 day turnaround &bull; 98% permit approval rate
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/design-request"
                   className="inline-flex items-center justify-center px-8 py-4 h-14 bg-white text-solar-700 rounded-lg font-bold text-lg hover:bg-solar-50 transition-colors shadow-lg"
                 >
-                  Get Custom Design
+                  Get My Free Design Quote
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
                 <a
-                  href="/contact"
+                  href="/pricing"
                   className="inline-flex items-center justify-center px-8 py-4 h-14 bg-solar-700 text-white rounded-lg font-semibold hover:bg-solar-800 transition-colors border-2 border-white"
                 >
-                  Schedule Consultation
+                  View Pricing
                 </a>
               </div>
             </div>

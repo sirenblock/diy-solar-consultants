@@ -116,7 +116,7 @@ async function sendROIReport(data) {
 
   // Also notify company of new lead
   console.log('=== NEW LEAD NOTIFICATION ===');
-  console.log('To: info@diysolar.com');
+  console.log('To: info@diysolarconsultants.com');
   console.log('Subject: New Solar Calculator Lead');
   console.log('Email:', data.email);
   console.log('ZIP:', data.zipCode);
@@ -216,7 +216,7 @@ function roiReportTemplate(data) {
           </ul>
 
           <div style="text-align: center; margin: 30px 0;">
-            <a href="https://diysolar.com/design-request" class="button">
+            <a href="https://diysolarconsultants.com/design-request" class="button">
               Get Your Custom Solar Design
             </a>
             <p style="color: #6b7280; font-size: 14px;">5-7 day turnaround | 98% permit approval rate</p>
@@ -239,8 +239,8 @@ function roiReportTemplate(data) {
             <a href="tel:+18885551234" style="color: #ea580c; text-decoration: none;">(888) 555-1234</a>
           </p>
           <p style="margin: 20px 0 0 0; font-size: 12px; color: #9ca3af;">
-            <a href="https://diysolar.com/unsubscribe" style="color: #9ca3af;">Unsubscribe</a> |
-            <a href="https://diysolar.com/privacy" style="color: #9ca3af;">Privacy Policy</a>
+            <a href="https://diysolarconsultants.com/unsubscribe" style="color: #9ca3af;">Unsubscribe</a> |
+            <a href="https://diysolarconsultants.com/privacy" style="color: #9ca3af;">Privacy Policy</a>
           </p>
         </div>
       </div>

@@ -150,15 +150,15 @@ export default function About() {
           content="Licensed PE & NABCEP certified solar engineers. 5,000+ systems designed, 98% approval rate. Professional solar design expertise for DIY installers nationwide."
         />
         <meta name="keywords" content="professional solar design services, licensed PE solar engineer, NABCEP certified solar design, DIY solar engineering support, solar permit engineering, solar design all 50 states" />
-        <link rel="canonical" href="https://diysolar.com/about" />
+        <link rel="canonical" href="https://diysolarconsultants.com/about" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/about" />
+        <meta property="og:url" content="https://diysolarconsultants.com/about" />
         <meta property="og:title" content="Expert Solar Engineers Helping DIY Homeowners" />
         <meta property="og:description" content="Licensed PE & NABCEP certified professionals. 25+ years experience, 5,000+ systems designed. Professional solar design expertise for DIY success." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-about.jpg" />
+        <meta property="og:image" content="https://diysolarconsultants.com/images/og-about.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="DIY Solar Consultants Team" />
@@ -168,7 +168,7 @@ export default function About() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Expert Solar Engineers Helping DIY Homeowners" />
         <meta name="twitter:description" content="Licensed PE & NABCEP certified. 5,000+ systems designed, 98% approval rate. Professional solar expertise for DIY success." />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-about.jpg" />
+        <meta name="twitter:image" content="https://diysolarconsultants.com/images/og-about.jpg" />
         <meta name="twitter:image:alt" content="DIY Solar Consultants Team" />
 
         {/* Robots */}

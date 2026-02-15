@@ -13,7 +13,7 @@ export default function Privacy() {
           content="Privacy Policy for DIY Solar Consultants. Learn how we protect and handle your personal information."
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://diysolar.com/privacy" />
+        <link rel="canonical" href="https://diysolarconsultants.com/privacy" />
       </Head>
 
       <Header />
@@ -178,8 +178,8 @@ export default function Privacy() {
               </ul>
               <p className="text-gray-700">
                 To exercise these rights, please contact us at{' '}
-                <a href="mailto:privacy@diysolar.com" className="text-solar-600 underline">
-                  privacy@diysolar.com
+                <a href="mailto:privacy@diysolarconsultants.com" className="text-solar-600 underline">
+                  privacy@diysolarconsultants.com
                 </a>
               </p>
             </section>
@@ -234,7 +234,7 @@ export default function Privacy() {
               </p>
               <div className="bg-gray-50 rounded-lg p-6">
                 <p className="text-gray-900 font-semibold mb-2">DIY Solar Consultants</p>
-                <p className="text-gray-700">Email: <a href="mailto:privacy@diysolar.com" className="text-solar-600 underline">privacy@diysolar.com</a></p>
+                <p className="text-gray-700">Email: <a href="mailto:privacy@diysolarconsultants.com" className="text-solar-600 underline">privacy@diysolarconsultants.com</a></p>
                 <p className="text-gray-700">Phone: <a href="tel:+18885551234" className="text-solar-600 underline">(888) 555-1234</a></p>
                 <p className="text-gray-700 mt-4">
                   <Link href="/contact" className="text-solar-600 underline font-semibold">

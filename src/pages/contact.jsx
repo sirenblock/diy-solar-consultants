@@ -14,15 +14,15 @@ export default function Contact() {
           content="Questions about DIY solar? Contact our licensed PE engineers. We answer design, permitting & equipment questions. 24-hour response time guaranteed."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="https://diysolar.com/contact" />
+        <link rel="canonical" href="https://diysolarconsultants.com/contact" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/contact" />
+        <meta property="og:url" content="https://diysolarconsultants.com/contact" />
         <meta property="og:title" content="Contact Our Solar Engineering Team" />
         <meta property="og:description" content="Get expert answers to your DIY solar questions. Licensed PE engineers available. 24-hour response time." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-contact.jpg" />
+        <meta property="og:image" content="https://diysolarconsultants.com/images/og-contact.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Contact DIY Solar Consultants" />
@@ -32,7 +32,7 @@ export default function Contact() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Our Solar Engineering Team" />
         <meta name="twitter:description" content="Get expert answers to your DIY solar questions. Licensed PE engineers. 24-hour response time." />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-contact.jpg" />
+        <meta name="twitter:image" content="https://diysolarconsultants.com/images/og-contact.jpg" />
         <meta name="twitter:image:alt" content="Contact DIY Solar Consultants" />
 
         {/* Robots */}
@@ -48,11 +48,11 @@ export default function Contact() {
               "mainEntity": {
                 "@type": "Organization",
                 "name": "DIY Solar Consultants",
-                "url": "https://diysolar.com",
+                "url": "https://diysolarconsultants.com",
                 "contactPoint": {
                   "@type": "ContactPoint",
-                  "telephone": "+1-555-555-1234",
-                  "email": "info@diysolar.com",
+                  "telephone": "+1-888-555-1234",
+                  "email": "info@diysolarconsultants.com",
                   "contactType": "Customer Service",
                   "availableLanguage": "English",
                   "areaServed": "US",
@@ -144,8 +144,8 @@ export default function Contact() {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-semibold text-gray-900 mb-1">Email</p>
-                    <a href="mailto:info@diysolar.com" className="text-solar-600 hover:text-solar-700 font-medium">
-                      info@diysolar.com
+                    <a href="mailto:info@diysolarconsultants.com" className="text-solar-600 hover:text-solar-700 font-medium">
+                      info@diysolarconsultants.com
                     </a>
                     <p className="text-sm text-gray-500 mt-1">Best for detailed questions and project inquiries</p>
                   </div>
@@ -377,7 +377,7 @@ export default function Contact() {
                   How much does a solar design cost?
                 </h3>
                 <p className="text-gray-600 text-sm mb-3">
-                  Starting at $XXX for design-only, $XXX for design + permitting packages. Pricing varies based on system complexity and services needed.
+                  Starting at $1,499 for design-only, $2,299 for design + permitting packages. Pricing varies based on system complexity and services needed.
                 </p>
                 <a href="/pricing" className="text-solar-600 hover:text-solar-700 font-medium text-sm inline-flex items-center">
                   View Pricing

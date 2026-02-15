@@ -1,4 +1,6 @@
 // sitemap.xml.jsx - Generates XML sitemap for SEO
+import { getStatesList } from '@/data/stateInfo';
+
 export default function Sitemap() {}
 
 export async function getServerSideProps({ res }) {
@@ -22,9 +24,19 @@ export async function getServerSideProps({ res }) {
     { url: '/resources', priority: '0.7', changefreq: 'weekly' },
   ];
 
+  // Include all 50 state-specific pages for local SEO
+  const states = getStatesList();
+  const statePages = states.map((state) => ({
+    url: `/solar-design/${state.slug}`,
+    priority: '0.7',
+    changefreq: 'monthly',
+  }));
+
+  const allPages = [...staticPages, ...statePages];
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${staticPages
+  ${allPages
     .map((page) => {
       return `
     <url>

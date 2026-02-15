@@ -43,15 +43,15 @@ export default function Equipment() {
           content="Tier-1 solar panels, inverters & batteries. REC, Jinko, Enphase, SolarEdge, Tesla Powerwall. Expert recommendations + 15-30% savings vs retail pricing."
         />
         <meta name="keywords" content="solar panel comparison, best solar inverters, Tesla Powerwall pricing, Enphase IQ8 microinverters, solar battery storage, solar equipment costs, tier-1 solar panels, REC solar panels, SolarEdge inverter, solar mounting systems" />
-        <link rel="canonical" href="https://diysolar.com/equipment" />
+        <link rel="canonical" href="https://diysolarconsultants.com/equipment" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://diysolar.com/equipment" />
+        <meta property="og:url" content="https://diysolarconsultants.com/equipment" />
         <meta property="og:title" content="Premium Solar Equipment at Competitive Prices" />
         <meta property="og:description" content="Tier-1 solar panels, inverters, batteries & mounting systems. REC, Enphase, SolarEdge, Tesla. 15-30% savings vs retail." />
         <meta property="og:site_name" content="DIY Solar Consultants" />
-        <meta property="og:image" content="https://diysolar.com/images/og-equipment.jpg" />
+        <meta property="og:image" content="https://diysolarconsultants.com/images/og-equipment.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Solar Equipment Selection" />
@@ -61,7 +61,7 @@ export default function Equipment() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Premium Solar Equipment at Competitive Prices" />
         <meta name="twitter:description" content="Tier-1 solar panels, inverters & batteries. Expert recommendations + 15-30% savings vs retail." />
-        <meta name="twitter:image" content="https://diysolar.com/images/og-equipment.jpg" />
+        <meta name="twitter:image" content="https://diysolarconsultants.com/images/og-equipment.jpg" />
         <meta name="twitter:image:alt" content="Solar Equipment Selection" />
 
         {/* Robots */}
