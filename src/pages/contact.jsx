@@ -377,7 +377,7 @@ export default function Contact() {
                   How much does a solar design cost?
                 </h3>
                 <p className="text-gray-600 text-sm mb-3">
-                  Starting at $XXX for design-only, $XXX for design + permitting packages. Pricing varies based on system complexity and services needed.
+                  Starting at $1,499 for design-only, $2,299 for design + permitting packages. Pricing varies based on system complexity and services needed.
                 </p>
                 <a href="/pricing" className="text-solar-600 hover:text-solar-700 font-medium text-sm inline-flex items-center">
                   View Pricing

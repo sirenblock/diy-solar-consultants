@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import TestimonialCard from '@/components/TestimonialCard';
 import CaseStudy from '@/components/CaseStudy';
 import VideoTestimonial from '@/components/VideoTestimonial';
@@ -9,6 +10,8 @@ import StatsSection from '@/components/StatsSection';
 import { testimonials, videoTestimonials } from '@/data/testimonials';
 import { caseStudies } from '@/data/caseStudies';
 import { Star } from 'lucide-react';
+import { getAbsoluteUrl, getOgImageUrl } from '@/utils/siteConfig';
+import { generateBreadcrumbSchema } from '@/utils/schema';
 
 export default function ReviewsPage() {
   // Get featured case studies for display (first 3)
@@ -23,15 +26,82 @@ export default function ReviewsPage() {
         <title>Customer Reviews & Testimonials | DIY Solar Consultants</title>
         <meta
           name="description"
-          content="Read reviews from 10,000+ satisfied customers who saved thousands with our DIY solar designs. Real results, real savings, real success stories."
+          content="Read reviews from 10,000+ satisfied customers who saved thousands with our DIY solar designs. 4.9/5 rating. Real results, real savings, real success stories."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="https://diysolar.com/reviews" />
+        <meta name="keywords" content="DIY solar reviews, solar design testimonials, solar consultant reviews, DIY solar success stories" />
+        <link rel="canonical" href={getAbsoluteUrl('/reviews')} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={getAbsoluteUrl('/reviews')} />
+        <meta property="og:title" content="4.9/5 Rating - Customer Reviews | DIY Solar Consultants" />
+        <meta property="og:description" content="10,000+ homeowners saved an average of $12,800 with our DIY solar designs. Read their stories." />
+        <meta property="og:site_name" content="DIY Solar Consultants" />
+        <meta property="og:image" content={getOgImageUrl('og-reviews.jpg')} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="4.9/5 Rating - Customer Reviews | DIY Solar Consultants" />
+        <meta name="twitter:description" content="10,000+ homeowners saved an average of $12,800 with our DIY solar designs." />
+        <meta name="twitter:image" content={getOgImageUrl('og-reviews.jpg')} />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
+        {/* AggregateRating Schema for rich snippets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'DIY Solar Consultants',
+              url: 'https://diysolarconsultants.com',
+              telephone: '+1-888-555-1234',
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.9',
+                bestRating: '5',
+                ratingCount: '3247',
+                reviewCount: '3247',
+              },
+              review: displayedTestimonials.slice(0, 5).map((t) => ({
+                '@type': 'Review',
+                author: { '@type': 'Person', name: t.name || t.author },
+                reviewRating: {
+                  '@type': 'Rating',
+                  ratingValue: t.rating || '5',
+                  bestRating: '5',
+                },
+                reviewBody: t.quote || t.text || t.review,
+              })),
+            }),
+          }}
+        />
+
+        {/* Breadcrumb Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              generateBreadcrumbSchema([
+                { name: 'Home', url: '/' },
+                { name: 'Reviews', url: '/reviews' },
+              ])
+            ),
+          }}
+        />
       </Head>
 
       <Header />
+      <div className="pt-20">
+        <Breadcrumbs />
+      </div>
 
-      <main className="pt-20">
+      <main>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-blue-50 to-green-50 py-20">
           <div className="max-w-7xl mx-auto px-4 text-center">

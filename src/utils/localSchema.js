@@ -8,7 +8,7 @@ export function generateLocalBusinessSchema(state) {
     name: `DIY Solar Consultants - ${state.name}`,
     description: `Professional solar system design and engineering services for ${state.name} homeowners. Licensed PE engineers, ${state.name}-specific permitting expertise, and comprehensive support.`,
     url: `https://diysolarconsultants.com/solar-design-${state.slug}`,
-    telephone: '+1-XXX-XXX-XXXX',
+    telephone: '+1-888-555-1234',
     email: 'info@diysolarconsultants.com',
     priceRange: '$$',
     areaServed: {

@@ -62,29 +62,19 @@ export default function Custom404() {
               {/* Primary CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <Link
-                  href="/"
+                  href="/design-request"
                   className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-solar-600 to-energy-600 text-white font-bold rounded-xl shadow-lg shadow-solar-600/30 hover:shadow-solar-600/50 hover:-translate-y-1 transition-all"
                 >
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
+                  Get Free Solar Design
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  Back to Home
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-gray-300 text-gray-800 font-bold rounded-xl hover:border-solar-600 hover:text-solar-600 transition-all"
                 >
-                  Contact Support
+                  Back to Home
                 </Link>
               </div>
 

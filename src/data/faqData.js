@@ -990,8 +990,8 @@ The actual installation work is typically 2-4 days for a residential system (spr
 - System optimization
 
 **Support channels:**
-- Email: support@diysolar.com (24-48 hour response)
-- Phone: (XXX) XXX-XXXX (scheduled calls)
+- Email: support@diysolarconsultants.com (24-48 hour response)
+- Phone: (888) 555-1234 (scheduled calls)
 - Documentation: Detailed guides and resources
 
 **NOT included:**

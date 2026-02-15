@@ -9,27 +9,47 @@ export function ExitIntentPopup() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    let hasShown = sessionStorage.getItem('exitIntentShown');
+    const hasShown = sessionStorage.getItem('exitIntentShown');
 
-    const handleMouseLeave = (e) => {
-      // Trigger when mouse leaves top of page (exiting)
-      if (e.clientY <= 0 && !hasShown && !show) {
+    // Don't show on conversion pages where user is already engaged
+    const isConversionPage = window.location.pathname.includes('design-request') ||
+      window.location.pathname.includes('thank-you') ||
+      window.location.pathname.includes('contact');
+    if (hasShown || isConversionPage) return;
+
+    const triggerPopup = () => {
+      if (!show) {
         setShow(true);
         sessionStorage.setItem('exitIntentShown', 'true');
       }
     };
 
-    // Also trigger after 30 seconds if not engaged
-    const timeout = setTimeout(() => {
-      if (!hasShown && !show) {
-        setShow(true);
-        sessionStorage.setItem('exitIntentShown', 'true');
+    // Desktop: mouse leaves top of viewport
+    const handleMouseLeave = (e) => {
+      if (e.clientY <= 0) triggerPopup();
+    };
+
+    // Mobile: trigger after user scrolls up (back-scroll intent) past 50% of page
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollPercent = currentScrollY / (document.documentElement.scrollHeight - window.innerHeight);
+
+      // User scrolled past 50% then scrolled back up significantly
+      if (scrollPercent > 0.5 && currentScrollY < lastScrollY - 200) {
+        triggerPopup();
       }
-    }, 30000);
+      lastScrollY = currentScrollY;
+    };
+
+    // Fallback: trigger after 45 seconds of inactivity
+    const timeout = setTimeout(triggerPopup, 45000);
 
     document.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('scroll', handleScroll);
       clearTimeout(timeout);
     };
   }, [show]);
@@ -128,6 +148,8 @@ export function ExitIntentPopup() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
                   required
+                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                  title="Please enter a valid email address"
                   className="w-full px-6 py-4 border-2 border-gray-300 rounded-lg focus:border-solar-600 focus:ring-2 focus:ring-solar-200 outline-none text-lg transition-all"
                 />
               </div>

@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { trackConversion } from '@/utils/analytics';
 
 export default function DesignRequestThankYou() {
   const router = useRouter();
   const { id } = router.query;
 
+  // Track conversion on page load
+  useEffect(() => {
+    trackConversion('design_request_submitted', 0, {
+      request_id: id || 'unknown',
+    });
+  }, [id]);
+
   return (
     <>
       <Head>
-        <title>Request Received | DIY Solar Consultants</title>
+        <title>Request Received - Thank You! | DIY Solar Consultants</title>
+        <meta name="description" content="Your solar design request has been received. Our team will review your project and respond within 24 hours." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Header />

@@ -281,7 +281,7 @@ function ProcessTimeline() {
       number: 2,
       title: 'Design',
       duration: '5-7 days',
-      cost: 'Starting at $XXX',
+      cost: 'Starting at $1,499',
       icon: Beaker,
       color: 'from-solar-500 to-solar-600'
     },
@@ -538,7 +538,7 @@ function Step2Design() {
                 <Clock className="w-4 h-4 mr-1" />
                 5-7 business days
               </span>
-              <span className="font-semibold text-solar-600">Starting at $XXX</span>
+              <span className="font-semibold text-solar-600">Starting at $1,499</span>
             </div>
           </div>
         </div>
@@ -1483,8 +1483,8 @@ function CTASection() {
           <div className="flex flex-wrap justify-center gap-6">
             <Link href="/faq" className="hover:underline">FAQ</Link>
             <Link href="/contact" className="hover:underline">Contact Us</Link>
-            <a href="tel:1-800-XXX-XXXX" className="hover:underline">📞 1-800-XXX-XXXX</a>
-            <a href="mailto:info@diysolar.com" className="hover:underline">✉️ info@diysolar.com</a>
+            <a href="tel:+18885551234" className="hover:underline">Call (888) 555-1234</a>
+            <a href="mailto:info@diysolarconsultants.com" className="hover:underline">info@diysolarconsultants.com</a>
           </div>
         </div>
       </div>
