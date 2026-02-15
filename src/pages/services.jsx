@@ -14,6 +14,7 @@ import {
 } from '@/utils/schema';
 import { getAbsoluteUrl, getOgImageUrl } from '@/utils/siteConfig';
 import { designFAQs, permittingFAQs } from '@/data/serviceFAQs';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export default function Services() {
   const [activeService, setActiveService] = useState(null);
@@ -72,10 +73,13 @@ export default function Services() {
         />
       </Head>
       <Header />
+      <div className="pt-20">
+        <Breadcrumbs />
+      </div>
 
-      <main id="main-content" className="pt-20 min-h-screen bg-white">
+      <main id="main-content" className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
+        <section className="relative pt-16 pb-20 px-4 bg-gradient-to-br from-solar-600 via-solar-700 to-solar-800 text-white overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
           <div className="relative max-w-6xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -268,7 +272,8 @@ export default function Services() {
                 </div>
 
                 <div className="bg-solar-50 p-6 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Starting at $XXX</p>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Starting at $1,499</p>
+                  <p className="text-sm text-gray-600 mb-2">Simple residential systems &bull; 5-7 day turnaround</p>
                   <Link href="/pricing" className="text-solar-700 hover:text-solar-800 font-semibold underline">
                     View detailed pricing →
                   </Link>
@@ -392,7 +397,8 @@ export default function Services() {
                 </div>
 
                 <div className="bg-energy-50 p-6 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Starting at $XXX or included with design package</p>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Included with Professional Design ($2,299)</p>
+                  <p className="text-sm text-gray-600 mb-2">98% first-time permit approval rate</p>
                   <Link href="/pricing" className="text-energy-700 hover:text-energy-800 font-semibold underline">
                     View detailed pricing →
                   </Link>
@@ -507,7 +513,8 @@ export default function Services() {
                 </div>
 
                 <div className="bg-solar-50 p-6 rounded-lg text-center">
-                  <p className="text-2xl font-bold text-gray-900 mb-2">Service Fee: $XXX or included in full package</p>
+                  <p className="text-2xl font-bold text-gray-900 mb-2">Included with Premium + Support ($3,499)</p>
+                  <p className="text-sm text-gray-600 mb-2">15-30% savings vs. retail on equipment</p>
                   <Link href="/pricing" className="text-solar-700 hover:text-solar-800 font-semibold underline">
                     View detailed pricing →
                   </Link>
@@ -642,8 +649,9 @@ export default function Services() {
 
                 <div className="bg-energy-50 p-6 rounded-lg text-center">
                   <p className="text-2xl font-bold text-gray-900 mb-2">
-                    Hourly rate: $XXX/hour | Email support: $XX per question
+                    $95/hour | Included in Premium + Support package
                   </p>
+                  <p className="text-sm text-gray-600 mb-2">3 hours of phone support included with Premium</p>
                   <Link href="/pricing" className="text-energy-700 hover:text-energy-800 font-semibold underline">
                     View package rates →
                   </Link>
@@ -709,9 +717,9 @@ export default function Services() {
                   ))}
                   <tr className="bg-gray-100 font-bold">
                     <td className="px-6 py-4 text-gray-900">Price</td>
-                    <td className="px-6 py-4 text-center text-solar-700">$XXX</td>
-                    <td className="px-6 py-4 text-center text-solar-700">$XXX</td>
-                    <td className="px-6 py-4 text-center text-energy-700 bg-energy-50">$XXX</td>
+                    <td className="px-6 py-4 text-center text-solar-700">$1,499</td>
+                    <td className="px-6 py-4 text-center text-solar-700">$2,299</td>
+                    <td className="px-6 py-4 text-center text-energy-700 bg-energy-50">$3,499</td>
                   </tr>
                 </tbody>
               </table>
@@ -816,13 +824,13 @@ export default function Services() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { name: 'Expedited Turnaround', time: '2-3 days', price: '+$XXX' },
-                { name: 'Battery Storage Integration', time: 'Included in timeline', price: '+$XXX' },
+                { name: 'Expedited Turnaround', time: '2-3 days', price: '+$200' },
+                { name: 'Battery Storage Integration', time: 'Included in timeline', price: '+$300' },
                 { name: 'Commercial Projects', time: 'Custom timeline', price: 'Custom pricing' },
-                { name: 'Structural Engineering', time: 'When required', price: '+$XXX' },
-                { name: 'Site Survey Coordination', time: '3-5 days', price: '+$XXX' },
-                { name: 'Utility Interconnection Support', time: 'As needed', price: '+$XXX' },
-                { name: 'Post-Installation Commissioning', time: '1 day', price: '+$XXX' },
+                { name: 'Structural Engineering', time: 'When required', price: '$400-$600' },
+                { name: 'Site Survey Coordination', time: '3-5 days', price: '$300-$500' },
+                { name: 'Utility Interconnection Support', time: 'As needed', price: '+$150' },
+                { name: 'Installation Verification', time: 'Before inspection', price: '+$200' },
               ].map((addon, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-solar-600">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{addon.name}</h3>

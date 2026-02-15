@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Crawl-delay: 1
+Disallow: /components-demo
 
 # Sitemap location
 Sitemap: https://diysolarconsultants.com/sitemap.xml

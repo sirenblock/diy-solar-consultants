@@ -364,14 +364,14 @@ function userConfirmationTemplate(data) {
             <li>We'll provide a custom proposal for your project</li>
           </ol>
 
-          <p>If you have any urgent questions, feel free to call us at <a href="tel:+15555551234">(555) 555-1234</a>.</p>
+          <p>If you have any urgent questions, feel free to call us at <a href="tel:+18885551234">(888) 555-1234</a>.</p>
 
           <p>Best regards,<br>
           <strong>DIY Solar Consultants Team</strong></p>
         </div>
         <div class="footer">
           <p>DIY Solar Consultants<br>
-          Email: <a href="mailto:info@diysolar.com">info@diysolar.com</a> | Phone: (555) 555-1234<br>
+          Email: <a href="mailto:info@diysolarconsultants.com">info@diysolarconsultants.com</a> | Phone: (888) 555-1234<br>
           Licensed Professional Engineers | NABCEP Certified</p>
 
           ${data.newsletter ? '<p style="margin-top: 10px;">You\'re subscribed to our solar tips newsletter.</p>' : ''}

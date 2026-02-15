@@ -4,17 +4,38 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Zap, Facebook, Twitter, Linkedin, Youtube, Phone, Mail, ShieldCheck, Star, CheckCircle } from 'lucide-react'
 import { trackPhoneClick, trackEmailClick } from '@/utils/analytics'
+import { SOCIAL } from '@/utils/siteConfig'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [isSubscribed, setIsSubscribed] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [subscribeError, setSubscribeError] = useState('')
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault()
-    // Newsletter subscription logic would go here
-    setIsSubscribed(true)
-    setEmail('')
-    setTimeout(() => setIsSubscribed(false), 3000)
+    setIsSubmitting(true)
+    setSubscribeError('')
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+
+      if (res.ok) {
+        setIsSubscribed(true)
+        setEmail('')
+        setTimeout(() => setIsSubscribed(false), 5000)
+      } else {
+        setSubscribeError('Something went wrong. Please try again.')
+      }
+    } catch {
+      setSubscribeError('Network error. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -39,16 +60,16 @@ export default function Footer() {
               Professional solar design and permitting services for DIY homeowners. Save 40-60% with expert guidance.
             </p>
             <div className="flex gap-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
+              <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter">
+              <a href={SOCIAL.twitter} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+              <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
+              <a href={SOCIAL.youtube} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
@@ -107,13 +128,16 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="px-4 py-3 bg-gradient-to-r from-solar-600 to-energy-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-solar-600/50 transition-all"
+                  disabled={isSubmitting}
+                  className="px-4 py-3 bg-gradient-to-r from-solar-600 to-energy-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-solar-600/50 transition-all disabled:opacity-60"
                 >
-                  Subscribe
+                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 </button>
               </div>
               {isSubscribed ? (
-                <p className="text-sm text-energy-500 mt-2">✓ Successfully subscribed!</p>
+                <p className="text-sm text-energy-500 mt-2">Successfully subscribed!</p>
+              ) : subscribeError ? (
+                <p className="text-sm text-red-400 mt-2">{subscribeError}</p>
               ) : (
                 <p className="text-xs text-gray-500 mt-2">Get solar tips & exclusive offers</p>
               )}
@@ -129,12 +153,12 @@ export default function Footer() {
                 <span>(888) 555-1234</span>
               </a>
               <a
-                href="mailto:info@diysolar.com"
-                onClick={() => trackEmailClick('info@diysolar.com', 'Footer')}
+                href="mailto:info@diysolarconsultants.com"
+                onClick={() => trackEmailClick('info@diysolarconsultants.com', 'Footer')}
                 className="flex items-center gap-2 footer-link"
               >
                 <Mail className="w-4 h-4" />
-                <span>info@diysolar.com</span>
+                <span>info@diysolarconsultants.com</span>
               </a>
             </div>
           </div>

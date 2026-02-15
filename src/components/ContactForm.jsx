@@ -324,7 +324,7 @@ export default function ContactForm() {
             </svg>
             <div className="text-sm text-red-700">
               <p className="font-semibold mb-1">Sorry, something went wrong.</p>
-              <p>Please try emailing us directly at <a href="mailto:info@diysolar.com" className="underline font-medium">info@diysolar.com</a> or call us at <a href="tel:+15555551234" className="underline font-medium">(555) 555-1234</a>.</p>
+              <p>Please try emailing us directly at <a href="mailto:info@diysolarconsultants.com" className="underline font-medium">info@diysolarconsultants.com</a> or call us at <a href="tel:+18885551234" className="underline font-medium">(888) 555-1234</a>.</p>
             </div>
           </div>
         </div>

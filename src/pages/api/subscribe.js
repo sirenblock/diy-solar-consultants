@@ -217,7 +217,7 @@ function welcomeEmailTemplate(data) {
             <li>Industry news and incentive updates</li>
           </ul>
 
-          <p>Have questions? Just reply to this email or call us at <a href="tel:+15555551234">(555) 555-1234</a>.</p>
+          <p>Have questions? Just reply to this email or call us at <a href="tel:+18885551234">(888) 555-1234</a>.</p>
 
           <p>To your solar success,<br>
           <strong>The DIY Solar Consultants Team</strong></p>
@@ -231,8 +231,8 @@ function welcomeEmailTemplate(data) {
             Licensed Professional Engineers | NABCEP Certified | 98% Permit Approval Rate
           </p>
           <p style="margin: 15px 0 10px 0;">
-            <a href="mailto:info@diysolar.com" style="color: #ea580c; text-decoration: none;">info@diysolar.com</a> |
-            <a href="tel:+15555551234" style="color: #ea580c; text-decoration: none;">(555) 555-1234</a>
+            <a href="mailto:info@diysolarconsultants.com" style="color: #ea580c; text-decoration: none;">info@diysolarconsultants.com</a> |
+            <a href="tel:+18885551234" style="color: #ea580c; text-decoration: none;">(888) 555-1234</a>
           </p>
           <p style="margin: 20px 0 0 0; font-size: 12px; color: #9ca3af;">
             <a href="https://diysolar.com/unsubscribe?email=${data.email}" style="color: #9ca3af;">Unsubscribe</a> |

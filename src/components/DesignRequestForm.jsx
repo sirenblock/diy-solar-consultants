@@ -459,8 +459,8 @@ const DesignRequestForm = () => {
               Contact us
             </a>{' '}
             or call{' '}
-            <a href="tel:+15551234567" className="text-solar-600 hover:text-solar-700 font-semibold">
-              (555) 123-4567
+            <a href="tel:+18885551234" className="text-solar-600 hover:text-solar-700 font-semibold">
+              (888) 555-1234
             </a>
           </p>
         </div>

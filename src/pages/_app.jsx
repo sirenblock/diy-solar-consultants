@@ -28,14 +28,9 @@ const LiveActivityFeed = dynamic(() => import('@/components/LiveActivityFeed'), 
   ssr: false, // Below-the-fold component
 })
 
-// Mobile-optimized conversion components
-const MobileStickyCTA = dynamic(() => import('@/components/MobileStickyCTA'), {
-  ssr: false, // Mobile-only, below-the-fold
-})
-
-const MobileFloatingAction = dynamic(() => import('@/components/MobileFloatingAction'), {
-  ssr: false, // Mobile-only, below-the-fold
-})
+// Note: MobileStickyCTA and MobileFloatingAction removed to reduce CTA overload.
+// StickyCTABar already has responsive mobile/desktop layouts.
+// Too many overlapping CTAs cause "banner blindness" and hurt conversion rates.
 
 export default function App({ Component, pageProps }) {
   return (
@@ -55,15 +50,10 @@ export default function App({ Component, pageProps }) {
       {/* Cookie Consent Banner */}
       <CookieConsent />
 
-      {/* Conversion-Focused Components */}
+      {/* Conversion-Focused Components - streamlined to avoid CTA fatigue */}
       <StickyCTABar />
-      <FloatingActionButton />
       <ExitIntentPopup />
       <LiveActivityFeed />
-
-      {/* Mobile-Optimized Conversion Components */}
-      <MobileStickyCTA />
-      <MobileFloatingAction />
     </ToastProvider>
   )
 }

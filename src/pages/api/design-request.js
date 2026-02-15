@@ -116,12 +116,12 @@ Your Request Summary:
 
 We'll email your custom design to ${formData.email} within 5-7 business days.
 
-Questions in the meantime? Reply to this email or call us at (555) 123-4567.
+Questions in the meantime? Reply to this email or call us at (888) 555-1234.
 
 Best regards,
 DIY Solar Consultants Team
 
-P.S. While you wait, check out our Solar Calculator to see estimated savings: https://diysolar.com/calculator
+P.S. While you wait, check out our Solar Calculator to see estimated savings: https://diysolarconsultants.com/calculator
 `;
 
   // TODO: Implement actual email sending
