@@ -414,7 +414,7 @@ const DesignRequestForm = () => {
                     </>
                   ) : (
                     <>
-                      Submit Design Request
+                      Get My Free Design
                       <svg
                         className="w-5 h-5 ml-2"
                         fill="none"
@@ -432,6 +432,10 @@ const DesignRequestForm = () => {
                   )}
                 </button>
               )}
+              {/* Microcopy - reduces form anxiety */}
+              <p className="text-center text-sm text-gray-500 mt-3">
+                No credit card required &bull; Free consultation &bull; 5-7 day turnaround
+              </p>
             </div>
           </form>
         </div>

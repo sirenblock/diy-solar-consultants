@@ -82,9 +82,12 @@ export default function DesignRequest() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Request Your Solar System Design
           </h1>
-          <p className="text-xl md:text-2xl text-solar-50 mb-6">
+          <p className="text-xl md:text-2xl text-solar-50 mb-4">
             Tell us about your project and we'll create a custom solar design tailored to your
             property
+          </p>
+          <p className="text-sm text-solar-100 mb-6">
+            No credit card required &bull; Takes 2-3 minutes &bull; Free consultation included
           </p>
 
           {/* Trust Signals */}

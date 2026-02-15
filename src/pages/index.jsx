@@ -444,6 +444,7 @@ export default function Home() {
                     Calculate My Savings
                   </Link>
                 </div>
+                <p className="text-sm text-gray-500 mb-6">No credit card required &bull; Free consultation included &bull; 30-day money-back guarantee</p>
 
                 {/* Trust Signals */}
                 <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">

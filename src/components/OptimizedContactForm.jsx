@@ -317,7 +317,7 @@ export default function OptimizedContactForm() {
                 </>
               ) : (
                 <>
-                  Submit
+                  Send Message
                   <ArrowRight className="w-5 h-5" />
                 </>
               )}
